@@ -14,11 +14,11 @@ After an year of working at Digitalsofts, he decided to move to Lahore to join S
 Apart from his job, he can be found exploring the [github](http://github.com/) finding the projects that he might be able to contribute, going through the code of the projects that might seem eye catching, working upon his [personal opensource projects](http://github.com/kamranahmedse), learning new *things*, following the technical blogs and writing.
 
 - **Tools and technologies** 
-  * Javascript * jQuery * Ajax * MySQL * SQL Server * Web services * Object Oriented Design and Development * Regex * Composer * LAMP Stack * Git * Tortoise SVN * Photoshop * PSD to HTML * Wordpress
+  * * Javascript * jQuery * Ajax * MySQL * SQL Server * Web services * Object Oriented Design and Development * Regex * Composer * LAMP Stack * Git * Tortoise SVN * Photoshop * PSD to HTML * Wordpress
 - **Frameworks** 
-  * Laravel * Codeigniter * Wordpress * AngularJS * Twitter Bootstrap
+  * * Laravel * Codeigniter * Wordpress * AngularJS * Twitter Bootstrap
 - **Organization**  
-  * Wrike * Trello
+  * * Wrike * Trello
 
 Feel free to send me an email <a href="mailto:kamranahmed.se@gmail.com">kamranahmed.se@gmail.com</a>, if you 
 
