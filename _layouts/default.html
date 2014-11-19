@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include head.html %}
+
+  <body>
+
+    <div class="container">
+      <header class="masthead">
+        <h3 class="masthead-title">
+          <a href="/" title="Home">{{ site.title }}</a>
+        </h3>
+        
+        <ul class="nav">
+          {% for page in site.pages_list %}
+            <li><a href="{{ page[1]  }}">{{ page[0] }}</a></li>
+          {% endfor %}
+        </ul>
+
+      </header>
+
+      <div class="body">
+        {{ content }}
+        
+        <hr>
+
+      </div>
+  
+      {% include comments.html %}
+      
+      <div class="footer">
+        <small>
+          &copy; <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>. All rights reserved.
+        </small>
+      </div>
+    </div>
+      
+    <script type="text/javascript" src="{{ site.baseurl }}public/js/highlight.pack.js""></script>
+    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
