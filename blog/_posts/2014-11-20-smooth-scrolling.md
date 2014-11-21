@@ -24,3 +24,5 @@ $(function() {
 
 
 [Source](http://www.learningjquery.com/2007/10/improved-animated-scrolling-script-for-same-page-links/)
+
+{% include comments.html %}
