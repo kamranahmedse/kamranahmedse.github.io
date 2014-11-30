@@ -7,13 +7,11 @@ It’s a portal for the companies as well as people looking for job while residi
 
 * Added several KPIs to the admin dashboard
 * Different types of emails to the administrator such as daily statistics etc.
-* User management module in the admin dashboard
 * Different types of emails to the candidate e.g. Account inactivity email, Account verification email etc
-* Added pattern recognition test in the assessment section.
-* Test results (percentile, percentage, ranking and other stuff) to the user
-* User Management module inside the admin panel
-* Added different checks on the candidate actions
-* Interface changes
+* Assessment Module extension and Updations
+* Added the priviliges module
+* User management module
+* UI Enhancements
 
 Also, I have been providing ongoing maintenance.
 
