@@ -27,7 +27,7 @@ popup.moveTo(0, 0);
 
 What's happening here is, firstly I open the window having the width and height equal to that of the screen. And after the window has been opened, I move it to the top left corner of the screen ..why do I move it? Because *some* of the browsers out there, do not do this by default.
 
-Another problem that I faced was that the content of the popup window was exceeding the visible screen, and I was expecting it to show the scrollbars so that a user may scroll and visit the whole page instead of just the visible screen. But in Firefox, it wasn't showing them by default so I had to modify the code like following
+Another problem that I faced was that the content of the popup window was exceeding the visible screen, and I was expecting it to show the scrollbars so that a user may scroll and view the whole page instead of just the visible screen. But in Firefox, scrollbars were not being shown default so I had to modify the code like following
 
 <pre><code class="javascript">
 // To make things tidy
