@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Javascript - Dealing with popup windows
+comments: true
 ---
 Firstly to be clear, this is not going to be a complete guide on working with popups, I am just going to explain a few problems that I had to face today and how I tackled them.
 
@@ -40,3 +41,7 @@ var params = [
 var popup = window.open('http://kamranahmed.info', '@kamran', params);
 popup.moveTo(0, 0);
 </code></pre>
+
+That's pretty much it.
+
+{% include comments.html %}
