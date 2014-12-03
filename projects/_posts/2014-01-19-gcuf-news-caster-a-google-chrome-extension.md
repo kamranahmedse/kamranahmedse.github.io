@@ -1,7 +1,6 @@
 ---
 layout: project
 title: GCUF News Caster - A Google Chrome Extension
-comments: true
 ---
 
 It was a weekend project that I developed. It was a Google Chrome extension, that uses the News Feed (XML feed) from the website of GC University Faisalabad, parses it using Javascript and shows the news in the user’s browser.

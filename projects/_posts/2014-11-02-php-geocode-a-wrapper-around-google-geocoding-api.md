@@ -1,7 +1,6 @@
 ---
 layout: project
 title: PHP Geocode - A wrapper around Google Geocoding API
-comments: true
 ---
 
 A wrapper around the Google Geocoding API to get different details regarding an address such as

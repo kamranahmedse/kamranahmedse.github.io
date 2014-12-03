@@ -1,7 +1,6 @@
 ---
 layout: project
 title: eWeHelp Technologies
-comments: true
 ---
 
 It was a static website that I developed as a freelancer for eWeHelp Technologies. Their existing website needed a redesign and they hired me to do so. From inception up till release, I had to collaborate with them, mould the website as per their requirements and take the project to a succesful completion.

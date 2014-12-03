@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Laravel - Resetting some `Input` value
+comments: true
 ---
 
 I have recently started working in Laravel 4.2 and I must say it is really well [documented](http://laravel.com/docs). At [Strategic Systems International](http://ssidecisions.com), currently I am a part of the team working at a Large scale Health Care System built on top of Laravel.
