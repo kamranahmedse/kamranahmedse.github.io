@@ -1,6 +1,7 @@
 ---
 layout: post
 title: LPAD() and CONCAT() in MySQL
+comments: true
 ---
 
 In the the web based ERP system that I am working upon, there is an account_id attached to each party added to the application. Account ID needs to be of the form `01-04-01-0023` and the 4 parts in it are level1, level2, level3 and party_id values of the party respectively. Again, account_id needs to be of the form `level1`-`level2`-`level3`-`party_id`. Note that level1, level2 and level3 are the IDs of the account levels attached to each party. This account_id generation is being handled through PHP. But today, I was assigned the task to import the data for parties from Excel to MySQL. I use this wonderful tool called MySQL for Excel to import the data to the parties table. Now the challenge was, how could I populate the account_id values for each party. Now there were three options:

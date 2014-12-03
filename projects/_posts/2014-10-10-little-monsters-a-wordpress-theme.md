@@ -1,6 +1,7 @@
 ---
 layout: project
 title: Little Monsters - A Wordpress Theme
+comments: true
 ---
 
 Ease of maintenance, faster development plus having a good command over wordpress were the reasons that compelled me to chose wordpress for my portfolio. Although, there are wild number of portfolio themes out there, I decided to go with my own theme.

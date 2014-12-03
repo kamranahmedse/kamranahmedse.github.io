@@ -1,6 +1,7 @@
 ---
 layout: project
 title: Lavorare in svizzera
+comments: true
 ---
 
 It’s a portal for the companies as well as people looking for job while residing in Switzerland or Italy. I was the part of team of two members developing it. My contributions were :

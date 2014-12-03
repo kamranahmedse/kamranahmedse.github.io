@@ -1,6 +1,7 @@
 ---
 layout: post
 title: MySQL - Pretty dates using date_format()
+comments: true
 ---
 
 I use dates on daily basis. For example in the ERP system that I have been working upon, dates are the most crucial part e.g. transactions, user logs, stock records, payments records etc. in fact each and every action that any user performs is governed by a date. So it won’t be wrong to say that, I use DATE and DATETIME datatypes as much as I use VARCHAR. The default format used by MySQL to store date and time is:

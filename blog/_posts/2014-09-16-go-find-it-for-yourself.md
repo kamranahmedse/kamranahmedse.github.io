@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Go find it for yourself
+comments: true
 ---
 
 This year marks the second in my step into this industry of web development. And all this time, I’ve realized a few things that I’d like to share with you.

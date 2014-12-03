@@ -1,6 +1,7 @@
 ---
 layout: project
 title: Jquery Toast Plugin
+comments: true
 ---
 
 A plugin to show highly customizable notifications to the user. 

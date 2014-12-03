@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Git - Moving changes from one branch to another
+comments: true
 ---
 
 Sometimes it may happen that you accidentally start working upon a wrong branch and only find about that when you are about to commit, at least this happened to me today. Or it may happen that you make some changes and later on realize that you better create a separate branch for this.

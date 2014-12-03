@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Evolving plan for 2014
+comments: true
 ---
 
 This year marks the second of my step into the professional web development experience and third since I actually delved into it. I spent the last year working as a full stack web developer at Digitalsofts Faisalabad and I must say, it was a great experience. While working upon the web based version of Digitalmanager (ERP System) there, I got the chance to work in the complex domain of ERP Systems. Being the soul developer of this project, I got the chance to take up the challenging tasks, being involved in the design and architectural decisions, meeting with the clients, collaborating with the testers and QA experts, experience working under pressure, meeting the deadlines and so on. I may say that, although it was the first year of my professional experience, it never felt like it and I got the chance to take benefit from it in the best possible way.

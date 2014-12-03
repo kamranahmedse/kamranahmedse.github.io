@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Behavior of links created using Javascript
+comments: true
 ---
 
 Most of the times, I find my self binding the anchor elements such that when they are clicked I open some window using Javascript i.e. some thing like the following:

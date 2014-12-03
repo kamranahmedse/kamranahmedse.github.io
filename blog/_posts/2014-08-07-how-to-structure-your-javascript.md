@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to structure your Javascript
+comments: true
 ---
 
 Being a full stack web developer, I have been toying around with pretty intensive jquery and ajax based web applications since the time I first started in web development. At Digitalsofts I developed a web based ERP system, along with it’s several versions for different domains, that made a heavy use of Javascript and Ajax and now at Strategic Systems International, I have been working upon an intensive health care application that again makes an intensive use of Javascript/Jquery and Ajax. Apart from the above mentioned projects, I have developed several other Javascript heavy applications e.g. [GCUF News Caster](http://goo.gl/5zfLa2) and [Toodloo](https://github.com/kamranahmedse/angularjs-todo) etc.

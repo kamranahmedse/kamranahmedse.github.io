@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Tools that I use on daily basis
+comments: true
 ---
 
 Since the time, I first started in web development I have tried several tools but the tools that I am going to state are the ones that have obsessed me:

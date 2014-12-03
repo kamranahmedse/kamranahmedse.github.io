@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Git - Committing to some date in past
+comments: true
 ---
 
 

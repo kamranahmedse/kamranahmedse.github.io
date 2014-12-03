@@ -1,6 +1,7 @@
 ---
 layout: project
 title: Virika - A USB Fixer
+comments: true
 ---
 
 Virika was a semester project* that I developed back in university. At that time there was this virus, that had infected every PC in the college labs. What this virus used to do was, whenever any one attached their USB to the PC, it turned all the data in that USB to shortcuts leaving the man thinking that their data had gone (I personally lost my important data by formatting the USB, thinking that the data had gone, when I first came across this virus).

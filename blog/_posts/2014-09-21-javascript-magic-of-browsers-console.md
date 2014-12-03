@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Javascript - Use console like a pro
+comments: true
 ---
 
 If you use Javascript in development then definitely you use

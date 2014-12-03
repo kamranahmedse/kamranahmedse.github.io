@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Event Bubbling - Dealing with the child’s parent
+comments: true
 ---
 
 There are **two ways of event propagation in DOM** i.e. Event Capturing and Event Bubbling. In this article, we’ll talk about **Event Bubbling** and leave Event Capturing for some other article.

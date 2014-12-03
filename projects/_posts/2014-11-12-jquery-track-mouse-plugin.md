@@ -1,6 +1,7 @@
 ---
 layout: project
 title: Jquery Track Mouse Plugin
+comments: true
 ---
 
 Track mouse is a simple jquery plugin that lets you place some text at the tail of the mouse and that text will follow the mouse wherever it goes on the page.

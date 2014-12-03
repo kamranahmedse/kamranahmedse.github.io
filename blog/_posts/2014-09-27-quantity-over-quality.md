@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Quantity over Quality!...What?
+comments: true
 ---
 
 You might be wondering that, in the title I wrote **Quantity over Quality** by mistake but believe me it isn’t by mistake. Although, it’s against the most popular belief Quality over Quantity, but that’s how it is in most of the cases. Let’s see how it is.

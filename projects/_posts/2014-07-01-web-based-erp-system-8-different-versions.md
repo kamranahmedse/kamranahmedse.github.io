@@ -1,6 +1,7 @@
 ---
 layout: project
 title: Web based ERP System — 8 Different Versions
+comments: true
 ---
 
 I solely developed this web based ERP System while working as a Sr. Web Developer at [Digitalsofts](http://digitalsofts.com). It was a Javascript heavy application developed in PHP and had about ~165+ usecases. The main modules of the application included:

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Dependency management with Composer
+comments: true
 ---
 
 Composer is an application level dependency manager for PHP and it must be a part of the toolkit of a modern PHP Developer, I would say. Projects these days are not developed in isolation. There are many incredibly intelligent developers out there constantly developing awesome “things” to solve the common problems, so whenever you are going to develop something there is fair chance that it might have been developed by someone out there already, so why reinventing the wheel? Right? Why not use that already developed library or whatever?

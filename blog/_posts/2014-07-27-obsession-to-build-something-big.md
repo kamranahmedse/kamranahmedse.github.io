@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Obsession to build something BIG
+comments: true
 ---
 
 I’ve been obsessed to build something great since the start of bachelor studies. At first, there wasn’t much of a craze, as I had no skills and there wasn’t much that I can do. But, as I kept diving in, this obsession of mine to build something great, something that may go viral, is being heightened. This article [How Alexis Ohanian Built a Front Page of the Internet](http://www.inc.com/magazine/201206/christine-lagorio/alexis-ohanian-reddit-how-i-did-it.html) from last night was the great source of inspiration. I have been looking for the ideas, since my under-graduation but why am I not there, why haven’t I done something till now? You may ask. Well there were certain challenges that I had to face or to put it the other way what were the excuses that I had back then. Some of them are listed here. You may steal one if you like ;)

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Github - Contribute to evolve
+comments: true
 ---
 
 I’ve been using github for quite a time now but I don’t have much going on at my github account. Yes I do have a few projects but none of them is that active. I had left expanding most of them quite a long time ago. But I have just **decided to go full throttle** and let’s see why is it so. I’m quite hopeful that, by the end of this article you’ll be at least inclined to create a Github account. I recently read a detailed blog post regarding the Github statistics and I instantly fell in love with it (wish I could link you to that but, I wasn’t able to find it …I might post the link later). Especially the green graph on your profile that tells you how many days in a row you’ve committed code, that’s the best and the most addictive thing. First of all, it’s really fun to see your stats and once you get the streak going, you just can’t break it.

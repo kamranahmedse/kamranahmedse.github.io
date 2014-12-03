@@ -1,6 +1,7 @@
 ---
 layout: project
 title: MSP GCUF Website - Wordpress Theme
+comments: true
 ---
 
 While I was the member of MSP GCUF team, I was assigned the responsibility to develop the Microsoft Student Partner GCUF website. It was supposed to be a CMS so I thought to develop it in wordpress and I developed this wordpress theme for it. The features were:
