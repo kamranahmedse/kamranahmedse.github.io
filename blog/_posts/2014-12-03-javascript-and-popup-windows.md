@@ -43,5 +43,3 @@ popup.moveTo(0, 0);
 </code></pre>
 
 That's pretty much it.
-
-{% include comments.html %}
