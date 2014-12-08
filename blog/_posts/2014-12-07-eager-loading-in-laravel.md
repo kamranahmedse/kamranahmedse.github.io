@@ -147,4 +147,4 @@ foreach( $students as $student ) {
 In the above example we'll be loading only those books that have the `status` set to `returned`.
 
 #Final Words
-I hope you would have understood the N+1 problem and eager loading in Laravel by now. I encourage you to use eager loading whenever possible to make your database queries more robust. If you have any questions please do not hesitate to ask them by posting your questions in the comment section below.
+I hope you would have understood the N+1 problem and eager loading in Laravel by now. I encourage you to use eager loading whenever possible to make your database queries more robust. If you have any questions please do not hesitate to ask them by posting them in the comment section below.
