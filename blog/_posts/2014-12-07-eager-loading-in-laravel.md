@@ -28,10 +28,12 @@ The above query alleviates the N+1 problem i.e. firstly, there is `one` select s
 Let's say our system is being developed on top of Laravel and we have used it's awesome Eloquent ORM to aid us in the development. We have got two models i.e. `Student` and `Book` and the relationship between `Student` and the book is as follows:
 
 <pre><code class="php">
+
 // Model : Student
 public function books(){
     $this->hasMany('Book');
 }
+
 </code></pre>
 
 Now as we wanted to get all the students and the books they have got issued, using eloquent, we might be tempted to do the following:
