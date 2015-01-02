@@ -3,6 +3,8 @@ layout: post
 title: Github took me back in time
 comments: true
 ---
-I just visited github to check [my profile](http://github.com/kamranahmedse) and look what I found, don't know about others, but github had took me back in time to **January 4, 2014** in the graph that shows the user's streak. If *I am not wrong*, what should have come after December 31st, 2014 is January 1st, 2015 but according to github it's January 4th, 2014 :P
+Today, when I visited github in order to check [my profile](http://github.com/kamranahmedse), I notice this bug in the heatmap that is shown on the user's profile ..github had took me back in time to **January 4, 2014**. Seems like a bug with the graph that caused it to cycle back to the start of January 2014 after December 2014, while it should have been January 2015.
 
 ![Found bug in Github's graph that shows streak](http://i.imgur.com/VnKQF9M.png)
+
+However, I reported the issue to github and it has been resolved by now.
