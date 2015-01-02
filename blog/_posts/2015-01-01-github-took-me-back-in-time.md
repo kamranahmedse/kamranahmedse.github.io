@@ -7,4 +7,4 @@ Today, when I visited github in order to check [my profile](http://github.com/ka
 
 ![Found bug in Github's graph that shows streak](http://i.imgur.com/VnKQF9M.png)
 
-However, I reported the issue to github and it has been resolved by now.
+However, I have reported the issue to Github.
