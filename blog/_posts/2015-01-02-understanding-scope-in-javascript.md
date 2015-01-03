@@ -1,5 +1,8 @@
-Javascript - The Scope
-===================
+---
+layout: post
+title: Understanding scope in Javascript
+comments: true
+---
 In this article ..and a few upcoming articles, I am going to explain everything that you need to know about scope in Javascript.
 
 ##What is Scope?
