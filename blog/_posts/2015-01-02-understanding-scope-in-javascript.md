@@ -159,7 +159,7 @@ var parent = function () {
 
 You have 30 seconds to guess.
 
-OK, your 30 seconds are over, are they?! You are completely wrong, if your guess was following:
+OK, your 30 seconds are up! You are completely wrong, if your guess was following:
 
 <pre><code class="javascript">
 // Parent
@@ -173,7 +173,7 @@ The correct output will be the following
 // Child
 </code></pre>
 
-The reasons why is it so is because, in Javascript, the declarations are automatically taken to the top of the function ([Hoisting](http://code.tutsplus.com/tutorials/javascript-hoisting-explained--net-15092)) no matter what the position of their declaration is. We can say that above written snippet is equivalent to the following:
+The reasons why is it so is because, in Javascript, the variable declarations are automatically taken to the top of the function ([Hoisting](http://code.tutsplus.com/tutorials/javascript-hoisting-explained--net-15092)) no matter what the position of their declaration is. We can say that above written snippet is equivalent to the following:
 
 <pre><code class="javascript">
 var parent = function () {
@@ -189,7 +189,7 @@ var parent = function () {
 }
 </code></pre>
 
-Here is another example for this, guess the output for following:
+Notice how the variable declaration has moved to the top of the function while the definition has stayed at the sam place. Here is another example for this. Guess the output for following:
 
 <pre><code class="javascript">
 var i = 0;
