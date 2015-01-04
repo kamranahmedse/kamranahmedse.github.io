@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Private and Public scopes in Javascript
+title: Private and Public properties and methods in Javascript
 comments: true
 ---
-As promised in my previous article [Understanding scope in Javascript](http://kamranahmed.info/blog/2015/01/02/understanding-scope-in-javascript/), in this article I will be explaining how can we use OOP constructs such as `private` and `public` access specifiers in Javascript.
+As promised in my previous article [Understanding scope in Javascript](http://kamranahmed.info/blog/2015/01/02/understanding-scope-in-javascript/), in this article I will be explaining how can we emulate OOP constructs such as `private` and `public` access specifiers in Javascript.
 
 From one of the [previous article of mine on structuring Javascript](http://kamranahmed.info/blog/2014/08/07/how-to-structure-your-javascript/), we all know that how and why should we structure our Javascript code. I described how can we introduce modules in our Javascript code. Let me borrow an example from that article and show you how we decided our modules to look like:
 
@@ -210,4 +210,4 @@ var Person = function ( name ) {
 
 You can have a look at the [working demo of the module at jsfiddle](http://jsfiddle.net/41ootg5f/). 
 
-And that's about it. I hope you have gained a good understanding of private and public scopes by now. Also, you should know that there are other ways to achieve the same however the one covered in this article would probably suffice. Plus there are other things such as `prototype`, `priviliged` scope and `static` properties and methods etc to get the most out of the modular pattern that was out of the scope of this article and wasn't discussed, however you should expect that to come soon. If you have any questions, feel free to leave a comment.
+And that's about it. I hope you have gained a good understanding of how to achieve private and public properties and methods in Javascript by now. Also, you should know that there are other ways to achieve the same however the one covered in this article would probably suffice. Plus there are other things such as `prototype`, priviliged methods and `static` properties and methods etc to get the most out of the modular pattern that was out of the scope of this article and wasn't discussed, however you should expect that to come soon. If you have any questions, feel free to leave a comment.
