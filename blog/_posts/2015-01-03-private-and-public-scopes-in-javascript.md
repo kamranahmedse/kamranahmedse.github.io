@@ -211,5 +211,3 @@ var Person = function ( name ) {
 You can have a look at the [working demo of the module at jsfiddle](http://jsfiddle.net/41ootg5f/). 
 
 And that's about it. I hope you have gained a good understanding of private and public scopes by now. Also, you should know that there are other ways to achieve the same however the one covered in this article would probably suffice. Plus there are other things such as `prototype`, `priviliged` scope and `static` properties and methods etc to get the most out of the modular pattern that was out of the scope of this article and wasn't discussed, however you should expect that to come soon. If you have any questions, feel free to leave a comment.
-
-{% include twitter_plug.html %}
