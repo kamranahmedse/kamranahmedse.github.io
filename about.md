@@ -3,30 +3,17 @@ layout: page
 title: About
 ---
 
-A **Full Stack Web Developer** currently working as a Software Engineer at [Strategic Systems International (SSI)](http://ssidecisions.com). Previously worked as a Sr. Web Developer at [Digitalsofts Pvt. Ltd](http://digitalsofts.com).
+A **Full Stack Web Developer** currently working as a Software Engineer at [Strategic Systems International (SSI)](http://ssidecisions.com). Previously worked as a at [Digitalsofts Pvt. Ltd](http://digitalsofts.com).
 
-Kamran Ahmed is a Full stack web developer residing in Lahore, Pakistan. Originally from Faisalabad, he **freelanced** his way through the graduation before getting a job at Digitalsofts Pvt. Ltd in July 2013. 
+I am an experienced web developer who likes to work on all parts of the web stack. Web development is not only my profession but also my passion and a hobby. I have got the experience developing small scale static web sites to large scale healthcare and ERP systems. I believe in writing clean, maintainable and scalable code that follows the standards and best practices. I am motivated by meeting set targets within deadlines, as it gives me a sense of accomplishment and it's something that I can look back on and say "I achieved that". I create things for the web with longevity in mind, am a fast learner who tries to make each of his project a learning experience.
 
-At Digitalsofts, he Initially worked there as a Web Developer but the other guy, senior to him, left the job and luckily this got him **promoted to Sr. Software Engineer in just two months of joining there**. There he worked on the projects ranging from small scale static PSD to HTML sites to full blown Business Management System. He **solely** developed a web based Business Management System called [Digital Manager](http://digitalmanager.pk/). This product was their **main source of revenue** in web based applications. Working there was a **great experience** for him, he got the chance to deal with onsite clients for requirements elicitaion, prototyping, working in tight deadlines, got the chance to work on large scale applications providing him exposure to the practices required to write maintainable and performance friendly code, being responsible to manage the whole development process, to manage himself when their was multiple projects going on and he has to accomodate the development and maintenance of each one of them etc.
+In my free time, I can be found working upon opensource [projects on GitHub](http://github.com/kamranahmedse) and writing through my blog [kamranahmed.info](http://kamranahmed.info).
 
-After an year of working at Digitalsofts, he decided to move to Lahore to join Strategic Systems International, one of the prominent organizations of Lahore, and their were numerous reasons for this career move. At Strategic Systems International, he has been working in a large team developing a large scale [healthcare system](http://hbinsights.com). The exciting part of working here for him is facing the challenges and coming up with the solutions, learning, and polishing himself, exchanging ideas to tackle a specific problem with the seasoned developers of the industry, get acquainted with the modern tools of the trade.
+I'm currently located in Lahore, Pakistan and have been working for [Strategic Systems International](http://ssidecisions.com). I'm available for interesting contract work as well as job opportunities. Also please do not hesitate to contact me if you have any full time job opportunities that require relocation, as I am ready to relocate if the job opportunity seems appealing.
 
-Apart from his job, he can be found exploring the [github](http://github.com/) finding the projects that he might be able to contribute, going through the code of the projects that might seem eye catching, working upon his [personal opensource projects](http://github.com/kamranahmedse), learning new *things*, following the technical blogs and writing through my own blog.
+If you want to contact me, you can reach me via one of the following communication channels:
 
-- **Tools and technologies** 
-  * Javascript * jQuery * Ajax * MySQL * SQL Server * Web services * Object Oriented Design and Development * Regex * Composer * LAMP Stack * Git * Tortoise SVN * Photoshop * PSD to HTML * Wordpress
-- **Frameworks** 
-  * Laravel * Codeigniter * Wordpress * AngularJS * Twitter Bootstrap
-- **Organization**  
-  * Wrike * Trello
-
-Feel free to send me an email <a href="mailto:kamranahmed.se@gmail.com">kamranahmed.se@gmail.com</a>, if you 
-
-* Have some questions
-* Have an opportunity to discuss
-* Want me to work upon some project of yours
-* Have some feedback regarding any of my projects.
-* Just want to say Hi
-* Or anything that is not listed above ;)
-
-You can follow me on twitter [@kamranahmed_se](http://twitter.com/kamranahmed_se) to find out what I am upto, follow me on [github](http://github.com/kamranahmedse) to find out the opensource projects of my focus, add me on skype [kamranahmed.se](skype:add?kamranahmed.se), also you can find me on [linkedin](http://linkedin.com/in/kaamranahmed)
+- via email <a href="mailto:kamranahmed.se@gmail.com">kamranahmed.se@gmail.com</a>
+- through skype <a href="skype:kamranahmed.se?add">kamranahmed.se</a>
+- reach out to me on twitter [@kamranahmed_se](http://twitter.com/kamranahmed_se)
+- via [linkedin](http://linkedin.com/in/kaamranahmed)
