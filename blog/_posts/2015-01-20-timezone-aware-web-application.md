@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Timezone aware application
+title: Timezone aware web application
 comments: true
 ---
 
