@@ -34,7 +34,7 @@ echo $clientDateTime;   // Prints 2015-01-19 02:00 AM
 
 Also, one might want to generate a dropdown or a list of timezones. Instead of grabbing it from somewhere else, I would suggest to have PHP generate that for you. Below is how:
 
-<pre>< code class="php">
+<pre><code class="php">
 $timezones = DateTimeZone::listIdentifiers(DateTimeZone::ALL);
 </code></pre>
 
