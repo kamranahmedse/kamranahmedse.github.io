@@ -10,7 +10,7 @@ I recently had the chance to work on a web application targetting people from di
 - On the client side, convert this `UTC` time to user's local timezone using Javascript.
 
 #Timezones and PHP
-PHP's `DateTime` is supported in `>=5.2` versions and is really powerful. Below is how to convert from the given timezone to `UTC`. Below, I show some examples of how to convert from one timezone to another. I am going to take my current timezone into account which is `Asia/Karachi` and is `GMT+5`.
+PHP's `DateTime` is supported in `>=5.2` versions and is really powerful. Below, I show some examples of how to convert from one timezone to another. I am going to take my current timezone into account which is `Asia/Karachi` and is `GMT+5`.
 
 <pre><code class="php">
 // Convert from some Timezone to UTC
@@ -21,7 +21,7 @@ $utcDateTime = $clientDateTime->format("Y-m-d H:i A");
 echo $utcDateTime;   // Prints 2015-01-19 02:00 AM
 </code></pre>
 
-As you can see the date and time which, according to my timezone (`GMT+5`), is `2015-01-19 07:00` has been converted to UTC/`GMT+0` i.e. 5 hours minus my date which becomes exactly `2015-01-19 02:00 AM`. In a very similar fashion, UTC date can be converted to anyother timezone
+As you can see the date and time which, according to my timezone (`GMT+5`), is `2015-01-19 07:00` has been converted to `UTC/GMT+0` i.e. 5 hours minus my date which becomes exactly `2015-01-19 02:00 AM`. In a very similar fashion, UTC date can be converted to anyother timezone
 
 <pre><code class="php">
 // Convert from some Timezone to UTC
@@ -42,5 +42,4 @@ It will return an array consisting of the timezones.
 
 #Timezones and MySQL
 
-Although, I handled the time conversions etc in my application logic, let me state a few points about MySQL here as well. To get timestamp in `UTC`, use `UTC_TIMESTAMP()` instead of `NOW()`. Also, it is recommended that you *always* use `UTC_TIMESTAMP()` instead of `NOW()` for dates etc and the reason for that is `NOW()` returns the current local time of the server and the server can be in any timezone.
-
+Although, I handled the time conversions etc in my application logic, let me state a few points about MySQL here as well. To get timestamp in `UTC`, use `UTC_TIMESTAMP()` instead of `NOW()`. Also, it is recommended that you *always* use `UTC_TIMESTAMP()` rather than `NOW()` for dates etc and the reason for that is `NOW()` returns the current local time of the server and the server can be in any timezone.
