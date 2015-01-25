@@ -24,7 +24,7 @@ echo $utcDateTime;   // Prints 2015-01-19 02:00 AM
 As you can see the date and time which, according to my timezone (`GMT+5`), is `2015-01-19 07:00` has been converted to `UTC/GMT+0` i.e. 5 hours minus my date which becomes exactly `2015-01-19 02:00 AM`. In a very similar fashion, UTC date can be converted to anyother timezone
 
 <pre><code class="php">
-// Convert from some Timezone to UTC
+// Convert from some UTC to someother Timezone
 $utcDateTime = new DateTime('2015-01-19 02:00', new DateTimeZone('UTC'));
 $utcDateTime->setTimezone(new DateTimeZone('Asia/Karachi'));
 $clientDateTime = $utcDateTime->format("Y-m-d H:i A");
