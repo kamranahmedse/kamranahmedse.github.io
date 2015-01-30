@@ -16,11 +16,6 @@ Another gotcha; while using ternary operators, if you avoid the truthy part of t
 
 <pre><code class="php">
 $lang = 'PHP';
-
-// Instead of the following
-// $lang = ( $lang == 'PHP' ) ? $lang : 'Javascript';
-
-// ..you can use the following
 $lang = ( $lang == 'PHP' ) ?: 'Javascript';
 
 echo $lang; // prints `PHP`
