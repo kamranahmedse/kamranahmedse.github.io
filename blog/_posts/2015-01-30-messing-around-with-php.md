@@ -12,7 +12,7 @@ echo ${'*put whatever you w@nt + in here'}; // prints `Gotcha!!`
 
 The reason why it didn't cause any problems is because the afore mentioned rules do not apply to variable variables. However, **I would never recommend adopting this approach** as it would result in ugly and unmaintainable code.
 
-Another gotcha; while using ternary operators, if you avoid the truthy part of the ternary operator it will return the result of the expression on the left side i.e.
+Another gotcha; while using ternary operators if you avoid the truthy part, it will return the result of the expression on the left side i.e.
 
 <pre><code class="php">
 $lang = 'PHP';
