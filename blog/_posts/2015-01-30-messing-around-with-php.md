@@ -16,7 +16,7 @@ Another gotcha; while using ternary operators if you avoid the truthy part, it w
 
 <pre><code class="php">
 $lang = 'PHP';
-$lang = ( $lang == 'PHP' ) ?: 'Javascript';
+$lang = $lang ?: 'Javascript';
 
 echo $lang; // prints `PHP`
 </code></pre>
