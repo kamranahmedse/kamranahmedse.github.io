@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About
+comments: true
 ---
 
 A **Full Stack Web Developer** currently working as a Software Engineer at [Strategic Systems International (SSI)](http://ssidecisions.com). Previously worked at [Digitalsofts Pvt. Ltd](http://digitalsofts.com).
