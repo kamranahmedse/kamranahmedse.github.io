@@ -1,7 +1,6 @@
 ---
 layout: page
 title: About
-comments: true
 ---
 
 A **Full Stack Web Developer** having hands on experience in a variety of web technologies. A guy with *all* the skills you need to build great web applications and an eagerness to constantly learn and improve. 
