@@ -4,7 +4,7 @@ title: About
 comments: true
 ---
 
-A **Full Stack Web Developer** having hands on experience in a variety of web technologies.
+A **Full Stack Web Developer** having hands on experience in a variety of web technologies. A guy with *all* the skills you need to build great web applications and an eagerness to constantly learn and improve. 
 
 I am an experienced web developer who likes to work on all parts of the web stack. Web development is not only my profession but also a hobby for me. I believe in writing clean, maintainable and scalable code that follows the standards and best practices. I am motivated by meeting set targets within deadlines, as it gives me a sense of accomplishment and it's something that I can look back on and say "I achieved that". I create things for the web with longevity in mind, am a fast learner who tries to make each of his project a learning experience.
 
