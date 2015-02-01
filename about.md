@@ -4,9 +4,9 @@ title: About
 comments: true
 ---
 
-A **Full Stack Web Developer** currently working as a Software Engineer at [Strategic Systems International (SSI)](http://ssidecisions.com). Previously worked at [Digitalsofts Pvt. Ltd](http://digitalsofts.com).
+A **Full Stack Web Developer** having hands on experience in a variety of web technologies.
 
-I am an experienced web developer who likes to work on all parts of the web stack. Web development is not only my profession but also my passion and a hobby. I have got the experience developing small scale static web sites to large scale healthcare and ERP systems. I believe in writing clean, maintainable and scalable code that follows the standards and best practices. I am motivated by meeting set targets within deadlines, as it gives me a sense of accomplishment and it's something that I can look back on and say "I achieved that". I create things for the web with longevity in mind, am a fast learner who tries to make each of his project a learning experience.
+I am an experienced web developer who likes to work on all parts of the web stack. Web development is not only my profession but also a hobby for me. I believe in writing clean, maintainable and scalable code that follows the standards and best practices. I am motivated by meeting set targets within deadlines, as it gives me a sense of accomplishment and it's something that I can look back on and say "I achieved that". I create things for the web with longevity in mind, am a fast learner who tries to make each of his project a learning experience.
 
 In my free time, I can be found working upon opensource [projects on GitHub](http://github.com/kamranahmedse) and writing through my blog [kamranahmed.info](http://kamranahmed.info).
 
