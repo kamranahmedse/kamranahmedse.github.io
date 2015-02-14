@@ -1,0 +1,15 @@
+---
+layout: demo
+title: "Jumperbot"
+permalink: jumperbot.html
+---
+
+<canvas id="swingbot"></canvas>
+
+<script type="text/javascript" src="{{ site.baseurl }}public/js/jumperbot.js"></script>
+<script>
+    window.onload = function () {
+        var bot = new JumperBot();
+        bot.init();
+    }
+</script>
