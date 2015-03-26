@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Laravel - 5 : Sending data from route to middleware
+title: Laravel 5 : Sending data from route to middleware
 comments: true
 ---
 
