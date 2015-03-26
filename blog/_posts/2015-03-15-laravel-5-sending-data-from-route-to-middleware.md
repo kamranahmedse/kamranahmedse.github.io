@@ -1,11 +1,9 @@
 ---
 layout: post
-title: Laravel 5 Sending data from route to middleware
+title: Laravel 5 - Sending data from route to middleware
 comments: true
 ---
-Middlewares in Laravel 5 come real handy when you want to perform some actions before or after the route is accessed. I have been working on a Laravel 5 project in which I recently came across this code in which some session variables were being set in almost every controller's constructor. Now, since the variables were same but the values being set were being set keeping in view the controller in which the variables are being set. I am into this habbit that whenever I notice something that can be improved, I make sure that I do improve it. So, I decided to refactor this i.e. to remove this repetitive code from each of the controllers and take it to a Middleware so that it is easily maintainable and so I created a common middleware for that piece of code and put that session code there. Now the next thing was, to make sure that session values are being set correctly and to do that I had to keep track of the thing that on which route the middleware is being called.
-
-To keep track of the route type in middleware, I had to pass the data to the middleware pointing out the route upon which the middleware was being called. I looked and found out that Laravel 5 doesn't provide any functionality to send data from the route to middleware out of the box and so I ended up implemented the following work around.
+Middlewares in Laravel 5 come real handy when you want to perform some actions before or after the route is accessed. I have been working upon a Laravel 5 project in which I recently came across this code in which some session variables were being set in almost every controller's constructor. I have always been into this habbit that whenever I notice something that can be improved, I make sure that I do improve it. So, I decided to refactor this. In my case, the logic was such that it would have made a perfect suit for the Middleware and so I created a common middleware. Now the next thing was, to make sure that session values are being set correctly and to do that I had to keep track of the module upon which the middleware is being called and the *only* way to do that was to pass some kind of parameter from the route to the middleware and perform my actions inside the middleware based upon the parameter received. I looked and found out that Laravel 5 doesn't provide any functionality to send data from the route to middleware out of the box and so I ended up implementing the following work around.
 
 In my route, I stated the middleware as well as a key through which I wanted to send the data to middleware `moduleName` for example. Below is the route group that I created:
 
