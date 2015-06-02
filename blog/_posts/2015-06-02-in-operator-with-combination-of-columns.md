@@ -5,11 +5,11 @@ comments: true
 ---
 If you write SQL queries often, you should have probably used the `IN` operator which determines if a specified value matches any value in a list or a subquery. Below is the most simple use-case with single value, for examle:
 
-```sql
+<pre><code class="sql">
 SELECT	* 
 FROM 	`students`
 WHERE 	id NOT IN (1,5,6,3)
-```
+</code></pre>
 
 But one thing that you might not know is that you can use that for a combination of values as well. For example lets take a table where there are student names and subjects
 
@@ -21,7 +21,7 @@ And there are some user and subject combinations that we do not want, lets say b
 
 In that case, our SQL would look like the following:
 
-```sql
+<pre><code class="sql">
 SELECT * 
 FROM   students 
 WHERE 
@@ -32,6 +32,6 @@ NOT IN
 		('John Doe', 'Software Engineering - II'),
 		('Jane Doe', 'Professional Practices')
 	);
-```
+</code></pre>
 
 The list used in `NOT IN` might be provided in the form of list i.e. the way it is provided in the above example or it might be returned from some subquery.
