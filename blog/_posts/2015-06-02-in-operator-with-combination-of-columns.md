@@ -13,11 +13,11 @@ WHERE 	id NOT IN (1,5,6,3)
 
 But one thing that you might not know is that you can use that for a combination of values as well. For example lets take a table where there are student names and subjects
 
-![Users Table](http://i.imgur.com/3BuINvu.png)
+![Students Table](http://i.imgur.com/q7VZHxk.png)
 
 And there are some user and subject combinations that we do not want, lets say below are the ones that we do not want:
 
-![Not Required Columns](http://i.imgur.com/BYoGdkU.png)
+![Not Required Columns](http://i.imgur.com/L0dK0DR.png)
 
 In that case, our SQL would look like the following:
 
