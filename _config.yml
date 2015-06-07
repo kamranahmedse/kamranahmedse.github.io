@@ -20,7 +20,6 @@ github:
 
 # Menu
 pages_list:       
-  Projects: '/projects'
   Archive: '/archive'
   About: '/about'
   Feed: '/atom.xml'
