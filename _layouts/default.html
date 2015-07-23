@@ -11,7 +11,7 @@
         <div class="page-header">
 
             <div class="page-top-nav">
-                <a href="/">Home</a> / <a href="/about">About</a> / <a href="https://www.dropbox.com/s/a4ne87hs0b3le7r/Web%20Dev%20-%20Resume.pdf?dl=0" target="_blank">Resume</a> / <a href="/atom.xml">Feed</a>
+                <a href="/">Home</a> / <!-- <a href="/about">About</a> / --> <a href="https://www.dropbox.com/s/a4ne87hs0b3le7r/Web%20Dev%20-%20Resume.pdf?dl=0" target="_blank">Resume</a> / <a href="/atom.xml">Feed</a>
             </div>
 
             <span class="muted left">{{ site.tagline }}</span>    
@@ -75,7 +75,7 @@
     <script type="text/javascript">
         hljs.initHighlightingOnLoad();
 
-        document.forms["search-forms"].onsubmit  = function(){
+        document.forms["search-form"].onsubmit  = function(){
            document.getElementById('search-hbox').value = document.getElementById('search-box').value + ' site:http://kamranahmed.info';
         }
     </script>
