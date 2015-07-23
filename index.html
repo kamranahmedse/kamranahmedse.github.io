@@ -5,11 +5,10 @@ title: Home
 
 <div class="archive">
     {% for post in site.categories.blog %}
-        <div class="archive-item">
-            <span class="post-date archive-date">{{ post.date | date_to_string }}</span>
-            <a href="{{ post.url }}" class="archive-title">
-                {{ post.title }}
-            </a>
-        </div>
+    	<div class="post-row">
+    	    <span class="post-anch left"><a href="{{ post.url }}">{{ post.title }}</a></span>
+    	    <span class="post-crucs right">{{ post.date | date_to_string }}</span>
+    	    <div class="clr"></div>
+    	</div>
     {% endfor %}
 </div>

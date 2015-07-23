@@ -4,7 +4,7 @@ relative_permalinks: true
 
 # Setup
 title:            '@kamran'
-tagline:          Full stack web developer
+tagline:          Ramblings of a full-stack web developer
 url:              http://kamranahmedse.github.io
 paginate:         1
 baseurl:          /
@@ -12,6 +12,7 @@ author:
   name:           Kamran Ahmed
   url:            https://kamranahmed.info
   email:          kamranahmed.se@gmail.com
+  description:	  'I am Kamran Ahmed, a full stack web developer.'
 
 # Custom vars
 version:          1.0.0
@@ -23,3 +24,9 @@ pages_list:
   Archive: '/archive'
   About: '/about'
   Feed: '/atom.xml'
+
+# Stay in touch
+external_links:
+  'github.com/kamranahmedse': 'http://github.com/kamranahmedse'
+  'kamranahmed.se@gmail.com': 'mailto:kamranahmed.se@gmail.com'
+  'pk.linkedin.com/in/kaamranahmed': 'http://pk.linkedin.com/in/kaamranahmed'

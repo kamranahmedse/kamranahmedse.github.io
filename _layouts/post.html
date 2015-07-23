@@ -2,16 +2,14 @@
 layout: default
 ---
 
-<div class="post">
-  <h1>{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date_to_string }}</span>
-  
-  <div class="post-body">
-    {{ content }}
-    
-    {% include twitter_plug.html %}
-    {% include subscription_form.html %}
-  </div>
+<h1>{{ page.title }}</h1>
+<div class="post-meta">{{ page.date | date_to_string }}</div>
+
+<div class="post-body">
+	{{ content }}
+
+	{% include twitter_plug.html %}
+	{% include subscription_form.html %}
 </div>
 
 {% include comments.html %}
