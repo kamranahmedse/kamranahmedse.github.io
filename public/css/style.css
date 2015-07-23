@@ -246,3 +246,14 @@ code.hljs {
   font-size: 15px;
   margin-bottom: 1rem;
 }
+
+.page-top-nav {
+  padding: 15px 0px 0px;
+  font-size: 13px;
+  color: #ddd;
+  display: block;
+}
+
+.page-top-nav a {
+  color: #BDB6B6;
+}
