@@ -97,9 +97,11 @@ body {
 
 .page-wrap {
   text-align: left;
-  max-width: 1020px;
-  padding: 0 50px;
+  width: 1020px;
+  padding: 1px 50px 0px;
   margin: auto;
+  border-top: 2px solid #222;
+  margin-top: -3px;
 }
 
 .page-header {
