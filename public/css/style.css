@@ -217,7 +217,7 @@ input {
 
 #mc_embed_signup {
   margin-top: 40px;
-  margin-bottom: -30px;
+  margin-bottom: 50px;
 }
 
 #mce-email {
@@ -242,7 +242,7 @@ input {
 }
 
 code.hljs {
-  padding: 1em;
+  padding: 0px 1em 1.5em;
   font-size: 15px;
   margin-bottom: 1rem;
 }
