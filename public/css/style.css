@@ -252,8 +252,11 @@ code.hljs {
   font-size: 13px;
   color: #ddd;
   display: block;
+  position: relative;
+  top: -50px;
 }
 
 .page-top-nav a {
-  color: #BDB6B6;
+  /*color: #BDB6B6;*/
+  color: #222;
 }
