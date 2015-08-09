@@ -22,8 +22,8 @@ Here is a little sublime snippet that I recently created in order to automate th
 In order to create the snippet, head to `Tools > New Snippet` and paste the following code in the new window that will open
 
 <pre><code class="xml">
-<snippet>
-	<content><![CDATA[
+&lt;snippet&gt;
+	&lt;content&gt;&lt;![CDATA[
 /*
 |----------------------------------------------
 | ${1:${2:Title} - ${3:Heading for the comment}}
@@ -32,9 +32,9 @@ In order to create the snippet, head to `Tools > New Snippet` and paste the foll
 | ${4:Description for the comment}
 |
 */
-]]></content>
-	<tabTrigger>fcom</tabTrigger>
-</snippet>
+]]&gt;&lt;/content&gt;
+	&lt;tabTrigger&gt;fcom&lt;/tabTrigger&gt;
+&lt;/snippet&gt;
 </code></pre>
 
 Save the file with the name `fancy-comment.sublime-snippet` in the user packages folder. That's it. Now head to any PHP file and enter `fcom` and perss tab, bam! The fancy comment will appear. You may use "Tab" key to navigate through the sections of the comment and provide your comment.
