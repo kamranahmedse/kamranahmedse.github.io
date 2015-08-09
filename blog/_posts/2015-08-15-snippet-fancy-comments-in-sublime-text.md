@@ -23,7 +23,7 @@ In order to create the snippet, head to `Tools > New Snippet` and paste the foll
 
 <pre><code class="xml">
 &lt;snippet&gt;
-	&lt;content&gt;&lt;![CDATA[
+&lt;content&gt;&lt;![CDATA[
 /*
 |----------------------------------------------
 | ${1:${2:Title} - ${3:Heading for the comment}}
@@ -33,7 +33,7 @@ In order to create the snippet, head to `Tools > New Snippet` and paste the foll
 |
 */
 ]]&gt;&lt;/content&gt;
-	&lt;tabTrigger&gt;fcom&lt;/tabTrigger&gt;
+&lt;tabTrigger&gt;fcom&lt;/tabTrigger&gt;
 &lt;/snippet&gt;
 </code></pre>
 
