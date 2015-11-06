@@ -10,3 +10,5 @@ What I did was, embedded an html image tag with the source set to a URL upon hit
 <pre><code class="html">
 &lt;img src="http://foobar.com/email/read/{Record Id}" /&gt;
 </code></pre>
+
+How would have you gone about doing this? Do share it in the comments section below.
