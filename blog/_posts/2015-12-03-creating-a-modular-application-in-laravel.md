@@ -8,7 +8,7 @@ Instead of having a giant mammoth of code, having your application divided into 
 
 I have just started working upon a new project in Laravel 5.1 that is going to be related to the Travel Domain and huge in terms of functionality. Considering the scale of application, the different modules that it was going to have, instead of jumbling every thing up (controllers, models and views etc) in the existing directories that Laravel provides, I decided to implement modules such that each of the modules will have everything, (it's controllers, models, views, http requests, any helpers etc) separated. Now there might be several ways to achieve this, but here is how I structured it.
 
-@[Final Structure](http://i.imgur.com/j12fH7o.png)
+![Final Structure](http://i.imgur.com/j12fH7o.png)
 
 You can follow the steps stated below to achieve a similar structure:
 
@@ -16,15 +16,14 @@ You can follow the steps stated below to achieve a similar structure:
 
 - Create a file called `module.php` inside the `config` directory. This file is going to hold the module names that we want to load and other configuration related to the modules. For now, lets keep it simple and just have the module names that we want to load. The file might look like below. (Note that the `Air`, `Employee` are the module names that we want to load. And for every new module that you would want to create, you will have to add the name for it in this `modules` array.)
 
-<pre><code class="php">
-<?php
+<pre><code class="php"><?php
 # config/module.php
 
 return  [
-	'modules' => [
-		'Air',
-		'Employees',
-	]
+    'modules' => [
+       'Air',
+       'Employees',
+    ]
 ]
 </code></pre>
 
@@ -34,18 +33,17 @@ return  [
 
 <pre><code class="bash">
 app\
-	Modules\
-		Air\
-			Controllers\
-			Models\
-			Views\
-			routes.php
-		Employee\
-			Controllers\
-			Models\
-			Views\
-			routes.php
-		ModulesServiceProvider.php	# Don't worry about this, I will come to this file in a later point
+    Modules\
+        Air\
+            Controllers\
+            Models\
+            Views\
+            routes.php
+        Employee\
+            Controllers\
+            Models\
+            Views\
+            routes.php
 </code></pre>
 
 - Please note that you are not bound to have only the above stated directory structure, you are free to structure it however you want without any doubt, you can add anything related to your module here as well for example form requests, helpers etc.
@@ -103,9 +101,9 @@ class ModulesServiceProvider extends \Illuminate\Support\ServiceProvider
 #config/app.php
 
 'providers' => [
-	...
-	...
-	App\Modules\ModulesServiceProvider::class,
+    ...
+    ...
+    App\Modules\ModulesServiceProvider::class,
 ]
 </code></pre>
 
