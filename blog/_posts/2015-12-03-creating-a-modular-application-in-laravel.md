@@ -6,7 +6,7 @@ comments: true
 
 Instead of having a giant mammoth of code, having your application divided into small meaningful modules can make the development of a giant site more manageable and enjoyable. 
 
-I have just started working upon a new project in Laravel 5.1 that is going to be related to the Travel Domain and huge in terms of functionality. Considering the scale of application, the different modules that it was going to have, instead of jumbling every thing up (controllers, models and views etc) in the existing directories that Laravel provides, I decided to implement modules such that each of the modules will have everything, (it's controllers, models, views, http requests, any helpers etc) separated. Now there might be several ways to achieve this, but here is how I structured it.
+I have just started working upon a new project in Laravel 5.1 that is going to be huge in terms of functionality. Considering the scale of application, the different modules that it was going to have, instead of jumbling every thing up (controllers, models and views etc) in the existing directories that Laravel provides, I decided to implement modules such that each of the modules will have everything, (it's controllers, models, views, http requests, any helpers etc) separated. Now there might be several ways to achieve this, but here is how I structured it.
 
 <pre><code class="php">
 config\
@@ -35,32 +35,32 @@ You can follow the steps stated below to achieve a similar structure:
 
 ## Setting up the Structure
 
-Create a file called `module.php` inside the `config` directory. This file is going to hold the module names that we want to load and other configuration related to the modules. For now, lets keep it simple and just have the module names that we want to load. The file might look like below. (Note that the `Air`, `Employee` are the module names that we want to load. And for every new module that you would want to create, you will have to add the name for it in this `modules` array.)
+Create a file called `module.php` inside the `config` directory. This file is going to hold the module names that we want to load and other configuration related to the modules. For now, lets keep it simple and just have the module names that we want to load. The file might look like below. (Note that the `User`, `Employee` are the module names that we want to load. And for every new module that you would want to create, you will have to add the name for it in this `modules` array.)
 
 <pre><code class="php"><?php
 # config/module.php
 
 return  [
     'modules' => [
-       'Air',
-       'Employees',
+       'User',
+       'Employee',
     ]
 ]
 </code></pre>
 
-Create a directory called `Modules` inside the `app` directory. This directory is going to have a separate folder for each of the modules. For example, there can be a folder called `Air`, one called `Employee`, one called `User` so on and so forth.
+Create a directory called `Modules` inside the `app` directory. This directory is going to have a separate folder for each of the modules. For example, there can be a folder called `User`, one called `Employee` so on and so forth.
 
-Let's say that we want to create an `Air` module. In that case, create an `Air` directory at `app\Modules\`. And in this new directory create three directories namely `Controllers`, `Models` and `Views` and a file called `routes.php`. There is nothing special with the module, I mean the `routes.php` file is going to be used exactly how we use the outer `routes.php` file, controllers and models will be same as well. The only thing that you will have to take care about is the namespacing. You will have to make sure that you give proper namespaces to each controller/model that you create. In this case, the controllers will be having the namespace of `App\Modules\Air\Controllers` and for any model, it would be `App\Modules\Air\Models`. The final directory structure may look like the following:
+Let's say that we want to create an `Employee` module. In that case, create an `Employee` directory at `app\Modules\`. And in this new directory create three directories namely `Controllers`, `Models` and `Views` and a file called `routes.php`. There is nothing special with the module, I mean the `routes.php` file is going to be used exactly how we use the outer `routes.php` file, controllers and models will be same as well. The only thing that you will have to take care about is the namespacing. You will have to make sure that you give proper namespaces to each controller/model that you create. In this case, the controllers will be having the namespace of `App\Modules\Employee\Controllers` and for any model, it would be `App\Modules\Employee\Models`. The final directory structure may look like the following:
 
 <pre><code class="bash">
 app\
     Modules\
-        Air\
+        Employee\
             Controllers\
             Models\
             Views\
             routes.php
-        Employee\
+        User\
             Controllers\
             Models\
             Views\
@@ -133,7 +133,7 @@ Now the next thing is registering this service provider with the Laravel. And fo
 Everything is setup now. In order to add a new module, all you have to do is create a folder for the module inside the `App\Modules\` directory, place your controllers, models, views and routes in this directory, register this module name in the `config\module.php` and your module has been registered with Laravel. Using the controllers and models is the same that is how you use any outer controller or model i.e. by specifying the correct namespace. But for loading views, what you have to do is call a view like: `ModuleName::viewname` e.g.
 
 <pre><code class="php">
-return view('Air::dummy');
+return view('Employee::dummy');
 </code></pre>
 
 And that sums it up. Do you have any techniques of your own? How do you structure your modules in Laravel? Do not forget to share it with everyone in the comments section below.
