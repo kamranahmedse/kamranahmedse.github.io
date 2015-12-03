@@ -139,3 +139,5 @@ return view('Employee::dummy');
 And that sums it up. Do you have any techniques of your own? How do you structure your modules in Laravel? Do not forget to share it with everyone in the comments section below.
 
 **Note:** Please note that, during the process, if you come across any **Class not found** exceptions and you haven't done anything wrong, just run `composer dump-autoload`.
+
+Source code can be found through this [Github repository](https://github.com/kamranahmedse/laravel-modular-boilerplate)
