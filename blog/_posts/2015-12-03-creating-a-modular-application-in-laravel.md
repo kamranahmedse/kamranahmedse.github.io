@@ -6,7 +6,7 @@ comments: true
 
 Instead of having a giant mammoth of code, having your application divided into small meaningful modules can make the development of a giant site more manageable and enjoyable. 
 
-I have just started working upon a new project in Laravel 5.1 that is going to be huge in terms of functionality. Considering the scale of application, the different modules that it was going to have, instead of jumbling every thing up (controllers, models and views etc) in the existing directories that Laravel provides, I decided to implement modules such that each of the modules will have everything, (it's controllers, models, views, http requests, any helpers etc) separated. Now there might be several ways to achieve this, but here is how I structured it.
+I have just started working upon a new project in Laravel 5.1 that is going to be huge in terms of functionality. Considering the scale of application, the different modules that it was going to have, instead of jumbling every thing up (controllers, models and views etc) in the existing directories that Laravel provides, I decided to implement modules such that each of the modules will have everything, (it's controllers, models, views, middlewares, any helpers etc) separated. Now there might be several ways to approach this, but here is how I structured it.
 
 <pre><code class="php">
 config\
@@ -67,7 +67,7 @@ app\
             routes.php
 </code></pre>
 
-Please note that you are not bound to have only the above stated directory structure, you are free to structure it however you want without any doubt, you can add anything related to your module here as well for example form requests, helpers etc.
+Please note that you are not bound to have only the above stated directory structure, you are free to structure it however you want (but you have to make sure that you use proper namespacing). Without any doubt, you can add anything related to your module here as well for example form requests, helpers etc.
 
 ## Creating the Service Provider
 
