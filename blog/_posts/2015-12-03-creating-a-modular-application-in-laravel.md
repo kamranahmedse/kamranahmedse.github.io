@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Laravel 5.1 - Creating a Modular Application
+title: Creating a Modular Application in Laravel 5.1
 comments: true
 ---
 
