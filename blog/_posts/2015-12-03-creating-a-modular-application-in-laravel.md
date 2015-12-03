@@ -8,7 +8,28 @@ Instead of having a giant mammoth of code, having your application divided into 
 
 I have just started working upon a new project in Laravel 5.1 that is going to be related to the Travel Domain and huge in terms of functionality. Considering the scale of application, the different modules that it was going to have, instead of jumbling every thing up (controllers, models and views etc) in the existing directories that Laravel provides, I decided to implement modules such that each of the modules will have everything, (it's controllers, models, views, http requests, any helpers etc) separated. Now there might be several ways to achieve this, but here is how I structured it.
 
-![Final Structure](http://i.imgur.com/j12fH7o.png)
+<pre><code class="php">
+config\
+    module.php
+    ...
+    ...
+app\
+    ...
+    ...
+    Modules\
+        ModuleOne\
+            Controllers\
+            Models\
+            Views\
+            routes.php
+        ModuleTwo\
+            Controllers\
+            Models\
+            Views\
+            routes.php
+        ModulesServiceProvider.php
+    ...
+</code></pre>
 
 You can follow the steps stated below to achieve a similar structure:
 
