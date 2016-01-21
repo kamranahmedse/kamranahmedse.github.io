@@ -13,7 +13,7 @@ You might even be doing the same thing without noticing the fact that what you a
 
 <pre><code class="php">
 
-function notifications( $filters ) {
+function getNotifications( $filters ) {
     // Prepare parameters for any default values
     // Fetch notifications
     // Parse the notifications
@@ -25,7 +25,7 @@ As you can see, the steps to retrieve the notifications are clear now and so we 
 
 <pre><code class="php">
 
-function notifications( $filters ) {
+function getNotifications( $filters ) {
 
     // Prepare parameters for any default values
     $filters = array_merge([
@@ -38,7 +38,6 @@ function notifications( $filters ) {
     $notifications = $notificationRepository->get($filters);
 
     // Parse them
-    $parsedNotifications = [];
     foreach($notifications as &$notification) {
         $notification = 'Processing the ' . $notification;
     }
