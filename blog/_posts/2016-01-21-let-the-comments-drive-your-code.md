@@ -59,7 +59,9 @@ function sellItem( $item ) {
 
 Now that we have the code ready, we can go about removing the comments which may deem unnecessary. 
 
-Also you should note that, I have used a single `function` only for the sake of demonstration, neither do I intend to promote the procedural way of doing things nor am I suggesting to create a single method/function and stuff it with everything or ignore the SOLID design principles and Design Patterns for that matter. Also, I am not suggesting that you should only rely upon these inline comments and not put any docblocks in your code or you should not think through the architecture of the application first. It is upto you to decide how you want to structure everything and what is better for your application. For me the purpose of CDD is just to understand and document the steps involved and after I have wrote the functionality and am completely satisfied with the functionality that I have written and the architecture that I have laid, I remove any unnecessary comments.
+Also you should note that, I have used a single `function` only for the sake of demonstration, neither do I intend to promote the procedural way of doing things nor am I suggesting to create a single method/function and stuff it with everything or ignore the SOLID design principles and Design Patterns for that matter. Also, I am not suggesting that you should only rely upon these inline comments and not put any docblocks in your code or you should not think through the architecture of the application first. It is upto you to decide how you want to structure everything and what is better for your application. 
+
+For me the purpose of CDD is just to understand and document the steps involved and after I have written the functionality and I am completely satisfied with the functionality that I have written and the architecture that I have laid, I remove any unnecessary comments.
 
 That is all there is to **C**omment **D**riven **D**evelopment. And now to answer, why I use this approach and why you should too:
 
