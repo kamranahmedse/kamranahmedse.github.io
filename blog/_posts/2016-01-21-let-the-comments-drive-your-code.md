@@ -8,7 +8,12 @@ Whenever, I am coding something large or complicated or something where things m
 
 You might even be doing the same thing without noticing the fact that what you are actually doing is CDD. Let me explain it with an example of how I go about coding some thing, or in other words what Comment Driven Development is, by using an example.
 
->**Disclaimer:** Nothing here to take seriously. Ignore all those SOLID principles, let the architect inside you sleep for a bit and just take this dummy example only as the means of explaining Comment Driven Development ;)
+>**Disclaimer:** 
+> Nothing to take seriously here
+> - Ignore all those SOLID principles 
+> - Let the architect inside you sleep for a bit 
+> - Ignore the fact that there is anything such as OOP
+> and just take this dummy example only as the means of explaining Comment Driven Development ;)
 
 
 <pre><code class="php">
