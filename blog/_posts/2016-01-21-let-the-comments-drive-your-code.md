@@ -8,47 +8,42 @@ Whenever, I am coding something large or complicated or something where things m
 
 You might even be doing the same thing without noticing the fact that what you are actually doing is CDD. Let me explain it with an example of how I go about coding some thing, or in other words what Comment Driven Development is, by using an example.
 
-**Disclaimer:** Just a dummy example here, nothing to take seriously. I wasn't able to think of something else so ignore all those SOLID principles and just take it as the means of explaining Comment Driven Development
+**Disclaimer:** I wasn't able to think of something else so, just a dummy example here to better demonstrate the idea. Nothing to take seriously here, ignore all those SOLID principles, let the architecture inside you sleep for a bit and just take it only as the means of explaining Comment Driven Development ;)
 
 <pre><code class="php">
-class Notifier {
 
-    public function notifications( $filters ) {
-        // Prepare parameters for any default values
-        // Fetch notifications
-        // Parse the notifications
-        // Return the collection
-    }
-
+function notifications( $filters ) {
+    // Prepare parameters for any default values
+    // Fetch notifications
+    // Parse the notifications
+    // Return the collection
 }
 </code></pre>
 
 As you can see, the steps to retrieve the notifications are clear now and so we can go about transforming it to the actual code and I might turn it to something like following.
 
 <pre><code class="php">
-class Notifier {
 
-      public function notifications( $filters ) {
+function notifications( $filters ) {
 
-        // Prepare parameters for any default values
-        $filters = array_merge([
-            'limit' => 1,
-            'userId' => $this->userId
-        ], $filters);
+    // Prepare parameters for any default values
+    $filters = array_merge([
+        'limit' => 1,
+        'userId' => $this->userId
+    ], $filters);
 
-        // Fetch notifications
-        $notificationRepository = new NotificationRepository();
-        $notifications = $notificationRepository->get($filters);
+    // Fetch notifications
+    $notificationRepository = new NotificationRepository();
+    $notifications = $notificationRepository->get($filters);
 
-        // Parse them
-        $parsedNotifications = [];
-        foreach($notifications as &$notification) {
-            $notification = 'Processing the ' . $notification;
-        }
-
-        // Return the collection
-        return $notifications;
+    // Parse them
+    $parsedNotifications = [];
+    foreach($notifications as &$notification) {
+        $notification = 'Processing the ' . $notification;
     }
+
+    // Return the collection
+    return $notifications;
 }
 </code></pre>
 
