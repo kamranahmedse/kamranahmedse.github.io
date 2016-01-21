@@ -4,7 +4,7 @@ title: Let the comments drive your code
 comments: true
 ---
 
-Whenever, I am coding something large or complicated or something where things may escalate quickly out of the hand, I tend to sketch out the steps or pseudo-code everything using *comments*. I was doing the same thing when a friend of mine noticed and pointed out that what I actually was doing is called Comment Driven development. That's when I found that this "Comment First" thing actually is a practice and is termed as [Comment Driven Development or Comment Programming](https://en.wikipedia.org/wiki/Comment_programming); where you think the task through and write down the steps in the form of code comments and when everything is clear, you start turning those steps in comments to the actual code.
+Whenever, I am coding something large or complicated or something where things might escalate quickly out of the hand, I tend to sketch out the steps or pseudo-code everything using *comments*. I was doing the same thing when a friend of mine noticed and pointed out that what I was actually doing is called Comment Driven development. That's when I found that this "Comment First" thing actually is a practice and is termed as [Comment Driven Development or Comment Programming](https://en.wikipedia.org/wiki/Comment_programming); where you think the task through and write down the steps in the form of code comments and when everything is clear, you start turning those steps in comments to the actual code.
 
 You might even be doing the same thing without noticing the fact that what you are actually doing is CDD. Let me explain it with an example of how I go about coding some thing, or in other words what Comment Driven Development is, by using an example.
 
@@ -55,4 +55,4 @@ That is all there is to **C**omment **D**riven **D**evelopment. And now to answe
 - You can sketch out the steps this way to, maybe, instruct someone about the functionality that you want them to write.
 - Documentation! the comments might be too abstract but they may definitely prove helpful later on.
 
-And that wraps it up. Do you have any tips of your own? How do you go about coding? I would love to hear from you in the comments section below.
+And that wraps it up. Do you have any tips of your own? How do you go about coding something? I would love to hear from you in the comments section below.
