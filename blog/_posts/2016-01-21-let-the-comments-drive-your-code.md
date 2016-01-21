@@ -13,40 +13,49 @@ You might even be doing the same thing without noticing the fact that what you a
 
 <pre><code class="php">
 
-function getNotifications( $filters ) {
-    // Prepare parameters for any default values
-    // Fetch notifications
-    // Parse the notifications
-    // Return the collection
-}
+// Sell an item
+
+// Check the availability
+// Validate the Payment information
+// Process the Payment
+// Trigger the confirmation email
+// Show the confirmation View
+
 </code></pre>
 
-As you can see, the steps to retrieve the notifications are clear now and so we can go about transforming it to the actual code and I might turn it to something like following.
+As you can see, the steps to sale an item are clear now and so we can go about transforming it to the actual code and I might turn it to something like following.
 
 <pre><code class="php">
 
-function getNotifications( $filters ) {
-
-    // Prepare parameters for any default values
-    $filters = array_merge([
-        'limit' => 1,
-        'userId' => $this->userId
-    ], $filters);
-
-    // Fetch notifications
-    $notificationRepository = new NotificationRepository();
-    $notifications = $notificationRepository->get($filters);
-
-    // Parse them
-    foreach($notifications as &$notification) {
-        $notification = 'Processing the ' . $notification;
+function sellItem( $item ) {
+    // Check the availability
+    if( !$item->isAvailable() ) {
+        throw new ItemOutOfStockException('Item is not available');
     }
-
-    // Return the collection
-    return $notifications;
+    
+    // Validate the Payment information
+    if ( !$this->payment->validate() ) {
+        throw new InvalidPaymentException( $this->payment->getError() );
+    }
+    
+    // Process the Payment
+    $this->payment->process();
+    
+    // Trigger the confirmation email
+    $this->event->trigger('email.send', [
+        'type' => 'sale', 
+        'item' => $item->detail, 
+        'buyer' => $this->buyer
+    ]);
+    
+    // Show the confirmation view
+    return $this->url->to('/item-sold');
 }
 </code></pre>
 
+Now that we have the code ready, we can go about removing the comments which may deem unnecessary. 
+
+Also you should note that, I have used a single `function` only for the sake of demonstration, neither do I intend to promote the procedural way of doing things nor am I suggesting to create a single method/function and stuff it with everything. Also, I am not suggesting that you should only rely upon these inline comments and not put docblocks in your code or you should not think through the architecture of the application. It is upto you to decide how you want to structure everything.
 
 That is all there is to **C**omment **D**riven **D**evelopment. And now to answer, why I use this approach and why you should too:
 
@@ -55,3 +64,4 @@ That is all there is to **C**omment **D**riven **D**evelopment. And now to answe
 - Documentation! the comments might be too abstract but they may definitely prove helpful later on.
 
 And that wraps it up. Do you have any tips of your own? How do you go about coding something? I would love to hear from you in the comments section below.
+
