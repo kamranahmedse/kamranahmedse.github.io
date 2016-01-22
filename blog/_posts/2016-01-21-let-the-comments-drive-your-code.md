@@ -4,7 +4,7 @@ title: Let the comments drive your code
 comments: true
 ---
 
-Whenever, I am coding some large or complicated usecase or something where things might escalate quickly out of the hand, I tend to sketch out the steps or pseudo-code *everything* using comments. Of course, we are talking about coding the simple usecases here and not designing and architecturing of the major system modules.
+Whenever, I am coding some large or complicated usecase or something where things might escalate quickly out of the hand, I tend to sketch out the steps or pseudo-code *everything* using comments. Of course, we are talking about coding the simple usecases here and not about the designing and architecturing of the system, for which of course you are going to need much more than comments.
 
 I was doing the same thing when a friend of mine noticed and pointed out that what I was actually doing is called Comment Driven development. That's when I found that this "Comment First" thing actually is a practice and is termed as [Comment Driven Development or Comment Programming](https://en.wikipedia.org/wiki/Comment_programming); where you think the task through and write down the steps in the form of code comments and when everything is clear, you start turning those steps in comments to the actual code.
 
