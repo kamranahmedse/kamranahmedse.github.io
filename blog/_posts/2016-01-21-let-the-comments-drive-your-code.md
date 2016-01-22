@@ -4,7 +4,7 @@ title: Let the comments drive your code
 comments: true
 ---
 
-Whenever, I am coding something large or complicated or something where things might escalate quickly out of the hand, I tend to sketch out the steps or pseudo-code everything using *comments*. I was doing the same thing when a friend of mine noticed and pointed out that what I was actually doing is called Comment Driven development. That's when I found that this "Comment First" thing actually is a practice and is termed as [Comment Driven Development or Comment Programming](https://en.wikipedia.org/wiki/Comment_programming); where you think the task through and write down the steps in the form of code comments and when everything is clear, you start turning those steps in comments to the actual code.
+Whenever, I am coding some large or complicated functionality or something where things might escalate quickly out of the hand, I tend to sketch out the steps or pseudo-code everything using *comments*. I was doing the same thing when a friend of mine noticed and pointed out that what I was actually doing is called Comment Driven development. That's when I found that this "Comment First" thing actually is a practice and is termed as [Comment Driven Development or Comment Programming](https://en.wikipedia.org/wiki/Comment_programming); where you think the task through and write down the steps in the form of code comments and when everything is clear, you start turning those steps in comments to the actual code.
 
 You might even be doing the same thing without noticing the fact that what you are actually doing is CDD. Let me explain it with an example of how I go about coding some thing, or in other words what Comment Driven Development is, by using an example.
 
@@ -59,9 +59,9 @@ function sellItem( $item ) {
 
 Now that we have the code ready, we can go about removing the comments which may deem unnecessary. 
 
-Also you should note that, I have used a single `function` only for the sake of demonstration, neither do I intend to promote the procedural way of doing things nor am I suggesting to create a single method/function and stuff it with everything or ignore the SOLID design principles and Design Patterns for that matter. Also, I am not suggesting that you should only rely upon these inline comments and not put any docblocks in your code or you should not think through the architecture of the application first. It is upto you to decide how you want to structure everything and what is better for your application. 
+Also you should note that, I have used a single `function` only for the sake of demonstration, neither do I intend to promote the procedural way of doing things nor am I suggesting to create a single method/function and stuff it with everything or ignore the SOLID design principles and Design Patterns for that matter. Also, I am not suggesting that you should only rely upon these inline comments and not [think through](http://www.uml.org/) the architecture of the application first. It is upto you to decide how you want to structure everything and what is better for your application. For me, I think CDD is helpful when coding certain inner usecases of the application where certain sub-steps are involved e.g. `sellItem` where there are certain other tasks that need to be done with it.
 
-For me the purpose of CDD is just to understand and document the steps involved and after I have written the functionality and I am completely satisfied with the functionality that I have written and the architecture that I have laid, I remove any unnecessary comments.
+For me the purpose of CDD is just to understand and document the steps involved in a usecase and after I have written the functionality and I am completely satisfied with the functionality that I have written and the architecture that I have laid, I remove any unnecessary comments.
 
 That is all there is to **C**omment **D**riven **D**evelopment. And now to answer, why I use this approach and why you should too:
 
