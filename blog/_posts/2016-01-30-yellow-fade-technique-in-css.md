@@ -9,13 +9,13 @@ I could just as well write a little jquery animation snippet but couldn't fathom
 
 <pre><code class="css">
 @keyframes yellowfade {
-	from { background: yellow; }
-	to { background: transparent; }
+    from { background: yellow; }
+    to { background: transparent; }
 }
 
 .new-item {
-	animation-name: yellowfade;
-	animation-duration: 1.5s;
+    animation-name: yellowfade;
+    animation-duration: 1.5s;
 }</code></pre>
 
 **Note** For the sake of brevity I haven't used any prefixes, but real world usage should use the vendor prefixes.
