@@ -8,13 +8,13 @@ I just wrote this little CSS snippet implementing [Yello Fade Technique](https:/
 I could just as well write a little jquery animation snippet but couldn't fathom writing Javascript for this simple CSS task. So the CSS snippet is given below:
 
 <pre><code class="css">
-@keyframes animated {
+@keyframes yellowfade {
 	from { background: yellow; }
 	to { background: transparent; }
 }
 
-.animated {
-	animation-name: animated;
+.new-item {
+	animation-name: yellowfade;
 	animation-duration: 1.5s;
 }</code></pre>
 
