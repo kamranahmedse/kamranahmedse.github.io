@@ -21,7 +21,7 @@ Well, you can do this if you just started working and there isn’t much that yo
 
 ..you may backup the changes you made, by copying the changed files maybe. But once again, what’s the point of using `git`, if we still have to copy the files around.
 
-#The right way – Use `git-stash`
+# The right way – Use `git-stash`
 
 You should use `git-stash`
 
