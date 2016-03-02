@@ -25,6 +25,7 @@ h1, h2 {
     font-weight: 100;
     color: #3f3f3f;
     margin: 0 0 35px;
+    text-align: center;
 }
 
 strong {
@@ -175,9 +176,25 @@ body {
   text-align: center;
 }
 
+.back {
+  text-align: center;
+}
+
+.back a {
+  border-bottom: none;
+}
+
 .post-item h1 {
     font-size: 2.5em;
     margin: 30px 0;
+}
+
+.post-item h2 {
+    margin: 1.9em 0 1em;
+}
+
+.post-item .post-body {
+  margin-top: 70px;
 }
 
 .post-body img {
