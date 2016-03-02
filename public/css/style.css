@@ -12,13 +12,19 @@ code {
   border-radius: .15em;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: .5rem;
-  font-weight: bold;
-  line-height: 1.1;
-  color: #333;
-  letter-spacing: -.025rem;
+h1 {
+    font-size: 3.3em;
+}
+
+h2 {
+    font-size: 1.6em;
+}
+
+h1, h2 {
+    font-family: Poly,serif;
+    font-weight: 100;
+    color: #3f3f3f;
+    margin: 0 0 35px;
 }
 
 strong {
@@ -36,7 +42,7 @@ em, strong {
 }
 
 p {
-  margin-bottom: 1rem;
+  line-height: 1.5;
 }
 
 ul, ol {
@@ -56,30 +62,25 @@ blockquote {
 }
 
 a {
-  font-weight: inherit;
-  line-height: inherit;
-  color: #222;
-  text-decoration: none;
-  -webkit-transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+    color: #4F87A5;
+    text-decoration: none;
+    border-bottom: 2px solid;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #eee;
+  width: 40%;
+  margin: 50px auto;
 }
 
 body {
-  padding-top: 1px;
-  border-top: 2px solid #222;
-  margin: auto;
-  text-align: center;
-  font-family: "PT Serif", Georgia, "Times New Roman", serif;
-  font-size-adjust: 0.506;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 0.9375em;
-  line-height: 1.4em;
-  font-weight: normal;
-  font-style: normal;
-  color: #222;
-  line-height: 24px;
+  font-family: 'Source Sans Pro',serif;
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+  background: #fff;
+  padding: 0 10px;
 }
 
 .post-row {
@@ -96,12 +97,9 @@ body {
 }
 
 .page-wrap {
-  text-align: left;
-  width: 1020px;
-  padding: 1px 50px 0px;
-  margin: auto;
-  border-top: 2px solid #222;
-  margin-top: -3px;
+  max-width: 720px;
+  margin: 45px auto;
+  padding: 6px;
 }
 
 .page-header {
@@ -124,31 +122,29 @@ body {
 
 .articles-area {
     display: block;
-    width: 755px;
+    width: 100%;
 }
 
-.nav-stuff {
-    width: 250px;
-    text-align: right;
+.articles-area ul.posts {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    line-height: 2;
+    margin-bottom: 90px;
 }
 
-.author-info {
-    margin: 15px 0 20px 0;   
-    font-size: 13px!important;   
-    line-height: 20px;
+.posts .date {
+    text-transform: uppercase;
+    float: right;
 }
 
-.dev-avatar {
-    margin-bottom: 20px;
+.footer, .posts .date {
+    font-size: 14px;
+    color: #999;
 }
 
 .post-body a {
   border-bottom: 1px solid #ddd;
-}
-
-.author-detail {
-    width: 102px;
-    padding-left: 90px;
 }
 
 .site-footer {
@@ -169,19 +165,6 @@ body {
   color: rgb(34, 34, 34);
   text-decoration: none;
   display: block;
-}
-
-.post-crucs {
-  color: rgb(168, 153, 153);
-  height: 25px;
-  overflow: hidden;
-}
-
-img.dev-avatar {
-  border-radius: 5px;
-  width: 175px;
-  display: block;
-  float: right;
 }
 
 .post-meta {

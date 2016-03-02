@@ -9,20 +9,11 @@
             
         <!-- .page-header -->
         <div class="page-header">
+            <h1>{{ site.author.name }}</h1>
 
-            <div class="page-top-nav">
-                <a href="/">Home</a> / <!-- <a href="/about">About</a> / --> <a href="https://www.dropbox.com/s/a4ne87hs0b3le7r/Web%20Dev%20-%20Resume.pdf?dl=0" target="_blank">Resume</a> / <a href="/atom.xml">Feed</a>
-            </div>
+            <p>I work at <a href="http://tajawal.com" target="_blank" rel="external">Tajawal</a> in Dubai UAE. When I’m not doing that, I’m hacking on <a href="http://github.com/kamranahmedse" target="_blank" rel="external">open source</a>, working on the projects that may interest me or help me learn new things and also giving back to community.</p>
 
-            <span class="muted left">{{ site.tagline }}</span>    
-            <span class="right">
-                <form id="search-form" method="get" action="http://google.com/search" method="get">
-                    <input type="text" class="search-box" id="search-box" placeholder="Looking for something?" name="temp_q">
-                    <input type="hidden" id="search-hbox" placeholder="Looking for something?" name="as_q">
-                </form>
-            </span>
-
-            <div class="clr"></div>
+            <p>Feel free to <a href="https://twitter.com/kamranahmed_se" target="_blank" rel="external">tweet me</a> or <a href="mailto:kamranahmed.se@gmail.com?subject=kamranahmed.info">drop me a line</a>.</p>
         </div>
         <!-- /.page-header -->
         
@@ -30,36 +21,12 @@
         <div class="page-content">
 
             <!-- .articles-area -->
-            <div class="articles-area left">
+            <div class="articles-area">
                 {{ content }}                
             </div>
             <!-- /.articles-area -->
 
             {% include comments.html %}
-
-            <!-- .nav-stuff -->
-            <div class="nav-stuff right">
-               
-                <div class="author-info">
-                    <img src="{{ site.baseurl }}public/img/kamran.jpg" class="dev-avatar">
-                    <div class="clr"></div>
-                    <span class="author-detail">{{ site.author.description }}</span>
-                </div>
-    
-                <!-- .side-nav -->
-                <ul class="side-nav">
-                    <li class="nav-head">Stay in touch</li>
-
-                    {% for page in site.external_links %}
-                      <li><a target='_blank' href="{{ page[1]  }}">{{ page[0] }}</a></li>
-                    {% endfor %}
-                </ul>
-                <!-- /.side-nav -->
-
-            </div>
-            <!-- /.nav-stuff -->
-            
-            <div class="clr"></div>
             
         </div>
         <!-- /.page-content -->
@@ -74,10 +41,6 @@
     <script type="text/javascript" src="{{ site.baseurl }}public/js/highlight.pack.js"></script>
     <script type="text/javascript">
         hljs.initHighlightingOnLoad();
-
-        document.forms["search-form"].onsubmit  = function(){
-           document.getElementById('search-hbox').value = document.getElementById('search-box').value + ' site:http://kamranahmed.info';
-        }
     </script>
     {% include google_analytics.html %}
 </body>
