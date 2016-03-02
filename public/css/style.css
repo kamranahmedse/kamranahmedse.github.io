@@ -68,6 +68,7 @@ a {
     color: #4F87A5;
     text-decoration: none;
     border-bottom: 2px solid;
+    margin: 0 5px;
 }
 
 hr {
@@ -132,7 +133,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 2;
-    margin-bottom: 90px;
+    margin-bottom: 75px;
 }
 
 .posts .date {
