@@ -169,9 +169,15 @@ body {
 }
 
 .post-meta {
-  color: #777;
-  font-size: 14px;
-  margin-bottom: 15px;
+  color: #999;
+  font-size: 20px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.post-item h1 {
+    font-size: 2.5em;
+    margin: 30px 0;
 }
 
 .post-body img {
