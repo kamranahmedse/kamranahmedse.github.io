@@ -54,7 +54,8 @@ ul, ol {
 }
 
 ul li, ol li {
-  margin-bottom: 0.3rem;
+    margin: 1rem 0;
+    line-height: 1.5;
 }
 
 blockquote {
@@ -216,12 +217,9 @@ li.nav-head {
   border-bottom: 1px solid rgb(204, 204, 204);
 }
 
-input {
-  font-family: "PT Serif", Georgia, "Times New Roman", serif;
-}
-
 .twitter_plug {
-  font-style: italic; margin-top: 40px;
+  margin-top: 40px;
+  line-height: 1.5;
 }
 
 #mc_embed_signup {
@@ -244,9 +242,7 @@ input {
   color: white;
   border-radius: 5px;
   cursor: pointer;
-  font-family: 'lora';
   font-size: 14px;
-  font-style: italic;
   border: 2px solid #444;
 }
 
