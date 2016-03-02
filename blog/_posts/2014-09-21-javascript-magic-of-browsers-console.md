@@ -30,12 +30,13 @@ Now most of the developers out there simply use `console.log()` and mostly are u
 
 Let’s delve right in and see what `console` has to offer.
 
-#Opening Console
+# Opening Console
+
 Open up the Google chrome and press `CTRL+SHIFT+J` to open the console. Also you can go to `Tools > Javascript Console` or in some versions it is `View > Developer > JavaScript Console.`. OK that was easy.
 
 Now let’s get to the real meat of this article and let’s see, what `console` has to offer.
 
-#Simple logging through `console.log()`
+# Simple logging through `console.log()`
 
 >You may skip to the next section if you already know about console.log() nothing fancy here.
 
@@ -65,7 +66,8 @@ console.log("The cast of penguins of madagascar contains ", penguins.length, " p
 console.log("The cast of penguins of madagascar contains " + penguins.length + " penguins.");
 </code></pre>
 
-#Logging Errors `console.error()`
+# Logging Errors `console.error()`
+
 This works just like the `console.log()` I mean, the parameters etc are provided in the same way. The difference is in how the text is formatted in the `console`. Unlike `console.log()`, whose messages are logged in a grey color the errors printed by the `console.error()` are red in color which is the perfect view for errors. You should use `console.error()` instead of `console.log()` when there is any error that you want to print to the console.
 
 >You should use `console.error()` instead of `console.log()` when there is any error that you want to log.
@@ -91,7 +93,7 @@ The output looks like:
 
 As you can see the message is now reddish in color and there is a little cross icon on the left showing that it’s an error.
 
-#Generating Warnings `console.warn()`
+# Generating Warnings `console.warn()`
 
 Sometimes you may want to throw some warnings. To generate warnings, you use `console.warn()`. Again, it works the same like `console.error()` and `console.log()` as discussed above, the difference is how they are formatted. Let’s demonstrate it through an example:
 
@@ -115,7 +117,7 @@ Let’s see how this warning would look like in the console.
 
 Also notice the little yellow triangular icon to the left of the message.
 
-#Writing information using `console.info()`
+# Writing information using `console.info()`
 
 `console.info()` is used to write some informational text to the console. The output is blue text with little information icon on it’s left. It works the same like the functions discussed above, the difference is how the text generated is formatted in the console. Let’s demonstrate it with an example:
 
@@ -137,7 +139,7 @@ Below is how the output looks like
 
 ![Console Info](http://i.imgur.com/M8tcbcP.png)
 
-#Tables `console.table()`
+# Tables `console.table()`
 
 Now here is the one that’s the most handy one. It turns the array of objects into a table that best demonstrates the data in the array and each of it’s objects. I use it most of the time when debugging the data returned by ajax. Unlike `console.log()` which’d turn the array of objects into textual form and you’d have to expand each object one by one to check the data it contains (as demonstrated by the example in console.log in section 1), `console.table()` generates the table of it with the properties used as the table header and the data of objects is put in the table rows.
 
@@ -161,7 +163,8 @@ And here is how the data in console would look like:
 
 Handy! Isn’t it? The same using `console.log` would have looked like the figure 1 in section 1. Again, it comes pretty handy when you have to check the data returned by some webservice.
 
-#Applying CSS to the text in console
+# Applying CSS to the text in console
+
 Yes! You CAN use CSS to format the text in the console. %c format specifier is used to apply custom CSS rules to any string you write to the console with console.log() or related methods. Below example demonstrates, how it works:
 
 <pre><code class="javascript">

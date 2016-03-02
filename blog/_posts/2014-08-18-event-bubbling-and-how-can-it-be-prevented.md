@@ -8,14 +8,14 @@ There are **two ways of event propagation in DOM** i.e. Event Capturing and Even
 
 Let’s just take a simple analogy, you might have played with bubbles in your childhood …it’s ok if you haven’t. If you have played, you must have noticed that the bubbles go upward when created (might not be the case always but let’s just agree; the bubbles always rise upward ;-)). Same is the case with the events in Javascript.
 
-#Event Bubbling
+# Event Bubbling
 Javascript events are propagated towards the upward direction from the point of DOM where they are triggered/created. This phenomenon is called Event Bubbling.
 
 >Javascript events are propagated towards the upward direction from the point of DOM where they are triggered/created. This phenomenon is called Event Bubbling.
 
 Event bubbling makes sure that an event that is triggered for some DOM element (target element), it will be triggered for all the parent elements of that target as well, in an outward direction i.e. the target first then it’s immediate parent and then it’s grand parent and so on.
 
-#Explaining it through example
+# Explaining it through example
 So, in JavaScript, events *bubble*. That is, an event propagates through the ancestors of the element upon which the event is fired. Lets show what this means using the HTML markup below:
 
 <pre><code class="html">
@@ -66,7 +66,7 @@ So, if we follow our analogy, we might say:
 
 That’s *all* event bubbling is; an event fired on an element bubbles through its ancestor chain (i.e. the event is also fired on those elements). Although, I have used jQuery examples in this article, it’s important to note that this isn’t a jQuery feature, nor is it something that a developer must turn on; it’s a **fundamental** part of JavaScript that has always existed.
 
-#How to stop event from bubbling?
+# How to stop event from bubbling?
 
 Now there might be the case when you don’t want the event to be triggered for the ancestor elements and be triggered for the target element only. To stop the event from bubbling, you use `e.stopPropagation();` i.e.
 

@@ -17,17 +17,17 @@ So, let me start with how I structured my Javascript in ther ERP system that we 
 
 >Please note that, there are several patterns to structure your Javascript, but I use Modular Pattern most of the time and that’s what I am going to explain in this article.
 
-#Javascript Modules
+# Javascript Modules
 In layman terms, I would explain the Javascript module as:
 
 >A chunk of related code having it’s own distinct meaning.
 
 For now, let’s keep it to that and I’d explain it a bit more later in the article. Now you may disagree with me, but that’s what I think of a Javascript module. Though, I’d love to hear your conflicting thoughts regarding Javascript Modules, if any, through your comments.
 
-#Decision of Modules
+# Decision of Modules
 While developing the ERP system. The first step, that I took was the **Decision of Modules.** There were several usecases that were related to each other. Let’s take the example of **Sale Transaction,** for sale transaction there was a single voucher on which the **New Transaction, Update Transaction, Remove Sale Transaction** were being handled, So I thought to create a *module* called **Sale**. Another example would be, there was **Sale Report** that allowed the user to check the sales in some given date range and view the results that are grouped by **item**, **voucher number**, **customer** or **date** etc. Also in each grouping, a user can check a specific **item**, **voucher** or **customer**’s sale record and there was a search filter as well to allow the user to do a fuzzy search through the sales in each grouping etc. This all was to be handled on a single page, so I thought to create a *module* called **SaleReport**. In the same way, there were other modules in the application. You may say that Javascript modules that I decided were based upon the idea that related functionalities were to be kep in a single module, as I gave the examples of **Sale** and **SaleReport** module above.
 
-#Modular Pattern Explained
+# Modular Pattern Explained
 Enough of the theory, let’s just dive into some Javascript to understand what exactly is the Modular Pattern and how can we use it to structure our code. A modular pattern can be implemented using many different variations, let’s get ourselves familiar with a really basic one.
 
 It would be better, if we use some real world example in our explanation. So I’m going to use the example of a simple feed reader that reads and parses XML feed of some site. A module looks like the following:
@@ -129,7 +129,8 @@ You’ll most commonly see the `bindUI` called in the `init` function of the mod
 
 In the same way, you can put all your functionality in a module.
 
-#Placement of Modules
+# Placement of Modules
+
 Instead of putting your Javascript code mudded with the HTML, place each of your module in a seaparate Javascript file with the name of the file same as the name of the module that it contains. For example, the **Sale** module will be placed in **Sale.js** and in the same way, **SaleReport** module will be placed in the **SaleReport.js** file. And each of the script will be included only the page where it will be needed.
 
 Now that you have got the idea that you should have only one module per file, next step is the placement of these files i.e. where should these module files be placed. What I prefer is put them in my assets folder of my project. For example, usually my assets folder looks like:
@@ -140,7 +141,8 @@ Notice the js folder. All the plain javascript files will be placed in the root 
 
 Now, the examples regarding and `Sales` and `Purchases` etc might seem daunting to you, so let me just quote a simple Blog related examples. There would be two folders inside the module i.e. `js/modules/blog` folder to hold all the blog related javascript modules and `js/modules/user` to hold all the users related javascript modules. For Example there can be `js/modules/blog/Post.js`, `js/modules/blog/Comment.js` etc in the `js/modules/blog` folder and `js/modules/user/User.js` etc in the `js/modules/user` folder.
 
-#Using the created Modules
+# Using the created Modules
+
 Now that we have created our module, it’s time to understand how to use it in our application. It’s as simple as the following:
 
 <pre><code class="html">
@@ -162,7 +164,8 @@ Now that we have created our module, it’s time to understand how to use it in 
 &lt;/html&gt;
 </code></pre>
 
-#Conclusion
+# Conclusion
+
 From our discussion above, I expect that you have understood how and why should we structure our Javascript. And as we discussed above:
 
 * Our code is clean and consistent. All the settings are at a separate place, event bindings have their own place etc.

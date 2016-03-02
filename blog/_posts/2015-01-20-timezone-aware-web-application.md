@@ -9,7 +9,8 @@ I recently had the chance to work on a web application targetting people from di
 - Store the dates and times in `UTC` format i.e. 0 timezone offset
 - On the client side, convert this `UTC` time to user's local timezone using Javascript.
 
-#Timezones and PHP
+# Timezones and PHP
+
 PHP's `DateTime` is supported in `>=5.2` versions and is really powerful. Below, I show some examples of how to convert from one timezone to another. I am going to take my current timezone into account which is `Asia/Karachi` and is `GMT+5`.
 
 <pre><code class="php">
@@ -40,6 +41,6 @@ $timezones = DateTimeZone::listIdentifiers(DateTimeZone::ALL);
 
 It will return an array consisting of the timezones.
 
-#Timezones and MySQL
+# Timezones and MySQL
 
 Although, I handled the time conversions etc in my application logic, let me state a few points about MySQL here as well. To get timestamp in `UTC`, use `UTC_TIMESTAMP()` instead of `NOW()`. Also, it is recommended that you *always* use `UTC_TIMESTAMP()` rather than `NOW()` for dates etc and the reason for that is `NOW()` returns the current local time of the server and the server can be in any timezone.

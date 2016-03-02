@@ -19,8 +19,9 @@ title: Home
 	<ul class="posts">
     	{% for post in site.categories.blog %}
 		 	<li>
-		    	<span class="title"><a href="{{ post.url }}">{{ post.title }}</a></span>
-		    	<span class="date">{{ post.date | date_to_string }}</span>
+		    	<span class="title left"><a href="{{ post.url }}">{{ post.title }}</a></span>
+		    	<span class="date right">{{ post.date | date_to_string }}</span>
+		    	<span class="clr"></span>
 		  	</li>
     	{% endfor %}
 	</ul>

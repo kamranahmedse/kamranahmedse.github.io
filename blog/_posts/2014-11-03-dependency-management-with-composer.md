@@ -6,14 +6,15 @@ comments: true
 
 Composer is an application level dependency manager for PHP and it must be a part of the toolkit of a modern PHP Developer, I would say. Projects these days are not developed in isolation. There are many incredibly intelligent developers out there constantly developing awesome “things” to solve the common problems, so whenever you are going to develop something there is fair chance that it might have been developed by someone out there already, so why reinventing the wheel? Right? Why not use that already developed library or whatever?
 
-#The Need
+# The Need
 
 Let’s say you agreed with me on this not-reinventing-the-wheel thing and you are ready to use some library already developed by someone out there. Now if you use any external library, it would become a dependency of your project. Dependencies can be a great asset, yet at the same time a great source of confusion and frustration and it requires a lot of thinking to get them all play together nicely. And here is more, if that dependency that you are going to use has any further dependencies, it might become a nightmare to manage all of them. Not only that but also when you are working in a team of people working upon the same project, making sure that each of the team member has the right development that is right set of dependencies and their required versions. “Ehhh… I am going to reinvent the wheel..” Don’t rush to the decision right away. Brace yourself for what I am going to introduce to you in this article.
 
-#The Solution
+# The Solution
+
 Meet [Composer](http://getcomposer.org/) - a dependency manager that will revolutionize the way how you code. You just have to specify your dependencies and composer will automatically download them (and the dependencies of the dependencies) and automatically place them at a specific location where they can easily be accessed.At [packagist.org](http://packagist.org) you can find thousands of packages (~40,000 at the time of this writing) to assist you in your development. Massively popular projects such as [Laravel](https://packagist.org/packages/laravel/laravel), [Symfony](https://packagist.org/packages/symfony/symfony), [PHP Unit](https://packagist.org/packages/phpunit/phpunit), [PHP Geocode](https://packagist.org/packages/kamranahmedse/php-geocode) (ok ok.. this one is not that popular, it’s here because it’s mine ;) ) are using composer as their dependency manager and can be found on [packagist.org](http://packagist.org). Also, you can use packagist to search the package of your need, find the one that you want, introduce it in your project using composer and use it.
 
-#Getting Started with Composer
+# Getting Started with Composer
 
 Enough theory, let’s discuss how can we harness the power of composer in our projects. Firstly, you need to [install composer](https://getcomposer.org/download/), you can visit the site or follow the instructions as given below, if you are using any linux based system.
 
@@ -33,7 +34,8 @@ Now go to the command line and type `composer` and press enter and see if you ar
 
 If you see that, we are all good to go. If not, go check and see where you went wrong.
 
-#Introducing your dependencies
+# Introducing your dependencies
+
 Now that we are all set up, let’s see how can we harness the power of composer now to install our dependencies. I am going to explain the use of composer by using one of my own packages available at [packagist.org](http://packagist.org/) (also on [github](https://github.com/kamranahmedse/php-geocode)) called [PHP Geocode](https://packagist.org/packages/kamranahmedse/php-geocode).
 
 First step is to create a really simple file called `composer.json` having the following content in it
@@ -60,7 +62,7 @@ Also, you can combine the above two i.e.
 
 And this would now require any version having 1 as a major version number i.e. it can be 1.1, 1.2, 1.3 or whatever.
 
-#Installing them
+# Installing them
 
 Now that you have specified the dependencies in `composer.json` of your project, you can run the following command to get the dependencies downloaded and be placed in **vendor** directory
 
@@ -89,7 +91,7 @@ If for some reason, you want to change the name of `vendor` folder, you can modi
 
 and now instead of naming the folder `vendor`, composer will now name it as `whatever` as specified in this case.
 
-#Autoloading the dependencies
+# Autoloading the dependencies
 
 Now that we have installed our dependencies using `composer install`, it’s time for us to use them. Composer automatically generates an autoloader file at `vendor/autoload.php` (considering that you didn’t chose any other name for directory `vendor`). Let’s see how can we use this autoloader to autoload our dependencies.
 
@@ -120,5 +122,6 @@ In the above code, we are including the composer generated autoloader, then we i
 
 And that’s all there is to it. If you are curious about the Geocode class that I used to describe composer, you can find more about it through the [git repository of it](https://github.com/kamranahmedse/php-geocode).
 
-#Note
+# Note
+
 If you are using any version control system, the best practice is ignore the vendor directory and only commit `composer.json` and `composer.lock` files. And the other person working upon your project can simply do `composer install` or `composer update` to get these dependencies.

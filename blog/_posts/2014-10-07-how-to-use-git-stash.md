@@ -6,7 +6,7 @@ comments: true
 
 Consider this, you were busy working on some functionality that hasn’t been completed yet but something urgent came up. Now you may never want to `commit` this half baked functionality along with that urgent feature that you added. To deal with this kind of situations, there are a few things that you can do.
 
-#Few horrible decisions
+# Few horrible decisions
 
 ..reset all the changes you made since last commit using
 

@@ -7,7 +7,7 @@ Laravel comes with a powerful ORM i.e. Eloquent. While it gives you a lot of pow
 
 In this article, I am going to be writing about the eager loading in Laravel 4 and how can it be used to tackle the inefficient database queries. To be more specific, I'll be writing about N+1 problem with eager loading. First things first, let's discuss what N+1 problem actually is.
 
-#N+1 Problem
+# N+1 Problem
 
 N+1 problem is related to the inefficient queries i.e. running one query and then running N queries for the records returned by that first query ..didn't understand? No worries, you'll understand it in a moment.
 
@@ -77,7 +77,7 @@ SELECT * FROM students;
 SELECT * FROM books WHERE student_id IN (1,2,3,4,5,6,7,8..);
 </code></pre>
 
-#Eager Loading
+# Eager Loading
 Eager loading is how Laravel allows us to tackle the N+1 problem. It lets us specify the records that we need pre-hand resulting in more efficient database queries. Let me explain it with the example stated above. Assuming that the relationship between the `Student` and `Book` as stated above is in place, to avail eager loading we will have to modify our above statements as follows
 
 <pre><code class="php">
@@ -146,5 +146,5 @@ foreach( $students as $student ) {
 
 In the above example we'll be loading only those books that have the `status` set to `returned`.
 
-#Final Words
+# Final Words
 I hope you would have understood the N+1 problem and eager loading in Laravel by now. I encourage you to use eager loading whenever possible to make your database queries more robust. If you have any questions please do not hesitate to ask them by posting them in the comment section below.

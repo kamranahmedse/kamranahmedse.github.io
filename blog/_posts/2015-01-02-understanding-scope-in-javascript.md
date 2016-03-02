@@ -5,11 +5,11 @@ comments: true
 ---
 In this article ..and a few upcoming articles, I am going to explain everything that you need to know about scope in Javascript.
 
-##What is Scope?
+## What is Scope?
 
 Scope is the context in which a variable/function can be accessed. Unlike other programming languages such as C++ or Java, which have block level scope i.e. defined by `{}`, Javascript has a function level scope. Scope in Javascript is lexical, more to that in a moment.
 
-##Global Scope
+## Global Scope
 Anything defined in the global scope can be accessed anywhere in your code. Or to put it the other way, anything that you'll declare outside any function will be in the global scope. Take the following as an example
 
 <pre><code class="javascript">
@@ -22,7 +22,7 @@ function sayHello() {
 
 Here `name` since declared outside any function is a global variable and can be accessed anywhere in your Javascript. On a sidenote anything that you declare in the global scope is attached to the `window` object and can be accessed by `window.*` e.g. borrowing it from the above example `window`.`name` when used anywhere will make sure that the `name` declared in the global scope is being accessed.
 
-##Local Scope
+## Local Scope
 Anything that you declare inside a `function` exists in a Local scope and is available only inside that function. Let me explain it with an example:
 
 <pre><code class="javascript">
@@ -109,7 +109,7 @@ var parentScope = function () {
 
 See, the parent scopes were not able to access the variable `grandChild` from their child scope however `superChild` which was the child of `grandChildScope` was able to access the variable because it was defined in one of its parent scopes.
 
-##A few Gotchas
+## A few Gotchas
 
 You might be wondering, what if a variable was declared in both a child as well as it's parent, what in that case? In that case the variable in their current scope will be preferred and not the one from the parent scope. Parent scope is checked only if a variable being used is not found in the current scope. To make it more clear, have a look at the following example:
 

@@ -48,7 +48,8 @@ var FeedReader = {
 
 Structuring your code this way is good, but there is a little *problem* with this approach. As you can see, we don't have any `private` or `public` variables or functions setup, everything that is in `FeedReader` is public and can be accessed by the outer world whether it should be or not be. In this article, I am specifically going to deal with this problem and show you how you can make use of `private` and `public` variables and functions. So let's begin.
 
-#Creating a Module
+# Creating a Module
+
 First things first, let's create our *class* first and we will be gradually extending it as we advance in this article. I am going to use the word Module to reference our so called Javascript classes. Let's create a `Person` module that is just a simple function. Here is what I mean
 
 <pre><code class="javascript">
@@ -67,7 +68,8 @@ var Foo = new Person('Foo');
 var Bar = new Person('Bar')
 </code></pre>
 
-#Private Scope
+# Private Scope
+
 While writing your Javascript, security should be the one of your top priorities, as we can't afford to make our sensitive variables and functions be publically available as they have tendency to make us open to vulnerable attacks. You should never expose any unnecessary variables or functions. To do so, we make use of `private` variables and functions. Below is how we implement this privacy in our modules. In our example, let's create some private variables and functions
 
 <pre><code class="javascript">
@@ -106,7 +108,8 @@ console.log( FooBar.isAlive );
 
 As you can see, neither were we able to access any of the private variables nor any functions.
 
-#Public Scope
+# Public Scope
+
 In our `Person` module we only have got private variables and functions and there is no way for us to interact with `Person`. To make it more interactive, let's extend our `Person` a bit and add some public variables and functions.
 
 <pre><code class="javascript">
@@ -134,7 +137,8 @@ var Person = function ( name ) {
 
 To make some properties and methods public, all you have to do is return an object from the function i.e. your module. The properties and methods possessed by this object will be made public and will be accessible outside the Person module.
 
-#Our Complete Module
+# Our Complete Module
+
 Let's extend our example module a bit and see what we have got
 
 <pre><code class="javascript">
