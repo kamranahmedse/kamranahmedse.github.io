@@ -71,6 +71,10 @@ a {
     margin: 0 5px;
 }
 
+.site-footer a {
+  margin: 0;
+}
+
 hr {
   border: 0;
   border-top: 1px solid #eee;
