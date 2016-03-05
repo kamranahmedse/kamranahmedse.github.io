@@ -23,7 +23,7 @@ h2 {
 h1, h2 {
     font-family: Poly,serif;
     font-weight: 100;
-    color: #F62459;
+    color: #3f3f3f;
     margin: 0 0 35px;
     text-align: center;
 }
@@ -60,12 +60,12 @@ ul li, ol li {
 
 blockquote {
   padding: 0 0 0 1.5rem;
-  color: #F62459;
-  border-left: 5px solid #F62459;
+  color: #8F8F8F;
+  border-left: 5px solid #e5e5e5;
 }
 
 a {
-    color: #F62459;
+    color: #4F87A5;
     text-decoration: none;
     border-bottom: 2px solid;
     margin: 0 5px;
@@ -99,7 +99,7 @@ body {
     font-family: "PT Serif", Georgia, "Times New Roman", serif;
     font-weight: bold;
     font-style: normal;
-    color: #F62459;
+    color: #111;
     font-weight: 500;
     text-rendering: optimizeLegibility;
 }
