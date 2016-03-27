@@ -23,6 +23,8 @@ This weekend, I finally got the time to work on my idea and behold, [Githunt](ht
 
 > Githunt is an extension that replaces the new tab of your browser with the trending github repositories. 
 
+![Banner](http://i.imgur.com/ha6ti77.png)
+
 You can look through the trending repositories for any technology of your liking and for any period of time; be it in the present or past. By default it shows the trending repositories (most starred repositories created in the given period of time) for the last week and as you keep scrolling, you will be presented with the popular repositories of the consecutive past weeks.
 
 There are language and time jump filters, all you have to do is select how you would like to see the repositories (monthly, weekly or yearly) and the language, it will remember your choice and will show you the trending repositories in that category whenever you will open the new tab. 
