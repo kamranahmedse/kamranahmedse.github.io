@@ -4,15 +4,15 @@ title: Birth of Githunt - A Google Chrome extension for Github
 comments: true
 ---
 
-I usually scour Github in my free time to look for what interesting stuff people have been building. Not only that it helps me *sort of* keep up with what's happening around and broaden my horizon, but also more often than not I come across some really interesting and handy project for use in my projects. 
+I usually scour Github in my free time in the gaze of what interesting stuff people have been building. Not only that it helps me *sort of* keep up with what's happening around and broaden my horizon, but also more often than not I come across some really interesting and handy project for use in my projects. 
 
 ## The Problem
 
-If you do the same, or have been using github for a while, you might be aware of [Github's trending page](http://github.com/trending) that shows the trending Github projects. But there are a few *snags* in using it to keep up with the trending projects
+You might be aware of [Github's trending page](http://github.com/trending) that shows the trending Github projects. But there are a few *snags* in using it to keep up with the trending projects
 
-- It only shows the currently (today, current week or month) trending projects. You can't check what was trending in the past
-- The page doesn't show the details such as number of forks, stars and issues and you have to navigate to the project page.
-- Most important of all, being lazy, filled with the *sluggishnes* of opening the website, you might not check the trending page that often and can easily miss to discover stuff ;)
+- It only shows the currently (current day, week or month) trending projects. You can't check what was trending in the past
+- There is no detail such as number of forks, stars and issues on the page. You have to navigate to the project page for that.
+- Most important of all, being lazy, filled with the *sluggishness*, one might not visit the website specifically to check the trending page and easily miss to discover stuff.
 
 
 ## Birth of Githunt
@@ -23,7 +23,7 @@ This weekend, I finally got the time to work on my idea and behold, [Githunt](ht
 
 > Githunt is an extension that replaces the new tab of your browser with the trending github repositories. 
 
-You can look through the trending repositories for any technology of your liking and for any period of time be it the present or past. By default it shows the trending repositories (most starred repositories created in the given period of time) for the last week and as you keep scrolling, you will be presented with the popular repositories of the consecutive past weeks.
+You can look through the trending repositories for any technology of your liking and for any period of time; be it in the present or past. By default it shows the trending repositories (most starred repositories created in the given period of time) for the last week and as you keep scrolling, you will be presented with the popular repositories of the consecutive past weeks.
 
 There are language and time jump filters, all you have to do is select how you would like to see the repositories (monthly, weekly or yearly) and the language, it will remember your choice and will show you the trending repositories in that category whenever you will open the new tab. 
 
@@ -37,9 +37,9 @@ The extension has been deployed on the Chrome Webstore and you can install it by
 
 ## What do people say?
 
-I posted the link to the project repository on [Reddit](https://www.reddit.com/r/javascript/comments/4byk8v/githunt_chrome_extension_to_replace_your_new_tab/) yesterday and it turned out that people were looking for something like this and it had been trending all day yesterday. Also, it has been on the top of the list [among the trending github projects](https://github.com/trending/html) since yesterday.
+I posted the link to the project repository on [Reddit](https://www.reddit.com/r/javascript/comments/4byk8v/githunt_chrome_extension_to_replace_your_new_tab/) yesterday and it turned out that people were looking for something like this and it had been trending all day yesterday. Also, it has been on the top of the list [amongst the trending github projects](https://github.com/trending/html) since yesterday (Update &ndash; Now 5th).
 
-So nothing is stopping you, [install the extension and go for the hunt](http://github.com/kamranahmedse/githunt)
+So go ahead, [install the extension and go for the hunt](http://github.com/kamranahmedse/githunt).
 
 ## Can I help?
 
