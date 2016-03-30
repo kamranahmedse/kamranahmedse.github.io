@@ -30,7 +30,7 @@ $utcDateTime = new DateTime('2015-01-19 02:00', new DateTimeZone('UTC'));
 $utcDateTime->setTimezone(new DateTimeZone('Asia/Karachi'));
 $clientDateTime = $utcDateTime->format("Y-m-d H:i A");
 
-echo $clientDateTime;   // Prints 2015-01-19 02:00 AM
+echo $clientDateTime;   // Prints 2015-01-19 07:00 AM
 </code></pre>
 
 Also, one might want to generate a dropdown or a list of timezones. Instead of grabbing it from somewhere else, I would suggest to have PHP generate that for you. Below is how:
