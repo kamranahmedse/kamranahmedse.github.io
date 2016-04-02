@@ -37,7 +37,7 @@ return [
 
 ```
 
-You can get the above configuration array in a variable by simply by doing
+You can get the above configuration array in a variable simply by doing
 
 ```php
 
