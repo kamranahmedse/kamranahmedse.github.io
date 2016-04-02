@@ -47,7 +47,29 @@ var_dump($appConfig);	// The array from config/app.php file above
 
 And then you can mould this array however you want to get the configuration. [Laravel](https://github.com/laravel/framework/blob/master/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php#L57) and [Lumen](https://github.com/laravel/lumen-framework/blob/5.2/src/Application.php#L569) are both using the same technique for loading configuration data. 
 
-As far as the configuration loader is concerned, you can create a helper, for example, that loads the configuration data for you and then use [something like this](https://github.com/maciejczyzewski/bottomline/blob/master/src/__/collections/get.php) to access the configuration by dot notation. 
+As far as the configuration loader is concerned, you can create a helper, for example, that loads the configuration data for you i.e. maybe something like
+
+```php
+...
+/**
+ * Loads the data from configuration files
+ * @param  string $fileName
+ * @return array
+ */
+public function load($fileName)
+{
+    $filePath = basePath() . '/config/' . $fileName . '.php';
+
+    if (is_file($filePath)) {
+        return include $filePath; // Will return the array from file
+    }
+
+    return [];
+}
+...
+```
+
+and then use [something like this](https://github.com/maciejczyzewski/bottomline/blob/master/src/__/collections/get.php) to access the configuration by dot notation. 
 
 And that wraps it up folks, do you have better way to suggest? How do you manage configuration of your application? Do share it with me in the comments section below.
 
