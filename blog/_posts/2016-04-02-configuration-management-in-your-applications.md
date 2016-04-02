@@ -13,6 +13,7 @@ I recently created an SDK for an API where I used the similar approach for the c
 For example if you have a file that looks like below
 
 ```php
+
 // config/app.php
 
 /*
@@ -30,23 +31,22 @@ For example if you have a file that looks like below
 */
 
 return [
-	'appName' => 'Witchcraft',
-	'version' => '1.0',
-	'baseUrl' => 'http://witch-craft.dev',
+    'appName' => 'Witchcraft',
+    'version' => '1.0',
+    'baseUrl' => 'http://witch-craft.dev',
 
-	'leaderWitch' => [
-		'witchName' 	=> 'Jane Doe',
-		'spellsCount' 	=> 20,
+    'leaderWitch' => [
+        'witchName' 	=> 'Jane Doe',
+	'spellsCount' 	=> 20,
 
-		'favorite_spell' => [
-			'name' => 'Voodoo',
-			'spell' => 'Aagra bagra boo, bagra agra shoo'
-		],
-		'spells' => [
-			// ...
-		]
+	'favorite_spell' => [
+             'name' => 'Voodoo',
+	     'spell' => 'Aagra bagra boo, bagra agra shoo'
+	],
+	'spells' => [
+	    // ...
 	]
-
+    ]
 ];
 
 ```
@@ -54,8 +54,8 @@ return [
 You can get the above configuration array in a variable by simply by doing
 
 ```php
-$appConfig = include 'config/app.php';
 
+$appConfig = include 'config/app.php';
 var_dump($appConfig);	// The array from config/app.php file above
 ```
 
