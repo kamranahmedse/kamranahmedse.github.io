@@ -50,7 +50,7 @@ And then you can mould this array however you want to get the configuration. [La
 As far as the configuration loader is concerned, you can create a helper, for example, that loads the configuration data for you i.e. maybe something like
 
 ```php
-...
+// ...
 /**
  * Loads the data from configuration files
  * @param  string $fileName
@@ -66,7 +66,7 @@ public function load($fileName)
 
     return [];
 }
-...
+// ...
 ```
 
 and then use [something like this](https://github.com/maciejczyzewski/bottomline/blob/master/src/__/collections/get.php) to access the configuration by dot notation. 
