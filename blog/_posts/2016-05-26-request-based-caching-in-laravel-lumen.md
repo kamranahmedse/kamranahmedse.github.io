@@ -4,7 +4,11 @@ title: Request based Caching in Laravel/Lumen
 comments: true
 ---
 
-There might be times, when you would want to persist some data for the lifetime of a specific request. You might be tempted to use caching but sorry to break it to you that Laravel does not have any request based caching, built in. There might be multiple ways of achieving it e.g. you can use either session or cache i.e. put some values against some specifically formatted keys and then write some middleware that unsets those cache/session values at the end of each request or you can use Laravel's [Service Container](https://laravel.com/docs/5.2/container), for example. I had this specific scenario in which I needed the same i.e. generate some data and persist to make it available throughout the application for the current request. I decided to go with the latter approach i.e. use Laravel's service container. Below is how to do that.
+There might be times, when you would want to persist some data for the lifetime of a specific request and be destroyed as soon as the request completes. Now you might be tempted to use Laravel's caching for that but it doesn't support request based caching and there is no default way to achieve that, atleast not that I know of.
+
+There might be multiple ways of achieving it e.g. you can use either session or cache i.e. put some values against some specifically formatted keys and then write some middleware that unsets those cache/session values at the end of each request or you can use Laravel's [Service Container](https://laravel.com/docs/5.2/container), for example. 
+
+I had this specific scenario in which I needed the same i.e. generate some data and persist to make it available throughout the application for the current request. I decided to go with using Laravel's service container. Below is how to achieve that.
 
 First things first, create a holder class in which, we'll be putting our logic for the *caching*
 
@@ -54,7 +58,9 @@ class CacheHelper
 }
 ```
 
-As you can notice from the method `persist` it expects a key against which the data is to be cached and the second parameter which could be a callback or some data to be persisted. Inside the method, we are using `App` to instantiate `RequestCache` which is a singleton and then we have some logic to set the data in singleton or return it if it is already set. Okay now we are more than half way through. Now all you need to do is register this `RequestCache` singleton in any of your applications service providers. For example, you can use the `AppServiceProvider` that Laravel ships with. Open the provider class and put the following binding in the `register` method of the provider:
+As you can notice from the method `persist` it expects a key against which the data is to be cached and the second parameter which would be a callback returning the data to be persisted. Inside the method, we are using `App` to instantiate `CacheHelper` which is a singleton and then we have some logic to set the data in singleton or return it if it is already set. 
+
+Okay now we are more than half way through. Now all you need to do is register this `CacheHelper` singleton in any of your applications service providers. For example, you can use the `AppServiceProvider` that Laravel ships with. Open the provider class and put the following binding in the `register` method of the provider:
 
 
 ```php
@@ -72,8 +78,9 @@ Just call the method `CacheHelper::persist` with a key and a callback returning 
 ```php
 CacheHelper::persist('top_visitors', function () {
     return Visitors::orderBy('visit_count', 'DESC')
-                ->take(10)->get()
+                ->take(10)
+                ->get()
 });
 ```
 
-For any specific request where ever you will make this call, it will only query the database once and for any requests made afterwards will return the same data from the first request.
+For any request, wherever you will make this call, it will only query the database once and for any calls made afterwards will return the same data from the first request and not query the database again.
