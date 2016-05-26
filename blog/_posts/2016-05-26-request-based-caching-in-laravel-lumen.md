@@ -13,6 +13,7 @@ I had this specific scenario in which I needed the same i.e. generate some data 
 First things first, create a holder class in which, we'll be putting our logic for the *caching*
 
 ```php
+
 <?php
 
 use Illuminate\Support\Facades\App;
@@ -64,6 +65,7 @@ Okay now we are more than half way through. Now all you need to do is register t
 
 
 ```php
+
 App::singleton('CacheHelper', function () {
     return new CacheHelper();
 });
@@ -76,6 +78,7 @@ Voilla, you are all set to use the request based caching.
 Just call the method `CacheHelper::persist` with a key and a callback returning the data that you need to cache. For example:
 
 ```php
+
 CacheHelper::persist('top_visitors', function () {
     return Visitors::orderBy('visit_count', 'DESC')
                 ->take(10)
