@@ -1,26 +1,28 @@
 ---
 layout: post
-title: HTTP - How did we get here
+title: HTTP/2 - How did we get here
 comments: true
 ---
 
-It has been quite a time since I last wrote through my blog and the reason is not being able to find enough time into it. I finally got some time today and since `HTTP/2` has been released for some time now, I thought to spend some time writing about it.
+It has been quite some time since I last wrote through my blog and the reason is not being able to find enough time to put into it. I finally got some time today and since `HTTP/2` has been released for some time now, I thought to spend some of it writing about it.
 
-It is necessary for the developers, well web developers at the very least, to know about HTTP as it powers the whole web and knowing it is definitely going to help you develop better applications. In this article, I am going to be discussing what HTTP is, how it came to be, where it is today and how did we get here.
+It is necessary for the developers, well web developers at the very least, to know about HTTP as it powers the whole web and knowing it is definitely going to help you develop better applications. 
+
+In this article, I am going to be discussing what HTTP is, how it came to be, where it is today and how did we get here.
 
 ## What is HTTP?
 
-First things first, what is HTTP? HTTP is the `TCP/IP` based application layer communication protocol which standardizes how the client and server communicate with eachother. It defines how the content is requested and transmitted across the internet. By application layer protocol, I mean it's just an abstraction layer that standardizes how the hosts (clients and servers) communicate and itself it depends upon `TCP/IP` to get request and response between the client and server. By default TCP port `80` is used but other ports can be used as well. HTTPS, however, uses port `443`.
+First things first, what is HTTP? HTTP is the `TCP/IP` based application layer communication protocol which standardizes how the client and server communicate with each other. It defines how the content is requested and transmitted across the internet. By application layer protocol, I mean it's just an abstraction layer that standardizes how the hosts (clients and servers) communicate and itself it depends upon `TCP/IP` to get request and response between the client and server. By default TCP port `80` is used but other ports can be used as well. HTTPS, however, uses port `443`.
 
 ## `HTTP/0.9` - The One Liner (1991)
 
-The first documented version of HTTP was [`HTTP/0.9`](https://www.w3.org/Protocols/HTTP/AsImplemented.html) which was put forward in 1991. It was the simplest protocol ever having a single method called `GET`. If a client had to access some webpage on the server, it would have made the simple request like below
+The first documented version of HTTP was [`HTTP/0.9`](https://www.w3.org/Protocols/HTTP/AsImplemented.html) which was put forward in 1991. It was the simplest protocol ever; having a single method called `GET`. If a client had to access some webpage on the server, it would have made the simple request like below
 
 ```
 
 GET /index.html
 ```
-And the response from server would have looked like below
+And the response from server would have looked as follows
 
 ```html
 
@@ -28,10 +30,10 @@ And the response from server would have looked like below
 (connection closed)
 ```
 
-The server would get the request, reply with the response HTML and as soon as the content has been transferred, the connection will be closed. There were 
+That is, the server would get the request, reply with the HTML in response and as soon as the content has been transferred, the connection will be closed. There were 
 
 - No headers
-- `GET` was the only method allowed 
+- `GET` was the only allowed method 
 - Response had to be HTML
 
 As you can see, the protocol really had nothing more than being a stepping stone for what was to come.
@@ -40,7 +42,7 @@ As you can see, the protocol really had nothing more than being a stepping stone
 
 In 1996, the next version of HTTP i.e. `HTTP/1.0` evolved that vastly improved over the original version. 
 
-Unlike `HTTP/0.9` which was only designed for HTML response, `HTTP/1.1` could now deal with other response formats images, video files, plain text or any other content type as well. It added more methods (`GET`, `POST` and `HEAD`), request/response formats got changed, HTTP headers got added to both the request and responses, status codes were added to identify the response, character set support was introduced, multi-part types, authorization, caching, content encoding and more was included.
+Unlike `HTTP/0.9` which was only designed for HTML response, `HTTP/1.1` could now deal with other response formats i.e. images, video files, plain text or any other content type as well. It added more methods (i.e. `POST` and `HEAD`), request/response formats got changed, HTTP headers got added to both the request and responses, status codes were added to identify the response, character set support was introduced, multi-part types, authorization, caching, content encoding and more was included.
 
 Here is how a sample `HTTP/1.0` request and response might have looked like:
 
@@ -52,7 +54,7 @@ User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5)
 Accept: */*
 ```
 
-As you can see, client has sent it's personal information, required response type etc along the request. While in `HTTP/0.9`, because of non-existence of request headers, there was no such information.
+As you can see, alongside the request, client has also sent it's personal information, required response type etc. While in `HTTP/0.9` client could never send such information because there were no headers.
 
 Example response to the request above may have looked like below
 
@@ -69,31 +71,33 @@ Server: Apache 0.84
 (connection closed)
 ```
 
-In the very beginning of the response there is `HTTP/1.0` (HTTP followed by the version), then there is the status code `200` followed by the reason phrase (or description of the status code, if you will). In this newer version, request and response headers were still kept as `ASCII` encoded, but the response body could have been of any type i.e. image, video, HTML, plain text or any other content type. So, with the evolution of HTTP from `0.9` to `1.0` and the ability to have any content type in the response, not so long after the introduction, the term "Hyper Text" in HTTP became misnomer. `HMTP` or Hypermedia transfer protocol might have made more sense but, I guess, we are stuck with the name for life.
+In the very beginning of the response there is `HTTP/1.0` (HTTP followed by the version number), then there is the status code `200` followed by the reason phrase (or description of the status code, if you will). 
 
-One of the major drawbacks of `HTTP/1.0` were you couldn't have multiple requests per connection. That is, whenever a client will need something from the server, a new connection will be opened for serving that request and after that single request has been served, connection will be closed and for the next requirement, it will have to be on a new connection. Why is it bad? Well, let's assume that you visit a webpage having `10` images, `5` stylesheets and `5` javascript files, totalling to `20` items that needs to fetched when request to that webpage is made. Since the server closes the connection as soon as the request has been fulfilled, there will be a series of `20` separate connections where each of the items will be served one by one on their separate connection. Not only a higher number of connections but requiring a new `TCP` connection itself imposes a significant performance penalty because of three-way handshake.
+In this newer version, request and response headers were still kept as `ASCII` encoded, but the response body could have been of any type i.e. image, video, HTML, plain text or any other content type. So, now that server could send any content type to the client; not so long after the introduction, the term "Hyper Text" in `HTTP` became misnomer. `HMTP` or Hypermedia transfer protocol might have made more sense but, I guess, we are stuck with the name for life.
+
+One of the major drawbacks of `HTTP/1.0` were you couldn't have multiple requests per connection. That is, whenever a client will need something from the server, it will have to open a new TCP connection and after that single request has been fulfilled, connection will be closed. And for any next requirement, it will have to be on a new connection. Why is it bad? Well, let's assume that you visit a webpage having `10` images, `5` stylesheets and `5` javascript files, totalling to `20` items that needs to fetched when request to that webpage is made. Since the server closes the connection as soon as the request has been fulfilled, there will be a series of `20` separate connections where each of the items will be served one by one on their separate connections. This large number of connections results in a serious performance hit as requiring a new `TCP` connection imposes a significant performance penalty because of three-way handshake followed by slow-start.
 
 **Three-way Handshake** 
 
-Three-way handshake in it's simples form is that all the `TCP` connection begin with a three-way handshake in which the client and the server share a series of packets before starting to share the application data. 
+Three-way handshake in it's simples form is that all the `TCP` connections begin with a three-way handshake in which the client and the server share a series of packets before starting to share the application data. 
 
-- SYN - Client picks up a random number, let's say `x`, and sends it to the server.
-- SYN ACK - Server acknowledges the request by sending an `ACK` packet back which is made up of a random number, let's say `y` picked up by server and the number `x+1` where `x` is the number
-- ACK - Client increments the number `y` received from the server and sends an ACK packet back with the `x+1`
+- `SYN` - Client picks up a random number, let's say `x`, and sends it to the server.
+- `SYN ACK` - Server acknowledges the request by sending an `ACK` packet back to the client which is made up of a random number, let's say `y` picked up by server and the number `x+1` where `x` is the number that was sent by the client
+- `ACK` - Client increments the number `y` received from the server and sends an `ACK` packet back with the number `x+1`
 
-Once the three-way handshake is completed, the data sharing between the client and server may begin. It should be noted that the client may start sending the application data as soon as it dispatches the ACK packet but the server will still have to wait for the ACK packet to be recieved in order to fulfill the request.
+Once the three-way handshake is completed, the data sharing between the client and server may begin. It should be noted that the client may start sending the application data as soon as it dispatches the last `ACK` packet but the server will still have to wait for the `ACK` packet to be recieved in order to fulfill the request.
 
 ![](http://i.imgur.com/uERG2G2.png)
 
-However, some implementations of `HTTP/1.0` tried to overcome this issue by introducing a new header called `Connection: keep-alive` which were meant to tell the server "Hey server, do not close this connection, I need it again". But still, it wasn't that widely supported and the problem still persisted.
+However, some implementations of `HTTP/1.0` tried to overcome this issue by introducing a new header called `Connection: keep-alive` which was meant to tell the server "Hey server, do not close this connection, I need it again". But still, it wasn't that widely supported and the problem still persisted.
 
-Apart from being connectionless, HTTP being a stateless protocol i.e. server doesn't maintain the information about the client and so each of the requests has to have the information necessary to fulfill the request on it's own without any association with the old requests. And so this adds to the previously stated issue of multiple connections i.e. the client may have to send the redundant data in each of the requests causing increased request sizes.
+Apart from being connectionless, `HTTP` also is a stateless protocol i.e. server doesn't maintain the information about the client and so each of the requests has to have the information necessary for the server to fulfill the request on it's own without any association with any old requests. And so this adds fuel to the fire i.e. apart from the large number of connections that the client has to open, it also has to send some redundant data on the wire causing increased bandwidth usage.
 
 ## `HTTP/1.1` - 1999
 
-After merely 3 years of HTTP/1.0, the next version of HTTP i.e. `HTTP/1.1` was released in 1999 which made alot of improvements over it's predecessor. The majore improvements over `HTTP/1.0` included
+After merely 3 years of `HTTP/1.0`, the next version i.e. `HTTP/1.1` was released in 1999 which made alot of improvements over it's predecessor. The majore improvements over `HTTP/1.0` included
 
-- **New HTTP methods** were introduced which were `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
+- **New HTTP methods** were added, which introduced `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
 
 - **Hostname Identification** In `HTTP/1.0` `Host` header wasn't required but `HTTP/1.1` made it required.
 
@@ -101,7 +105,7 @@ After merely 3 years of HTTP/1.0, the next version of HTTP i.e. `HTTP/1.1` was r
 
 - **Pipelining** It also introduced the support for pipelining, where the client could send multiple requests to the server without waiting for the response from server on the same connection and server had to send the response in the same sequence in which requests were received. But how does the client know that this is the point where first response download completes and the content for next response starts, you may ask! Well, to solve this, there must be `Content-Length` header present which clients can use to identify where the response ends and it can start waiting for the next response.
 
-> It should be noted that in order to benefit from persistent connections or pipelining, `Content-Length` header must be available on the response, because this would let the client know when the transmission completes and it can send the next request(in normal sequential way of sending requests) or start waiting for the the next response (when pipelining is enabled). 
+> It should be noted that in order to benefit from persistent connections or pipelining, `Content-Length` header must be available on the response, because this would let the client know when the transmission completes and it can send the next request (in normal sequential way of sending requests) or start waiting for the the next response (when pipelining is enabled). 
 
 > But there was still an issue with this approach. And that is, what if the data is dynamic and server cannot find the content length before hand? Well in that case, you really can't benefit from persistent connections, could you?! In order to solve this `HTTP/1.1` introduced chunked encoding. In such cases server may omit content-Length in favor of chunked encoding (more to it in a moment). However, if none of them are available, then the connection must be closed at the end of request.
 
@@ -119,22 +123,23 @@ After merely 3 years of HTTP/1.0, the next version of HTTP i.e. `HTTP/1.1` was r
 
 I am not going to dwell about all the `HTTP/1.1` features in this post as it is a topic in itself and you can already find a lot about it. Here is one such document that I would recommend you to read is [Key differences between `HTTP/1.0` and HTTP/1.1](http://www.ra.ethz.ch/cdstore/www8/data/2136/pdf/pd1.pdf) and the [original RFC](https://tools.ietf.org/html/rfc2616) for the overachievers.
 
-HTTP/1.1 was introduced in 1999 and it had been a standard for many years. Although, it improved alot over it's predecessor, with the web changing everyday, it started to show it's age. Loading a web page is more resource-intensive than it ever was. A simple webpage these days has to open more than 30 connections. Well, `HTTP/1.1` has persistent connections, then why so many connections still? The reason being; in `HTTP/1.1` it can only have one outstanding connection at any moment of time. `HTTP/1.1` tried to fix this by introducing pipelining but it didn't completely address the issue because of the **head-of-line blocking** where a slow or heavy request may block the requests behind and once a request gets stuck in a pipeline, it will have to wait for the next requests to be fulfilled. To overcome these shortcomings of HTTP/1.1, the developers started implementing the workarounds, for example use of spritesheets, encoded images in CSS, single humungous CSS/Javascript files, [domain sharding](https://www.maxcdn.com/one/visual-glossary/domain-sharding-2/) etc so to increase the performance.
+`HTTP/1.1` was introduced in 1999 and it had been a standard for many years. Although, it improved alot over it's predecessor; with the web changing everyday, it started to show it's age. Loading a web page these days is more resource-intensive than it ever was. A simple webpage these days has to open more than 30 connections. Well `HTTP/1.1` has persistent connections, then why so many connections? you say! The reason is, in `HTTP/1.1` it can only have one outstanding connection at any moment of time. `HTTP/1.1` tried to fix this by introducing pipelining but it didn't completely address the issue because of the **head-of-line blocking** where a slow or heavy request may block the requests behind and once a request gets stuck in a pipeline, it will have to wait for the next requests to be fulfilled. To overcome these shortcomings of `HTTP/1.1`, the developers started implementing the workarounds, for example use of spritesheets, encoded images in CSS, single humungous CSS/Javascript files, [domain sharding](https://www.maxcdn.com/one/visual-glossary/domain-sharding-2/) etc.
 
 ## SPDY - 2009
 
-Google went ahead and started experimenting with alternative protocols to make the web faster and improving web security while reducing the latency of web pages. In 2009, they announced SPDY. SPDY is a trademark of Google and isn't an acronym. It started to become a defacto standards and majority of browsers started implementing it. 
+Google went ahead and started experimenting with alternative protocols to make the web faster and improving web security while reducing the latency of web pages. In 2009, they announced `SPDY`. 
 
-It was seen that if we keep increasing the bandwidth, the network performance increases in the beginning but a point comes when there is not much of a performance gain. But if you do the same with latency i.e. if we keep dropping the latency, there is a constant performance gain. This was the core idea for performance gain behind SPDY, decrease the latency to increase the network performance.
+> `SPDY` is a trademark of Google and isn't an acronym.
+
+It was seen that if we keep increasing the bandwidth, the network performance increases in the beginning but a point comes when there is not much of a performance gain. But if you do the same with latency i.e. if we keep dropping the latency, there is a constant performance gain. This was the core idea for performance gain behind `SPDY`, decrease the latency to increase the network performance.
 
 > For those who don't know the difference, latency is the delay i.e. how long it takes for data to travel between the source and destination (measured in milliseconds) and bandwidth is the amount of data transfered per second (bits per second).
 
-SPDY didn't really try to replace HTTP; it was a translation layer over HTTP which existed at the application layer and modified the request before sending it over to the wire. The features of SPDY included, multiplexing, compression, prioritization, security etc. I am not going to get into the details of SPDY, as you will get the idea when we get into the nitty gritty of `HTTP/2` in the next section as I said `HTTP/2` is mostly inspired from SPDY.
+The features of `SPDY` included, multiplexing, compression, prioritization, security etc. I am not going to get into the details of SPDY, as you will get the idea when we get into the nitty gritty of `HTTP/2` in the next section as I said `HTTP/2` is mostly inspired from SPDY.
+
+`SPDY` didn't really try to replace HTTP; it was a translation layer over HTTP which existed at the application layer and modified the request before sending it over to the wire. It started to become a defacto standards and majority of browsers started implementing it. 
 
 In 2015, at Google, they didn't want to have two competing standards and so they decided to merge it into HTTP while giving birth to `HTTP/2` and deprecating SPDY. 
-
-HTTP/2 has already [surpassed SPDY in adaption](http://caniuse.com/#search=http2).
-
 
 ## `HTTP/2` - 2015
 
@@ -152,9 +157,13 @@ By now, you must be convinced that why we needed another revision of the HTTP pr
 
 ### 1. Binary Protocol
 
-HTTP/2 tends to address the issue of increased latency that existed in HTTP/1.x by making it a binary protocol. Being a binary protocol, it easier to parse but unlike HTTP/1.x it is no longer readable by the human eye; PS, forget about the `telnet`. 
+`HTTP/2` tends to address the issue of increased latency that existed in HTTP/1.x by making it a binary protocol. Being a binary protocol, it easier to parse but unlike `HTTP/1.x` it is no longer readable by the human eye. The major building blocks of `HTTP/2` are Frames and Streams
 
-**Frames and Streams** HTTP messages are now composed of one or more frames. There is a `HEADERS` frame for the meta data and `DATA` frame for the payload and there exist several other types of frames (HEADERS, DATA, RST_STREAM, SETTINGS etc) that you can check through [the `HTTP/2` specs](https://http2.github.io/http2-spec/#FrameTypes). Every `HTTP/2` request and response is given a unique stream ID and it is divided into frames. Frames are nothing but binary pieces of data. A collection of frames is called a Stream. Each frame has a stream id that identifies the stream to which it belongs and each frame has a common header. Also, apart from stream ID being unique, it is worth mentioning that, any request initiated by client uses odd numbers and the response from server has even numbers stream IDs.
+#### Frames and Streams
+
+HTTP messages are now composed of one or more frames. There is a `HEADERS` frame for the meta data and `DATA` frame for the payload and there exist several other types of frames (`HEADERS`, `DATA`, `RST_STREAM`, `SETTINGS`, `PRIORITY` etc) that you can check through [the `HTTP/2` specs](https://http2.github.io/http2-spec/#FrameTypes). 
+
+Every `HTTP/2` request and response is given a unique stream ID and it is divided into frames. Frames are nothing but binary pieces of data. A collection of frames is called a Stream. Each frame has a stream id that identifies the stream to which it belongs and each frame has a common header. Also, apart from stream ID being unique, it is worth mentioning that, any request initiated by client uses odd numbers and the response from server has even numbers stream IDs.
 
 Apart from the `HEADERS` and `DATA`, another frame type that I think worth mentioning here is `RST_STREAM` which is a special frame type that is used to abort some stream i.e. client may send this frame to let the server know that I don't need this stream anymore. In `HTTP/1.1` the only way to make the server stop sending the response to client was closing the connection which resulted in increased latency because a new connection had to be opened for any consecutive requests. While in HTTP/2, client can use `RST_FRAME` and stop receiving a specific stream while the connection will still be open and the other streams will still be in play.
 
@@ -191,7 +200,7 @@ Without any priority information, server processes the requests asynchronously i
 
 There was extensive discussion on whether security (through `TLS`) should be made mandatory for `HTTP/2` or not. In the end, it was decided not to make it mandatory. However, most vendors stated that they will only support `HTTP/2` when it is used over `TLS`. So, although `HTTP/2` doesn't require encryption by specs but it has kind of become mandatory by default anyway. With that out of the way, `HTTP/2` when implemented over `TLS` does impose some requirementsi.e. `TLS` version `1.2` or higher must be used, there must be a certain level of minimum keysizes, ephemeral keys are required etc.
 
-HTTP/2 is here and most of the browsers/clients [already have the support for it](http://caniuse.com/#search=http2), which is gradually increasing. `HTTP/2` has alot to offer in terms of performance gain and it is about time we should start using it. 
+`HTTP/2` is here and it has already [surpassed SPDY in adaption](http://caniuse.com/#search=http2) which is gradually increasing. `HTTP/2` has alot to offer in terms of performance gain and it is about time we should start using it. 
 
 For anyone interested in further details here is the [link to specs](https://http2.github.io/http2-spec) and a link [demonstrating the performance benefits of `HTTP/2`](). For any questions or comments, use the comments section below. Also, while reading, if you find any blatant lies do point them out. And that about wraps it up.
 
