@@ -4,9 +4,9 @@ title: HTTP - How did we get here
 comments: true
 ---
 
-It has been quite a time since I last wrote through my blog and the reason is not being able to find the time enough to put into it. I finally got some time today and since HTTP/2 has been released for some time now, I thought to spend some time writing about it.
+It has been quite a time since I last wrote through my blog and the reason is not being able to find enough time into it. I finally got some time today and since HTTP/2 has been released for some time now, I thought to spend some time writing about it.
 
-It is necessary for the developers, well web developers at the very least, to know about HTTP as it powers the whole web and knowing it is definitely going to help you develop better applications. In this article, I am going to be discussing about what HTTP is, how it came to be, where it is today and how did we get here.
+It is necessary for the developers, well web developers at the very least, to know about HTTP as it powers the whole web and knowing it is definitely going to help you develop better applications. In this article, I am going to be discussing what HTTP is, how it came to be, where it is today and how did we get here.
 
 ## What is HTTP?
 
@@ -17,36 +17,47 @@ First things first, what is HTTP? HTTP is the TCP/IP based application layer com
 The first documented version of HTTP was [HTTP/0.9](https://www.w3.org/Protocols/HTTP/AsImplemented.html) which was put forward in 1991. It was the simplest protocol ever that has a single method called `GET`. If a client has to access some webpage on the server, it would make the simple request like below
 
 ```
+
 GET /index.html
 ```
-And the response would look like below
+And the response from server would have looked like below
 
 ```html
+
 (response body)
 (connection closed)
 ```
 
-The server would get the request, reply with the response HTML and as soon as the content has been transferred, the connection will be closed. There were no headers, GET was the only method allowed and the response had to be text based (HTML).
+The server would get the request, reply with the response HTML and as soon as the content has been transferred, the connection will be closed. There were 
+
+- No headers
+- GET was the only method allowed 
+- Response had to be HTML
 
 As you can see, the protocol really had nothing more than being a stepping stone for what was to come.
 
 ## HTTP/1.0 - 1996
 
-In 1996, the next version of HTTP i.e. HTTP/1.0 evolved from HTTP/0.9 that vastly improved the original version. Unlike HTTP/0.9 which was only designed for text based response, HTTP/1.1 could now deal with other response formats images, video files, plain text or any other content type as well. It added more methods (GET, POST and HEAD), request/response formats got changed, HTTP headers to both the request and responses, status codes to identify the response, character set support, multi-part types, authorization, caching, content encoding and more were included.
+In 1996, the next version of HTTP i.e. HTTP/1.0 evolved from HTTP/0.9 that vastly improved overthe original version. 
+
+Unlike HTTP/0.9 which was only designed for HTML response, HTTP/1.1 could now deal with other response formats images, video files, plain text or any other content type as well. It added more methods (GET, POST and HEAD), request/response formats got changed, HTTP headers to both the request and responses, status codes to identify the response, character set support, multi-part types, authorization, caching, content encoding and more were included.
 
 Here is how a sample HTTP/1.0 request and response might have looked like:
 
 ```
+
 GET / HTTP/1.0
 Host: kamranahmed.info
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5)
 Accept: */*
 ```
+
 As you can see, client has sent it's personal information, required response type etc along the request. While in HTTP/1.0, because of non-existence of request headers, there was no such information.
 
 Example response to the request above may have looked like below
 
 ```
+
 HTTP/1.0 200 OK 
 Content-Type: text/plain
 Content-Length: 137582
