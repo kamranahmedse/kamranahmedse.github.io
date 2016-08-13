@@ -1,12 +1,12 @@
 ---
 layout: post
-title: HTTP/2 - How did we get here
+title: Journey to HTTP/2
 comments: true
 ---
 
-It has been quite some time since I last wrote through my blog and the reason is not being able to find enough time to put into it. I finally got some time today and since `HTTP/2` has been released for some time now, I thought to spend some of it writing about it.
+It has been quite some time since I last wrote through my blog and the reason is not being able to find enough time to put into it. I finally got some time today and thought to put some of it writing about HTTP.
 
-It is necessary for the developers, well web developers at the very least, to know about HTTP as it powers the whole web and knowing it is definitely going to help you develop better applications. 
+HTTP is the protocol that every web developer should know as it powers the whole web and knowing it is definitely going to help you develop better applications. 
 
 In this article, I am going to be discussing what HTTP is, how it came to be, where it is today and how did we get here.
 
