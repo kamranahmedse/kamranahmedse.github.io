@@ -42,7 +42,7 @@ As you can see, the protocol really had nothing more than being a stepping stone
 
 In 1996, the next version of HTTP i.e. `HTTP/1.0` evolved that vastly improved over the original version. 
 
-Unlike `HTTP/0.9` which was only designed for HTML response, `HTTP/1.1` could now deal with other response formats i.e. images, video files, plain text or any other content type as well. It added more methods (i.e. `POST` and `HEAD`), request/response formats got changed, HTTP headers got added to both the request and responses, status codes were added to identify the response, character set support was introduced, multi-part types, authorization, caching, content encoding and more was included.
+Unlike `HTTP/0.9` which was only designed for HTML response, `HTTP/1.0` could now deal with other response formats i.e. images, video files, plain text or any other content type as well. It added more methods (i.e. `POST` and `HEAD`), request/response formats got changed, HTTP headers got added to both the request and responses, status codes were added to identify the response, character set support was introduced, multi-part types, authorization, caching, content encoding and more was included.
 
 Here is how a sample `HTTP/1.0` request and response might have looked like:
 
