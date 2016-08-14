@@ -95,7 +95,7 @@ Apart from being connectionless, `HTTP` also is a stateless protocol i.e. server
 
 ## `HTTP/1.1` - 1999
 
-After merely 3 years of `HTTP/1.0`, the next version i.e. `HTTP/1.1` was released in 1999 which made alot of improvements over it's predecessor. The majore improvements over `HTTP/1.0` included
+After merely 3 years of `HTTP/1.0`, the next version i.e. `HTTP/1.1` was released in 1999; which made alot of improvements over it's predecessor. The major improvements over `HTTP/1.0` included
 
 - **New HTTP methods** were added, which introduced `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
 
