@@ -202,6 +202,6 @@ There was extensive discussion on whether security (through `TLS`) should be mad
 
 `HTTP/2` is here and it has already [surpassed SPDY in adaption](http://caniuse.com/#search=http2) which is gradually increasing. `HTTP/2` has alot to offer in terms of performance gain and it is about time we should start using it. 
 
-For anyone interested in further details here is the [link to specs](https://http2.github.io/http2-spec) and a link [demonstrating the performance benefits of `HTTP/2`](http://www.http2demo.io/). For any questions or comments, use the comments section below. Also, while reading, if you find any blatant lies do point them out. And that about wraps it up.
+For anyone interested in further details here is the [link to specs](https://http2.github.io/http2-spec) and a link [demonstrating the performance benefits of `HTTP/2`](http://www.http2demo.io/). For any questions or comments, use the comments section below. Also, while reading, if you find any blatant lies; do point them out.
 
-Until next time! stay tuned.
+And that about wraps it up. Until next time! stay tuned.
