@@ -188,7 +188,7 @@ While we are talking headers, let me add here that the headers are still the sam
 
 Server push is another tremendous feature of `HTTP/2` where the server, knowing that the client is going to ask for a certain resource, can push it to the client without even client asking for it. For example, let's say a browser loads a web page, it parses the whole page to find out the remote content that it has to load from the server and then sends consequent requests to the server to get that content.
 
-Server push allows the server to decrease the roundtrips by pushing the data that it knows that client is going to demand. How it is done is, server sends a special frame called `PUSH_PROMISE` notifying the client that, "Hey, I am about to send this resource to you! Do not ask me for it." The `PUSH_PROMISE` frame is associated with the stream that caused the push to happen and it contains the promised stream ID i.e. the stream on which the server will send the resource.
+Server push allows the server to decrease the roundtrips by pushing the data that it knows that client is going to demand. How it is done is, server sends a special frame called `PUSH_PROMISE` notifying the client that, "Hey, I am about to send this resource to you! Do not ask me for it." The `PUSH_PROMISE` frame is associated with the stream that caused the push to happen and it contains the promised stream ID i.e. the stream on which the server will send the resource to be pushed.
 
 ### 5. Request Prioritization
 
