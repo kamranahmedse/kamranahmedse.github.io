@@ -83,11 +83,13 @@ Three-way handshake in it's simples form is that all the `TCP` connections begin
 
 - `SYN` - Client picks up a random number, let's say `x`, and sends it to the server.
 - `SYN ACK` - Server acknowledges the request by sending an `ACK` packet back to the client which is made up of a random number, let's say `y` picked up by server and the number `x+1` where `x` is the number that was sent by the client
-- `ACK` - Client increments the number `y` received from the server and sends an `ACK` packet back with the number `x+1`
+- `ACK` - Client increments the number `y` received from the server and sends an `ACK` packet back with the number `y+1`
 
 Once the three-way handshake is completed, the data sharing between the client and server may begin. It should be noted that the client may start sending the application data as soon as it dispatches the last `ACK` packet but the server will still have to wait for the `ACK` packet to be recieved in order to fulfill the request.
 
 ![](http://i.imgur.com/uERG2G2.png)
+
+> Please note that there is a minor issue with the image, the last `ACK` packet sent by the client to end the handshake contains only `y+1` i.e. it should have been `ACK:y+1` instead of `ACK: x+1, y+1` 
 
 However, some implementations of `HTTP/1.0` tried to overcome this issue by introducing a new header called `Connection: keep-alive` which was meant to tell the server "Hey server, do not close this connection, I need it again". But still, it wasn't that widely supported and the problem still persisted.
 
@@ -97,7 +99,7 @@ Apart from being connectionless, `HTTP` also is a stateless protocol i.e. server
 
 After merely 3 years of `HTTP/1.0`, the next version i.e. `HTTP/1.1` was released in 1999; which made alot of improvements over it's predecessor. The major improvements over `HTTP/1.0` included
 
-- **New HTTP methods** were added, which introduced `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
+- **New HTTP methods** were added, which introduced `PUT`, `PATCH`, `OPTIONS`, `DELETE`
 
 - **Hostname Identification** In `HTTP/1.0` `Host` header wasn't required but `HTTP/1.1` made it required.
 
