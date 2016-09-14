@@ -4,17 +4,17 @@ title: Art of getting better as a Programmer
 comments: true
 ---
 
-No one is perfect and everybody needs to chase the perfection. Anyone who thinks that they are perfect, are doomed. Monotomy is dangerous; even the stationary water, if it stays stationary, starts to stink after a while. If one does not face challenges for a while, tries not to get out of their comfort zone, keep doing what they are used to doing, repel the change and do not try to get better; same happens to them.
+Everybody needs to chase the perfection. No one is perfect; anyone who thinks they are, are doomed to crumble. Monotomy is dangerous; even the stationary water, if left stationary for a while, starts to stink. If one does not face challenges for a while, tries not to get out of their comfort zone, keep doing what they are used to doing, repel the change and do not try to get better; same happens to them.
 
 So what exactly can you do to get better? Here is the list of a few things that I think any one can do in order to get better
 
-## Don't be an Immitator
+## Don't Immitate; Understand
 
 While solving some problem, it must have occured to you that you faced some issue and without thinking anything else you immediately headed to that *brilliant* guy in your team who happens to know it all and poked him for the solution or you quickly Googled the problem, found some piece of code on Stackoverflow or some forum, copy pasted the code and voilla you got the whole thing working. That is all fine and dandy till you face the similar issue again and you have to do the same; poke that guy or Google for the solution, you keep following the same loop and you never get better. 
 
-When you face some issue, do not let asking anyone for the solution be the first thing you do, give yourself some time to do the research; if you find the solution, try not to let find-copy/paste-mould-done be your mantra to get the thing done. Try to find out the reasoning behind the solution; do not take anyone's word for it. If you don't have the time to do it momentarily then don't do it immediately, save it in [your todo list](http://todoist.com) or [in your pocket](http://getpocket.com/) and make sure to visit that later.
+When you face some issue, do not let asking anyone for the solution be the first thing you do, give yourself some time to do the research; if you find the solution, try not to let find-copy/paste-mould-done be your mantra to get the thing done. Try to find out the reasoning behind the solution. If you don't have the time to do it momentarily, don't do it immediately but save it in [your todo list](http://todoist.com) or [in your pocket](http://getpocket.com/) and make sure to visit that later.
 
-Apart from that, the other issue is when it comes to learning something we either follow some programming books, watch some online tutorials or read some articles. The major problem with most of the resources out there is that they don't go behind the curtains and the main focus is on immitation i.e. the instructor writes some code, you write the same code and then the supposition is that you understand what you are doing. Then you get out to the real world and face problems that are different than the ones you saw in the course and you fall down; Why? Because much more important than immitating someone else's code is to understand what it is actually doing. Let the documentation be the source of truth for you instead of that resource that you used to learn and do not forget to tinker with it yourself.
+Another issue is when it comes to learning something we either follow some programming books, watch some online tutorials or read some articles. The major problem with most of the resources out there is that they don't go behind the curtains and the main focus is on immitation i.e. the instructor writes some code, you write the same code and then the supposition is that you understand what you are doing. Then you get out to the real world and face problems that are different than the ones you saw in the course and you fall down; Why? Because much more important than immitating someone else's code is to understand what it is actually doing. Let the documentation be the source of truth for you instead of that resource that you used to learn and do not forget to tinker with it yourself.
 
 ## Know thy craft
 
@@ -41,7 +41,7 @@ Most importantly, you should try to avoid writing the bad code unless you have a
 
 Go through the source code of the opensource stuff that you use most of the time to see how it works and what is it that makes it tick; you will be astounded to find some hidden gems in there. Apart from looking under the hood, find the ways to contribute to them it may be some minor refactoring in code like [this one](https://github.com/composer/composer/pull/5669/commits/6990454e567a860411931135a838cf1f838cb49c) that I did for the soul purpose of this article, propose a patch for [some locked issue](https://github.com/composer/composer/issues), fix some typos in the documentation etc.
 
-Apart from that you may find some time to hack on those foolish [little](https://github.com/kamranahmedse/beetle) [ideas](https://github.com/kamranahmedse/jumper-bot) to brush up your knowlege a little and get some input/critique from the community.
+Apart from that find some time to hack on those foolish [little](https://github.com/kamranahmedse/beetle) [ideas](https://github.com/kamranahmedse/jumper-bot) to brush up your knowlege a little and get some input/critique on your work from the community.
 
 ## Read
 
