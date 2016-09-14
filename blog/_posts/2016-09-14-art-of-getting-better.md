@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Art of getting better as a Programmer
+title: Get Better
 comments: true
 ---
 
