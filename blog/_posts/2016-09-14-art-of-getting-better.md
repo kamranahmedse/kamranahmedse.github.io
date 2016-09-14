@@ -6,7 +6,7 @@ comments: true
 
 I first titled this article to be "Don't immitate; Understand" and the main theme was to focus on how important looking under the hood is, but then I thought of a few more things that I could add in order to depict what can a programmer do to get better.
 
-So why exactly should you even care about getting better? I don't think it really needs an answer; no one is perfect and everybody needs to chase the perfection. Anyone who thinks that they are perfect are doomed. Even the stationary water, which is fine in the beginning, starts to stink after a time. Did you see how dramatic, I made it by adding that metaphor?! ;-)
+So why exactly should you even care about getting better? I don't think it really needs an answer; no one is perfect and everybody needs to chase the perfection. Anyone who thinks that they are perfect are doomed. Even the stationary water, which is fine in the beginning, starts to stink after a time. Did you see how dramatic, I made it by adding that metaphor?! 😉
 
 So what exactly can you do to get better? Here is the list of a few things that I think any one can do in order to get better:
 
