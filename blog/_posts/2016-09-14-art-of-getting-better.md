@@ -4,9 +4,9 @@ title: Art of getting better as a Programmer
 comments: true
 ---
 
-I first titled this article to be "Don't immitate; Understand" and the main theme was to focus on how important looking under the hood is, but then I thought of a few more things that I could add in order to depict what can a programmer do to get better.
+I first titled this article to be "Don't immitate; Understand" and the main theme was to focus on how important looking under the hood is, but then I thought of a few more things that I could add in order to depict the things that a programmer can do to get better.
 
-So why exactly should you even care about getting better? I don't think it really needs an answer; no one is perfect and everybody needs to chase the perfection. Anyone who thinks that they are perfect are doomed. Even the stationary water, which is fine in the beginning, starts to stink after a time. Did you see how dramatic, I made it by adding that metaphor?! 😉
+Why exactly should you even care about getting better? I don't think it really needs an answer; no one is perfect and everybody needs to chase the perfection. Anyone who thinks that they are perfect, are doomed. Let me make it a little more dramatic by adding a self-cooked metaphor; even the stationary water, which is fine in the beginning, starts to stink after a while, that's how dangerous the monotony is. If one does not face challenges for a while, tries not to get out of their comfort zone, keep doing what they are used to doing, repel the change and try not to get better, same happens to them that happens to the stationary water.
 
 So what exactly can you do to get better? Here is the list of a few things that I think any one can do in order to get better:
 
