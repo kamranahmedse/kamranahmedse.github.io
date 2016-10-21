@@ -4,7 +4,7 @@ title: What are you afraid of?
 comments: true
 ---
 
-Being the developers, we have all been at the point where we have done several little side projects; sometimes just to try that interesting technology that you have been hearing alot about and the others when you start something with the hopes of taking the world on. First type of projects are good as they usually serve their purpose while the problem with the latter ones is that most of the times although you start with an excitement, eventually you end up having second thoughts and come up with the reasons to shelve it; reasons that usually start with, *it won't work because (some excuse)*. And the excuses maybe
+Being the developers, we have all been at the point where we have done several side projects; sometimes just to try that interesting technology that you have been hearing alot about and the others when you start something with the hopes of taking the world on. First type of projects are good as they usually serve their purpose while the problem with the latter ones is that most of the times although you start with an excitement, eventually you end up having second thoughts and come up with the reasons to shelve it; reasons that usually start with, *it won't work because (some excuse)*. And the excuses maybe
 
 *..there is something similar in the market*
 
