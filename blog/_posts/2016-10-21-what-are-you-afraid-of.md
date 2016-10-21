@@ -20,7 +20,7 @@ Being developers, we have all been at the point where we have done several side 
 
 Almost all of us have questions like this when we think of accomplishing something new. And it is usually the questions like this which hinder your way to the success. In my own experience, I have come to terms with the fact that it all depends upon how you react; whether you take the excuses like these as challenges to be tackled or as the reasons for why you will fail.
 
-> Come to terms with the fact that it all depends upon how you react; whether you take the excuses like these as challenges to be tackled or as the reasons for why you will fail. 
+> It all depends upon how you react; whether you take the excuses like these as challenges to be tackled or as the reasons for why you will fail. 
 
 I have been reading this amazing book called [The Magic of Thinking Big](https://www.amazon.com/The-Magic-Thinking-David-Schwartz/dp/0671646788) by David J. Schwartz and I must say that it is one of my favorite reads so far. Here is a chunk from it:
 
