@@ -32,4 +32,4 @@ I have been reading this amazing book called [The Magic of Thinking Big](https:/
 
 While some may argue for me being the [best employee](https://github.com/kamranahmedse) (pun intended ;)), I have never been a good employer when it comes to personal projects. I have done so many side projects and put them on the shelf, staying in the comfort zone, not doing what may fail. It is time to change that. I have already been working towards completing the MVP. I haven’t got a clue to what it is going to be and I couldn't be more excited.
 
-And that about wraps it up. What are you afraid of? What is it that is holding you back? What is your excuse to not start? Follow up with the comment section below.
+And that about wraps it up. What are you afraid of? What is it that is holding you back? What is your excuse to not start? Follow up with the comments section below.
