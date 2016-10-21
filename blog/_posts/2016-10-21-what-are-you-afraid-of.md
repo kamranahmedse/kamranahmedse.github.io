@@ -16,7 +16,7 @@ Being the developers, we have all been at the point where we have done several s
 
 *..I am not ready yet*
 
-*..I can't take rist*
+*..I can't take risk*
 
 Almost all of us have questions like this when we think of accomplishing something new. And it is usually the questions like this which hinder your way to the success. In my own experience, I have come to terms with the fact that it all depends upon how you react; whether you take the excuses like these as challenges to be tackled or as the reasons for why you will fail.
 
