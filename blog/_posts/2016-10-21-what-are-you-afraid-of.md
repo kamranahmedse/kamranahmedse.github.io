@@ -4,7 +4,7 @@ title: What are you afraid of?
 comments: true
 ---
 
-Being developers, we have all been at the point where we have done several side projects; sometimes just to try that interesting technology that you have been hearing alot about and the others when you start something with the hopes of taking the world on. First type of projects are good as they usually serve their purpose but the problem with latter ones is that most of the times although you start with an excitement, eventually you end up having second thoughts and come up with the reasons to shelve them. Reasons that usually start with, *it won't work because (some excuse)*. And the excuses maybe
+Being developers, we have all been at the point where we have done several side projects; sometimes just to try that interesting technology that is being buzzed around and the others when we start something with the hopes of taking the world on. First type of projects are good as they usually serve their purpose but the problem with latter ones is that most of the times although you start with an excitement, eventually you end up having second thoughts and come up with the reasons to shelve them; thus not getting anything out of them except the loss of time. These excuses mostly start with, *it won't work because (some excuse)*
 
 *..there is something similar in the market*
 
@@ -14,11 +14,9 @@ Being developers, we have all been at the point where we have done several side 
 
 *..no body is going to invest*
 
-*..I am not ready yet*
+*..it ain't worth the risk*
 
-*..I can't take risk*
-
-Almost all of us have questions like this when we think of accomplishing something new. And it is usually the questions like this which hinder your way to the success. In my own experience, I have come to terms with the fact that it all depends upon how you react; whether you take the excuses like these as challenges to be tackled or as the reasons for why you will fail.
+Almost all of us have questions like this when we think of accomplishing something new. And it is usually the questions like this which hinder our way to the success. In my own experience, I have come to terms with the fact that it all depends upon how you react; whether you take the excuses like these as challenges to be tackled or as the reasons for why you will fail.
 
 > It all depends upon how you react; whether you take the excuses like these as challenges to be tackled or as the reasons for why you will fail. 
 
