@@ -1,4 +1,10 @@
-# Do not use auto increments
+---
+layout: post
+title: Do not use auto increments!
+comments: true
+---
+
+# Do not use auto increments!
 
 "Integers are fast, take less space and ought to be preferred over using character types" is the first thing that junior developers are taught when learning about the databases and it is mostly right. 
 
