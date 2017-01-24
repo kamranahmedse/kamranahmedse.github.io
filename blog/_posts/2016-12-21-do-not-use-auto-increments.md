@@ -1,10 +1,12 @@
 # Do not use auto increments
 
-"Integers are fast, take less space and ought to be preferred over using character types" is the first thing that junior developers are taught when learning about the databases and it is mostly right. Any datatype with fixed length is faster than variable length data type. But the problems start to lift their heads up when these are used in the places they shouldn't be; the auto incremented primary keys on tables, for example.
+"Integers are fast, take less space and ought to be preferred over using character types" is the first thing that junior developers are taught when learning about the databases and it is mostly right. 
 
-## Why are they bad? 
+Any datatype with fixed length is comparatively faster than any variable length datatype. But the problems start to lift their heads up when these are used in the places they shouldn't be; the auto incremented primary keys on tables, for example.
 
-Well consider that you have built an app and it started to grow and the queries are getting too slow for a single database server to handle the load and you have to scale the load to a second. Most likely you will implement some sharding algorithm to distribute the data across the second or third database. Now consider the scenario where an item with auto incremented id `5` is created on database `A` and since database `B` has no way of know that what `A` is upto so the same happens on database `B` i.e. item with `id` 5 is created while giving birth to a conflicting situation where you won't be able to find out which is what.
+## Why is it bad? 
+
+Consider that you have built an app that has started to grow and the queries are getting too slow for a single database server to handle and you have to scale the load to a second one. Most likely you will implement some sharding algorithm to distribute the data across the second or third database. Now consider the scenario where an item with auto incremented id `5` is created on database `A` and since database `B` has no way of knowing that what `A` is upto; the same happens on database `B` i.e. item with `id` 5 is created while giving birth to a conflicting situation where you won't be able to find out which is what.
 
 Another case might be the app in which you had to incorporate the offline storage strategy where data could be stored locally when the user is offline and later on be synced to the server. What if there was some item created with the id `8` during the period when system was offline and in the mean time someone else created an item with the same ID online? There would be a problem while syncing this offline data.
 
