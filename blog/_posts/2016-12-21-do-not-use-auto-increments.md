@@ -4,8 +4,6 @@ title: Do not use auto increments!
 comments: true
 ---
 
-# Do not use auto increments!
-
 "Integers are fast, take less space and ought to be preferred over using character types" is the first thing that junior developers are taught when learning about the databases and it is mostly right. 
 
 Any datatype with fixed length is comparatively faster than any variable length datatype. But the problems start to lift their heads up when these are used in the places they shouldn't be; the auto incremented primary keys on tables, for example.
