@@ -1,21 +1,22 @@
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-  <!-- Enable responsiveness on mobile devices--> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>
-    {% if page.title == "Home" %}
-      {{ site.title }} &middot; {{ site.tagline }}
-    {% else %}
-      {{ page.title }} &middot; {{ site.title }}
-    {% endif %}
-  </title>
+    <title>
+        {% if page.title == "Home" %}
+        {{ site.title }} &middot; {{ site.tagline }}
+        {% else %}
+        {{ page.title }} &middot; {{ site.title }}
+        {% endif %}
+    </title>
 
-  <link rel="stylesheet" href="{{ site.baseurl }}public/css/style.css">
-  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro|Poly" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="{{ site.baseurl }}public/css/monokai_sublime.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}public/css/style.css">
+    <!--<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro|Poly" rel="stylesheet" type="text/css">-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,700i|Open+Sans:400,400i,600,600i" rel="stylesheet">
+    <link rel="stylesheet" href="{{ site.baseurl }}public/css/monokai_sublime.css">
 
-  <!-- RSS -->
-  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}atom.xml">
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}atom.xml">
 </head>

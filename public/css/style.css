@@ -1,101 +1,124 @@
-* { margin: 0px; padding: 0px; }
-.left { float: left; }
-.right { float: right; }
-.clr { clear: both; }
-
-code {
-  padding: .15em .3em;
-  font-style: normal;
-  font-weight: normal;
-  color: #d44950;
-  background-color: #f5f5f5;
-  border-radius: .15em;
-}
-pre.highlight {
-  line-height: 24px;
+* {
+    margin: 0px;
+    padding: 0px;
 }
 
-h1 {
-    font-size: 3.3em;
+.left {
+    float: left;
 }
 
-h2 {
-    font-size: 1.6em;
+.right {
+    float: right;
 }
 
-h1, h2 {
-    font-family: Poly,serif;
-    font-weight: 100;
-    color: #3f3f3f;
-    margin: 0 0 35px;
+.clr {
+    clear: both;
+}
+
+.text-center {
     text-align: center;
 }
 
+code {
+    padding: 3px 5px 5px;
+    font-style: normal;
+    font-weight: normal;
+    color: #d44950;
+    background-color: #f5f5f5;
+    border-radius: 3px;
+}
+
+pre.highlight {
+    line-height: 24px;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+h1, h2, h3 {
+    font-family: 'Lato', sans-serif;
+    color: #000;
+    text-align: left;
+}
+
 strong {
-  font-weight: bold;
-  color: #333;
+    font-weight: bold;
+    color: #333;
 }
 
 em {
-  color: #666;
+    color: #666;
 }
 
 em, strong {
-  padding-left: .1em;
-  padding-right: .1em;
+    padding-left: .1em;
+    padding-right: .1em;
 }
 
 p {
-  line-height: 1.5;
-  margin: 20px 0;
+    line-height: 31px;
+    margin: 20px 0;
+    color: #4D4D4D;
 }
 
 ul, ol {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding-left: 2em;
+    margin-top: 35px;
+    margin-bottom: 40px;
+    padding-left: 50px;
 }
 
 ul li, ol li {
-    margin: 1rem 0;
-    line-height: 1.5;
+    margin: 20px 0;
+    line-height: 30px;
 }
 
 blockquote {
-  padding: 0 0 0 1.5rem;
-  color: #8F8F8F;
-  border-left: 5px solid #e5e5e5;
+    background: whitesmoke;
+    padding: 25px 30px;
+    margin: 30px 0;
+}
+
+blockquote p {
+    margin: 0;
 }
 
 a {
-    color: #4F87A5;
+    /*color: #4F87A5;*/
+    color: #008aff;
     text-decoration: none;
-    border-bottom: 2px solid;
     margin: 0 5px;
 }
 
 .site-footer a {
-  margin: 0;
+    margin: 0;
 }
 
 hr {
-  border: 0;
-  border-top: 1px solid #eee;
-  width: 40%;
-  margin: 50px auto;
+    border: 0;
+    border-top: 1px solid #eee;
+    width: 40%;
+    margin: 50px auto;
 }
 
 body {
-  font-family: 'Source Sans Pro',serif;
-  font-size: 20px;
-  margin: 0;
-  color: #333;
-  background: #fff;
-  padding: 0 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    margin: 0;
+    color: #333;
+    padding: 0 10px;
 }
 
 .post-row {
-  line-height: 35px;
+    line-height: 35px;
 }
 
 .post-anch a {
@@ -108,9 +131,9 @@ body {
 }
 
 .page-wrap {
-  max-width: 720px;
-  margin: 45px auto;
-  padding: 6px;
+    max-width: 720px;
+    margin: 45px auto;
+    padding: 6px;
 }
 
 .page-header {
@@ -145,6 +168,7 @@ body {
 
 .posts .date {
     text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
     float: right;
 }
 
@@ -154,121 +178,130 @@ body {
 }
 
 .post-body a {
-  border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+p {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
 }
 
 .site-footer {
-    text-align: left;   
-    min-width: 783px;   
-    max-width: 1020px;  
-    color: #555;   
-    border-top: 1px dashed #ccc;   
-    padding: 10px 0 8px 0;   
-    margin-top: 25px;   
-    margin-bottom: 40px;   
+    text-align: left;
+    min-width: 783px;
+    max-width: 1020px;
+    color: #555;
+    border-top: 1px dashed #ccc;
+    padding: 10px 0 8px 0;
+    margin-top: 25px;
+    margin-bottom: 40px;
     font-size: 13px;
     margin-top: 45px;
 }
 
 .post-anch a {
-  font-weight: bold;
-  color: rgb(34, 34, 34);
-  text-decoration: none;
-  display: block;
+    font-weight: bold;
+    color: rgb(34, 34, 34);
+    text-decoration: none;
+    display: block;
 }
 
 .post-meta {
-  color: #999;
-  font-size: 20px;
-  margin: 15px 0;
-  text-align: center;
+    font-family: 'Lato', sans-serif;
+    color: #c1c1c1;
+    font-size: 15px;
+    margin: 0 0 10px;
+    text-align: left;
+    font-weight: bolder;
 }
 
-.back {
-  text-align: center;
+.post-nav a {
+    border-bottom: none;
 }
 
-.back a {
-  border-bottom: none;
+.post-item > h1 {
+    font-size: 45px;
+    margin-bottom: 25px;
 }
 
-.post-item h1 {
-    font-size: 2.5em;
-    margin: 30px 0;
-}
-
-.post-item h2 {
-    margin: 1.9em 0 1em;
-}
-
-.post-item .post-body {
-  margin-top: 70px;
+.post-body h1, .post-body h2 {
+    margin: 45px 0 25px;
 }
 
 .post-body img {
-  width: 100%;
-  margin: 20px 0px;
+    width: 100%;
+    margin: 20px 0px;
 }
 
 li.nav-head {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .side-nav li {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 .side-nav li a {
-  font-size: 14px;
-  text-decoration: none;
-  border-bottom: 1px solid rgb(204, 204, 204);
+    font-size: 14px;
+    text-decoration: none;
+    border-bottom: 1px solid rgb(204, 204, 204);
 }
 
-.twitter_plug {
-  margin-top: 40px;
-  line-height: 1.5;
+.post-meta {
+    margin-top: 40px;
+    line-height: 1.5;
 }
 
 #mc_embed_signup {
-  margin-top: 40px;
-  margin-bottom: 50px;
+    margin-top: 40px;
+    margin-bottom: 50px;
 }
 
 #mce-email {
-  width: 460px;
-  padding: 11px;
-  background: #f8f8f8;
-  border: 1px solid #444;
-  border-radius: 5px;
-  margin-right: 10px;
+    width: 460px;
+    padding: 10px;
+    background: white;
+    border: 3px solid #ccc;
+    border-radius: 2px;
+    margin-right: 10px;
+    font-size: 14px;
+    outline: none;
 }
 
 #mc-embedded-subscribe {
-  padding: 10px;
-  background: #444;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  border: 2px solid #444;
+    padding: 10px;
+    background: #008aff;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    border: 2px solid #008aff;
+    text-transform: uppercase;
 }
 
 code.hljs {
-  padding: 0px 1em 1.5em;
-  font-size: 15px;
-  margin-bottom: 1rem;
+    padding: 0px 1em 1.5em;
+    font-size: 15px;
+    margin-bottom: 1rem;
 }
 
 .page-top-nav {
-  padding: 15px 0px 0px;
-  font-size: 13px;
-  color: #ddd;
-  display: block;
-  position: relative;
-  top: -50px;
+    padding: 15px 0px 0px;
+    font-size: 13px;
+    color: #ddd;
+    display: block;
+    position: relative;
+    top: -50px;
 }
 
 .page-top-nav a {
-  /*color: #BDB6B6;*/
-  color: #222;
+    color: #222;
+}
+
+.post-meta a {
+    text-decoration: none;
+    border: 0;
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
 }
