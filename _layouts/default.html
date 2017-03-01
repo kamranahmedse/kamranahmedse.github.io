@@ -3,6 +3,24 @@
 {% include head.html %}
 
 <body>
+
+{% if page.layout == 'post' %}
+<div class="article-page-nav">
+    <h3 class="left"><a href="/">kamran ahmed</a></h3>
+    <div class="right">
+        <div class="post-navigation">
+            {% if page.next.url %}
+            <a class="post-nav-btn" href="{{page.next.url}}">&laquo; {{page.next.title}} </a>
+            {% endif %}
+            {% if page.previous.url %}
+            <a class="post-nav-btn" href="{{page.previous.url}}"> {{page.previous.title}} &raquo;</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="clr"></div>
+</div>
+{% endif %}
+
 <!-- .page-wrap -->
 <div class="page-wrap">
     <!-- .page-content -->

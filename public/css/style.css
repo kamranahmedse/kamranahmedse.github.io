@@ -125,7 +125,6 @@ body {
     font-size: 17px;
     margin: 0;
     color: #333;
-    padding: 0 10px;
 }
 
 .post-row {
@@ -145,6 +144,7 @@ body {
     max-width: 720px;
     margin: 45px auto;
     padding: 6px;
+    position: relative;
 }
 
 .page-header {
@@ -167,6 +167,7 @@ body {
 .articles-area {
     display: block;
     width: 100%;
+    margin-top: 90px;
 }
 
 .articles-area ul.posts {
@@ -319,4 +320,31 @@ code.hljs {
     font-size: 30px;
     padding: 0;
     margin: 0;
+}
+
+.post-page-nav {
+    position: absolute;
+    top: 0;
+    font-weight: bold;
+}
+
+.post-page-nav a {
+    padding: 0;
+    margin: 0;
+}
+
+.article-page-nav {
+    padding: 10px 45px;
+    margin-bottom: -50px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+a.post-nav-btn {
+    font-size: 15px;
+    font-weight: bold;
+    display: inline-block;
+    margin: -10px 0;
+    padding: 16px;
+    border-left: 1px solid #ccc;
+    font-family: 'Lato', sans-serif;
 }
