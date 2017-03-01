@@ -47,7 +47,11 @@ h3 {
 h1, h2, h3 {
     font-family: 'Lato', sans-serif;
     color: #000;
-    text-align: left;
+    font-weight: 900;
+}
+
+h2.archive-title {
+    margin: 45px 0 25px;
 }
 
 strong {
@@ -81,6 +85,10 @@ ul li, ol li {
     line-height: 30px;
 }
 
+.article-list-item {
+    margin: 10px 0;
+}
+
 blockquote {
     background: whitesmoke;
     padding: 25px 30px;
@@ -92,10 +100,13 @@ blockquote p {
 }
 
 a {
-    /*color: #4F87A5;*/
     color: #008aff;
     text-decoration: none;
     margin: 0 5px;
+}
+
+.archive a {
+    margin: 0;
 }
 
 .site-footer a {
@@ -212,7 +223,10 @@ p {
     font-size: 15px;
     margin: 0 0 10px;
     text-align: left;
-    font-weight: bolder;
+}
+
+.post-meta strong {
+    color: #a7a7a7;
 }
 
 .post-nav a {
@@ -249,7 +263,8 @@ li.nav-head {
 
 .post-meta {
     margin-top: 40px;
-    line-height: 1.5;
+    font-size: 15px;
+    margin-bottom: 15px;
 }
 
 #mc_embed_signup {

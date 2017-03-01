@@ -3,7 +3,9 @@ layout: default
 ---
 
 <div class="post-item">
-    <div class="post-meta">{{ page.date | date_to_string }}</div>
+    <div class="post-meta">
+        Posted by <strong>Kamran Ahmed</strong> on <strong>{{ page.date | date_to_long_string }}</strong>
+    </div>
     <h1>{{ page.title }}</h1>
 
     <div class="post-body">
