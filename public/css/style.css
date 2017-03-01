@@ -199,16 +199,9 @@ p {
 }
 
 .site-footer {
-    text-align: left;
-    min-width: 783px;
-    max-width: 1020px;
-    color: #555;
     border-top: 1px dashed #ccc;
-    padding: 10px 0 8px 0;
-    margin-top: 25px;
-    margin-bottom: 40px;
+    padding: 15px 0;
     font-size: 13px;
-    margin-top: 45px;
 }
 
 .post-anch a {
@@ -345,6 +338,6 @@ a.post-nav-btn {
     display: inline-block;
     margin: -10px 0;
     padding: 16px;
-    border-left: 1px solid #ccc;
+    border-left: 1px solid #e6e6e6;
     font-family: 'Lato', sans-serif;
 }
