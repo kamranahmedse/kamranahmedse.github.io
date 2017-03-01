@@ -1,1 +1,1 @@
-The code behind my site i.e. <a href="http://kamranahmed.info">kamranahmed.info</a>.
+> ⚠ The design and code in this repository is not available for re-use or purchase.
