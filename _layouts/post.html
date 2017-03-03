@@ -3,13 +3,61 @@ layout: default
 ---
 
 <div class="post-item">
+
     <div class="post-meta">
         Posted by <strong>Kamran Ahmed</strong> on <strong>{{ page.date | date_to_long_string }}</strong>
     </div>
+
     <h1>{{ page.title }}</h1>
+
+
+    {% if page.series %}
+
+    <blockquote class="series-info">
+        <p>This article is part of the series <strong>{{ page.series.title }}</strong></p>
+
+        <ul>
+            {% assign count = '0' %}
+            {% for post in site.posts reversed %}
+            {% if post.series.title == page.series.title %}
+            {% capture count %}{{ count | plus: '1' }}{% endcapture %}
+            <li>Part {{ count }} -
+                {% if page.url == post.url %}
+                <span class="active-article">{{ post.title }}</span>
+                {% else %}
+                <a href="{{post.url}}">{{post.title}}</a>
+                {% endif %}
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </blockquote>
+
+    {% endif %}
 
     <div class="post-body">
         {{ content }}
+
+        {% if page.series %}
+        <div class="series-footer">
+
+            {% if page.series.index != 1 and page.previous %}
+            <a href="{{ page.previous.url }}" class="left">
+                <span>&larr; Previous Part</span>
+                {{ page.previous.title }}
+            </a>
+            {% endif %}
+
+            {% if page.next and page.next.series %}
+            <a href="{{ page.next.url }}" class="right">
+                <span>Next Part &rarr;</span>
+                {{ page.next.title }}
+            </a>
+            {% endif %}
+
+            <div class="clr"></div>
+        </div>
+        {% endif %}
 
         {% include twitter_plug.html %}
         {% include subscription_form.html %}
