@@ -44,3 +44,4 @@ There are mainly three types of design patterns, namely:
   <dd>It is concerned with assignment of responsibilities between the objects. What makes them different from structural patterns is they don't just specify the structure but also outline the patterns for message passing/communication between them. Or in other words, they assist in answering "How to run a behavior in software component?"</dd>
 </dl>
 
+And that wraps it up. In the next article, we will be discussing about the creational patterns.

@@ -534,3 +534,5 @@ $president2 = President::getInstance();
 
 var_dump($president1 === $president2); // true
 ```
+
+And with that this article comes to a conclusion. In the next article, we will be discussing about structural patterns.

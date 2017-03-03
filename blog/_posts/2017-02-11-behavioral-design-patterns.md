@@ -9,7 +9,7 @@ series:
 ---
 
 In plain words
-> They are mainly concerned with assignment of responsibilities between the objects. What makes them different from structural patterns is they don't just specify the structure but also outline the patterns for message passing/communication between them. Or in other words, they assist in answering "How to run a behavior in software component?"
+> Behavioral design patterns are mainly concerned with assignment of responsibilities between the objects. What makes them different from structural patterns is they don't just specify the structure but also outline the patterns for message passing/communication between them. Or in other words, they assist in answering "How to run a behavior in software component?"
 
 Wikipedia says
 > In software engineering, behavioral design patterns are design patterns that identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication.
@@ -1037,3 +1037,5 @@ $iosBuilder->build();
 // Assembling the ios build
 // Deploying ios build to server
 ```
+
+And with this final article, the series comes to the conclusion. Hope you would have learnt a thing or two. If you have any questions, please use the comment section below.
