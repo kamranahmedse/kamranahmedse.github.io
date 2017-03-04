@@ -233,7 +233,7 @@ body {
 
 .post-item > h1 {
     font-size: 45px;
-    margin-bottom: 25px
+    margin-bottom: 14px
 }
 
 .post-body h1, .post-body h2 {
@@ -255,9 +255,8 @@ body {
 }
 
 .post-meta {
-    margin-top: 40px;
     font-size: 15px;
-    margin-bottom: 15px
+    margin-bottom: 40px
 }
 
 #mc_embed_signup {
