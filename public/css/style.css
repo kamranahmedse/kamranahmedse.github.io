@@ -322,9 +322,8 @@ code.hljs {
 }
 
 .article-page-nav {
-    padding: 10px 45px;
+    padding: 35px 45px;
     margin-bottom: -50px;
-    border-bottom: 1px solid #e6e6e6
 }
 
 a.post-nav-btn {
@@ -332,7 +331,6 @@ a.post-nav-btn {
     display: inline-block;
     margin: -10px 0;
     padding: 16px;
-    border-left: 1px solid #e6e6e6
 }
 
 .hljs {
