@@ -219,8 +219,13 @@ body {
 
 .post-meta {
     color: #c1c1c1;
-    margin: 0 0 10px;
-    text-align: left
+    text-align: left;
+    margin-bottom: 30px;
+    opacity: 0.4;
+}
+
+.post-meta:hover {
+    opacity: 1;
 }
 
 .post-meta strong {
