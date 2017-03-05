@@ -23,24 +23,29 @@ title: Home
     <ul class="posts">
         {% for post in site.categories.blog %}
 
-        {% assign currentdate = post.date | date: "%Y" %}
-        {% if currentdate != date %}
-        <li id="y{{currentdate}}"><h2 class="archive-title">{{ currentdate }}</h2></li>
-        {% assign date = currentdate %}
-        {% endif %}
+            <!-- In case of series only show the first article-->
+            {% if post.series and post.series.index != 1 %}
+                {% continue %}
+            {% endif %}
 
-        <li class="article-list-item">
-            <span class="title">
-                <a href="{{ post.url }}">
-                {% if post.series and post.series.index == 1 %}
-                    <span class="label label-info">Series</span>
-                {% endif %}
+            {% assign currentdate = post.date | date: "%Y" %}
+            {% if currentdate != date %}
+            <li id="y{{currentdate}}"><h2 class="archive-title">{{ currentdate }}</h2></li>
+            {% assign date = currentdate %}
+            {% endif %}
 
-                {{ post.title }}
-                </a>
-            </span>
-            <span class="date">{{ post.date | date_to_string }}</span>
-        </li>
+            <li class="article-list-item">
+                <span class="title">
+                    <a href="{{ post.url }}">
+                    {% if post.series and post.series.index == 1 %}
+                        <span class="label label-info">Series</span>
+                    {% endif %}
+
+                    {{ post.title }}
+                    </a>
+                </span>
+                <span class="date">{{ post.date | date_to_string }}</span>
+            </li>
         {% endfor %}
     </ul>
 </div>

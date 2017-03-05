@@ -1,0 +1,40 @@
+{% if page.series %}
+
+{% capture the_collection %}{{page.collection}}{% endcapture %}
+{% if page.collection %}
+    {% assign  document = site[the_collection]  %}
+{% endif %}
+
+{% for links in document  %}
+    {% if links.title == page.title %}
+        {% unless forloop.first %}
+            {% assign next_post = prev %}
+        {% endunless %}
+        {% unless forloop.last %}
+            {% assign next = document[forloop.index] %}
+            {% assign previous_post = next %}
+        {% endunless %}
+    {% endif %}
+    {% assign prev = links %}
+{% endfor %}
+
+
+<div class="series-footer">
+
+        {% if previous_post and previous_post.series and previous_post.series.name == page.series.name  %}
+            <a href="{{ previous_post.url }}" class="left">
+                <span>&larr; Previous Part</span>
+                {{ previous_post.title }}
+            </a>
+        {% endif %}
+
+        {% if next_post and next_post.series and next_post.series.name == page.series.name %}
+            <a href="{{ next_post.url }}" class="right">
+                <span>Next Part &rarr;</span>
+                {{ next_post.title }}
+            </a>
+        {% endif %}
+
+        <div class="clr"></div>
+    </div>
+{% endif %}
