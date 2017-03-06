@@ -419,13 +419,12 @@ a.post-nav-btn {
 }
 
 .series-footer {
-    margin: 55px 0;
+    margin: 30px 0;
 }
 
 .series-footer a {
     padding: 10px;
     border: none;
-    background: whitesmoke;
     margin: 0;
     display: block;
     line-height: 20px;
