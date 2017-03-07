@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Comments Driven Development - Let the comments drive your code
+title: Let the comments drive your code
 comments: true
 ---
 

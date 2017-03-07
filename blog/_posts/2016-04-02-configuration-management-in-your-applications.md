@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Application Configuration Management. What's your approach?
+title: Internal Application Configuration
 comments: true
 ---
 

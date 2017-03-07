@@ -2,9 +2,6 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
-
-* {
     margin: 0;
     padding: 0
 }
@@ -133,7 +130,9 @@ hr {
 
 body {
     font-family: 'Open Sans', sans-serif;
-    font-size: 17px
+    font-size: 17px;
+    padding-top: 1px;
+    background: #303232;
 }
 
 .post-row {
@@ -150,10 +149,11 @@ body {
 }
 
 .page-wrap {
-    max-width: 760px;
-    margin: 45px auto;
-    padding: 6px 20px;
-    position: relative
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 55px 60px;
+    position: relative;
+    background-color: #fff;
 }
 
 .page-header {
@@ -176,7 +176,6 @@ body {
 .articles-area {
     display: block;
     width: 100%;
-    margin-top: 90px
 }
 
 .articles-area ul.posts {
@@ -327,12 +326,16 @@ code.hljs {
 }
 
 .article-page-nav {
-    padding: 15px 20px 20px;
-    margin-bottom: -65px;
+    width: 800px;
+    margin: 50px auto -75px;
+}
+
+.article-page-nav a {
+    color: #faebd7;
 }
 
 a.post-nav-btn {
-    font-size: 15px;
+    font-size: 20px;
     display: inline-block;
     margin: -10px 0;
     padding: 16px;

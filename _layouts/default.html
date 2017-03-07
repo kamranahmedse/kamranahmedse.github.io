@@ -9,12 +9,10 @@
     <h3 class="left"><a href="/">kamran ahmed</a></h3>
     <div class="right">
         <div class="post-navigation">
-            {% if page.next.url %}
-            <a class="post-nav-btn" href="{{page.next.url}}">&laquo; {{page.next.title}} </a>
-            {% endif %}
-            {% if page.previous.url %}
-            <a class="post-nav-btn" href="{{page.previous.url}}"> {{page.previous.title}} &raquo;</a>
-            {% endif %}
+            <h3>
+                <a class="post-nav-btn" href="/">Articles</a>
+                <a target="_blank" class="post-nav-btn" href="http://github.com/kamranahmedse"> Github</a>
+            </h3>
         </div>
     </div>
     <div class="clr"></div>
@@ -40,7 +38,8 @@
         <span class="muted">&copy;
             <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>. All rights reserved.</span>
         <p class="muted">If you've got any feedback, comments or just want to chat you can get in touch via <strong><a
-                href="mailto:kamranahmed.se@gmail.com">email</a></strong> or via <strong><a href="#">+971568313042</a></strong>. Also, here are
+                href="mailto:kamranahmed.se@gmail.com">email</a></strong> or via <strong><a
+                href="#">+971568313042</a></strong>. Also, here are
             the links to my <strong><a href="http://github.com/kamranahmedse">github</a></strong> and <strong><a
                     href="http://pk.linkedin.com/in/kaamranahmed">linkedin</a></strong> profiles.</p>
     </div>

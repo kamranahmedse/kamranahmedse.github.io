@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Birth of Githunt - A Google Chrome extension for Github
+title: Githunt - A Google Chrome extension for Github
 comments: true
 ---
 In my free time, I usually scour Github rummaging through to find out what interesting stuff people have been building. Not only that it helps me *sort of* keep up with what's happening around and broaden my horizon, but also more often than not I come across some really interesting stuff for use in my projects. 
