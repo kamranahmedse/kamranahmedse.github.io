@@ -132,7 +132,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 17px;
     padding-top: 1px;
-    background: #303232;
+    background: whitesmoke url('/public/img/bg.png');
 }
 
 .post-row {
@@ -330,15 +330,9 @@ code.hljs {
     margin: 50px auto -75px;
 }
 
-.article-page-nav a {
-    color: #faebd7;
-}
-
 a.post-nav-btn {
     font-size: 20px;
     display: inline-block;
-    margin: -10px 0;
-    padding: 16px;
 }
 
 .hljs {
