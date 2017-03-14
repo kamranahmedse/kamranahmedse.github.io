@@ -271,9 +271,15 @@ body {
     margin-bottom: 40px
 }
 
+.high-note {
+    background-color: #FFFFBB;
+}
+
 #mc_embed_signup {
     margin-top: 40px;
-    margin-bottom: 50px
+    margin-bottom: 50px;
+    background: #FFFFBB;
+    padding: 1px 35px 45px;
 }
 
 #mce-email {
