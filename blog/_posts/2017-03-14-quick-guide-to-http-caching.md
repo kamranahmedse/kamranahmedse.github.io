@@ -247,3 +247,5 @@ There is no golden rule or set standards about how your caching policy should lo
   - Test and monitor the caching headers being served by your site. You can use the browser console or `curl -I http://some-url.com` for that purpose. 
 
 And that about wraps it up. If you have any comments or feedback, feel free to leave a comment below.
+
+> If you find any typos or blatant lies, you can contribute by [updating the article](https://github.com/kamranahmedse/kamranahmedse.github.io/blob/master/blog/_posts/2017-03-14-quick-guide-to-http-caching.md) 
