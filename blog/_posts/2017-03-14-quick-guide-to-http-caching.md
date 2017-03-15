@@ -6,11 +6,11 @@ comments: true
 
 In one of the previous posts, I discussed about [HTTP and where it stands at this point](/blog/2016/08/13/http-in-depth/). This is one is going to be specifically about the caching.
 
-As users, we easily get frustrated by the buffering videos, the images that take seconds to load, pages that got stuck because the content is being loaded. Loading the resources from some cache is much faster than fetching the same from the originating server. It reduces latency, speeds up the loading of resources, decreases the load on server, cuts down the bandwidth costs etc. This is going  to be an in-depth guide about what web caching is, what are the different types of caching and how (and how not to implement it). 
+As users, we easily get frustrated by the buffering videos, the images that take seconds to load, pages that got stuck because the content is being loaded. Loading the resources from some cache is much faster than fetching the same from the originating server. It reduces latency, speeds up the loading of resources, decreases the load on server, cuts down the bandwidth costs etc. 
 
 ## Introduction
 
-First things first, what is web cache? It sits somewhere between the client and the server, continuously looking at the requests and their responses, looking for any responses that can be cached in order to decrease the time and resources consumed in subsequent requests. Have a look at the rough diagram representing the role of web cache
+What is web cache? It is something that sits somewhere between the client and the server, continuously looking at the requests and their responses, looking for any responses that can be cached. So that there is less time consumed when the same request is made again. 
 
 ![Web Cache](http://i.imgur.com/xMHiYhJ.png)
 
@@ -32,7 +32,7 @@ Before we get into further details, let me give you an overview of the terms tha
 Web cache can be shared or private depending upon the location where it exists. Below is the list of caching locations
 
 ### Browser Cache
-You might have noticed that when you click the back button in your browser, it takes less time than the time that it took during the first load; this is the browser cache in play. Browser cache is the most common location for caching and browsers usually reserve some space for it.
+You might have noticed that when you click the back button in your browser it takes less time to load the page than the time that it took during the first load; this is the browser cache in play. Browser cache is the most common location for caching and browsers usually reserve some space for it.
 
 ![Browser Cache](http://i.imgur.com/DL9HvLX.png)
 
@@ -50,15 +50,15 @@ Reverse proxy cache or surrogate cache is implemented close to the origin server
 
 ![Reverse Proxy Cache](http://i.imgur.com/Eg4Cru3.png)
  
+Although you can control the reverse proxy caches (since it is implemented by you on your server) you can not avoid or control browser and proxy caches. And if your website is not configured to use these caches properly, it will still be cached using whatever the defaults are set on these caches.
+
 ## Caching Headers
 
-Now that you know the different caching locations, you probably have got the idea that although you can control the reverse proxy caches, you can not avoid browser and proxy caches. And if your website is not configured to use these caches properly, it will still be cached using whatever the defaults are set on these caches.
-
-So, how do we control the web cache? you ask. Whenever the server emits some response, it is accompanied with some HTTP headers to control the cache. So content provider is the one that has to make sure to return proper HTTP headers to force the caches on how to cache the content.
+So, how do we control the web cache? Whenever the server emits some response, it is accompanied with some HTTP headers to guide the caches whether and how to cache this response. Content provider is the one that has to make sure to return proper HTTP headers to force the caches on how to cache the content.
 
 ### Expires
 
-Before HTTP/1.1 and introduction of `Cache-Control`, there was `Expires` header which is simply a timestamp telling the caches how long should some content is to be considered fresh. Possible value to this header is absolute expiry date and the date has to be in GMT. Below is the sample header
+Before HTTP/1.1 and introduction of `Cache-Control`, there was `Expires` header which is simply a timestamp telling the caches how long should some content be considered fresh. Possible value to this header is absolute expiry date; where date has to be in GMT. Below is the sample header
 
 ```
 
@@ -67,11 +67,11 @@ Expires: Mon, 13 Mar 2017 12:22:00 GMT
 
 It should be noted that the date cannot be more than a year and if the date format is wrong, content will be considered stale. Also, the clock on cache has to be in sync with the clock on server, otherwise the desired results might not be achieved. 
 
-Although, `Expires` header is still valid and is supported widely by the caches, `Cache-Control` should be given preference over it.  
+Although, `Expires` header is still valid and is supported widely by the caches, preference should be given to HTTP/1.1 successor of it i.e. `Cache-Control`.  
 
 ### Pragma
 
-Another one from the old, pre HTTP/1.1 days, is `Pragma`. Everything that it could do is now possible using the cache-control header given below. However, one thing that I would like to point out about `pragma` is that it is a request header and HTTP specification does not discuss it in the response headers. It should be known that although it seems like `pragma: no-cache` is going to make the content not to be cached, it is not necessarily true and most of the caches might not honor this. Rather `Cache-Control` header should be used to control the caching.
+Another one from the old, pre HTTP/1.1 days, is `Pragma`. Everything that it could do is now possible using the cache-control header given below. However, one thing I would like to point out about it is, you might see `Pragma: no-cache` being used here and there in hopes of stopping the response from being cached. It might not necessarily work; as HTTP specification discusses it in the request headers and there is no mention of it in the response headers. Rather `Cache-Control` header should be used to control the caching.
 
 ### Cache-Control
 
