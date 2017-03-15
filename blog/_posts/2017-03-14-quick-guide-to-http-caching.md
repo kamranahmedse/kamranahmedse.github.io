@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Everything you need to know about HTTP Caching
+title: HTTP Caching - Everything you need to know
 comments: true
 ---
 
