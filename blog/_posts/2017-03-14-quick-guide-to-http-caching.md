@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Web Cache: Everything you need to know
+title: Web Cache - Everything you need to know
 comments: true
 ---
 
