@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Guide to HTTP Caching
+title: HTTP Caching - Everything you need to know
 comments: true
 ---
 
