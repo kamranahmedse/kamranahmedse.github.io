@@ -39,7 +39,7 @@ Most importantly, you should try to avoid writing the bad code unless you have a
 
 ## Contribute to Opensource
 
-Go through the source code of the opensource stuff that you use most of the time to see how it works and what is it that makes it tick; you will be astounded to find some hidden gems in there. Apart from looking under the hood, find the ways to contribute to them it may be some minor refactoring in code like [this one](https://github.com/composer/composer/pull/5669/commits/6990454e567a860411931135a838cf1f838cb49c) that I did for the soul purpose of this article, propose a patch for [some locked issue](https://github.com/composer/composer/issues), fix some typos in the documentation etc.
+Go through the source code of the opensource stuff that you use most of the time to see how it works and what is it that makes it tick; you will be astounded to find some hidden gems in there. Apart from looking under the hood, find the ways to contribute to them it may be some minor refactoring in code like [this one](https://github.com/composer/composer/pull/5669/commits/6990454e567a860411931135a838cf1f838cb49c) that I did for the sole purpose of this article, propose a patch for [some locked issue](https://github.com/composer/composer/issues), fix some typos in the documentation etc.
 
 Apart from that find some time to hack on those foolish [little](https://github.com/kamranahmedse/beetle) [ideas](https://github.com/kamranahmedse/jumper-bot) to brush up your knowlege a little and get some input/critique on your work from the community.
 
