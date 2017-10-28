@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Basic usage of `git stash`
 comments: true
 ---
@@ -10,12 +9,12 @@ Consider this, you were busy working on some functionality that hasn’t been co
 
 ..reset all the changes you made since last commit using
 
-<pre><code class="bash">
+```bash
 # Reset all the changes
 git reset HEAD --hard
 # Clean out everything un-tracked
 git clean -fd
-</code></pre>
+```
 
 Well, you can do this if you just started working and there isn’t much that you have done since the last commit. But what if you have spent hours working on it and you are about to complete that? Not a good idea then. Right?
 
@@ -25,29 +24,29 @@ Well, you can do this if you just started working and there isn’t much that yo
 
 You should use `git-stash`
 
-<pre><code class="bash">
+```bash
 git stash
-</code></pre>
+```
 
 It’s like a clipboard, running this command would move all your changes to stash. After doing so you can start working upon that urgent feature that came up, commit that and once you are ready to start working upon that half baked feature that you were working upon back at the point when you had to stash the changes, you can get your stashed changes back to your working copy by
 
-<pre><code class="bash">
+```bash
 git stash apply
-</code></pre>
+```
 
 >You should note that `git-stash` doesn’t stash the untracked files
 
 To stash untracked files as well, you need to do
 
-<pre><code class="bash">
+```bash
 git stash -u
-</code></pre>
+```
 
 You can clear your stash at any time by using
 
-<pre><code class="bash">
+```bash
 git stash clear
-</code></pre>
+```
 
 But don’t forget to apply your changes first, if necessary, otherwise you’ll lose them *forever*.
 

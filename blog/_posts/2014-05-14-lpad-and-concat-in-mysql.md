@@ -1,5 +1,4 @@
 ---
-layout: post
 title: LPAD() and CONCAT() in MySQL
 comments: true
 ---
@@ -16,7 +15,7 @@ I went with the third option, writing a MySQL query. Now the database structure 
 
 i.e. `party` having only `level3` saved in it. Each `level3` has a `level2` and each `level2` has a `level1`. I wrote the following query to generate the `account_id` for each party:
 
-<pre><code class="sql">
+```sql
 SELECT
     party_id,
     CONCAT(LPAD(level1.l1, 2, 0), '-', LPAD(level2.l2, 2, 0), '-', LPAD(level3.l3, 2, 0), '-', LPAD(party.party_id, 4, 0)) as account_id
@@ -27,13 +26,13 @@ FROM
        INNER JOIN
     level2 ON level3.l2 = level2.l2
        INNER JOIN level1 ON level2.l1 = level1.l1
-</code></pre>
+```
 
 As you can see, I used `LPAD(pad_to_what, number_of_digits_required, pad_what)` to generate the 2 digit leve1, level2 and level3 each and 4 digit party_id. `CONCAT()` was used to concatenate the  values and some INNER JOINs to generate the final `account_id`
 
 Now the next thing was to update each party with it’s respective account_id. For that, I came up with the following query:
 
-<pre><code class="sql">
+```sql
 UPDATE party as pp SET account_id = (
     SELECT account_id
     FROM (
@@ -51,7 +50,7 @@ UPDATE party as pp SET account_id = (
      ) as pids
      WHERE pids.party_id = pp.party_id
 );
-</code></pre>
+```
 
 And there it is! All the parties have the correct account ids attached to them.
 

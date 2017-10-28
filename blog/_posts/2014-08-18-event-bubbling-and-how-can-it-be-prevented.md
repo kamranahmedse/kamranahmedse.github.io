@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Event Bubbling - Dealing with the child’s parent
 comments: true
 ---
@@ -18,7 +17,7 @@ Event bubbling makes sure that an event that is triggered for some DOM element (
 # Explaining it through example
 So, in JavaScript, events *bubble*. That is, an event propagates through the ancestors of the element upon which the event is fired. Lets show what this means using the HTML markup below:
 
-<pre><code class="html">
+```html
 &lt;div class="grandParent"&gt;
       C
     &lt;div class="parent"&gt;
@@ -28,20 +27,20 @@ So, in JavaScript, events *bubble*. That is, an event propagates through the anc
        &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-</code></pre>
+```
 
 It’s  a simple markup above, we have three `div`s, one inside another.  Let’s attach a click event to `div.child` element, so that it may cry when we hit it:
 
-<pre><code class="javascript">
+```javascript
 // make the child cry, when we hit him.
 $('.child').on('click', function(){
     alert('Child : waaaaaa waaaa waa huh huh waaa waaaa!');
 });
-</code></pre>
+```
 
 As you might have guessed, upon clicking `.child` div it would alert the content `waaaaaa waaaa waa huh huh waaa waaaa` nothing revolutionary so far. Now let’s attach the events to the `.parent` and `.grandParent` as well so that we have got the following:
 
-<pre><code class="javascript">
+```javascript
 // make the .parent react
 $('.grandParent').on('click', function(){
     alert('Grand Parent: You hit me, my child or my grand child, now deal with me!');
@@ -56,7 +55,7 @@ $('.parent').on('click', function(){
 $('.child').on('click', function(){
  alert('Child : waaaaaa waaaa waa huh huh waaa waaaa!');
 });
-</code></pre>
+```
 
 According to `Event Bubbling`, now if we click the `.child` element, this `click` event will be first triggered for the `.child` then it will be triggered for `.parent` and finally `.grandParent` and so on till the `document` is reached. If we click the `.parent`, it’ll be triggered for the `.parent` and then `.grandParent` and so on till the document is reached. In the same fashion, an event triggered on any child will be triggered for it’s ancestors as well. Don’t believe me?  Go [have a look at this demo](http://jsfiddle.net/5as880n8/). Want a more visual demo, [check this one](http://jsfiddle.net/b2eckozL/).
 
@@ -70,12 +69,12 @@ That’s *all* event bubbling is; an event fired on an element bubbles through i
 
 Now there might be the case when you don’t want the event to be triggered for the ancestor elements and be triggered for the target element only. To stop the event from bubbling, you use `e.stopPropagation();` i.e.
 
-<pre><code class="javascript">
+```javascript
 $('someElement').on('click', function(e){
     // stop the event from bubbling.
     e.stopPropagation();
 });
-</code></pre>
+```
 
 If we follow our analogy, it’ll be like hitting the child and then putting a hand over his mouth so that his ancestors may not listen him but he would still be crying. To better understand the concept, have a look at [this modified demo](http://jsfiddle.net/5as880n8/1/)
 

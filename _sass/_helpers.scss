@@ -1,0 +1,35 @@
+.text-center {
+  text-align: center;
+}
+
+@each $level, $size in (0, 0), (1, $l1), (2, $l2), (3, $l3), (4, $l4), (5, $l5), (6, $l6), (7, $l7) {
+  .mar-#{$level} { margin: #{$size} !important; }
+  .mar-t-#{$level} { margin-top: $size !important; }
+  .mar-r-#{$level} { margin-right: $size !important; }
+  .mar-b-#{$level} { margin-bottom: $size !important; }
+  .mar-l-#{$level} { margin-left: $size !important; }
+  .mar-tb-#{$level} {
+    margin-top: $size;
+    margin-bottom: $size;
+  }
+}
+
+@each $level, $size in (0, 0), (1, $l1), (2, $l2), (3, $l3), (4, $l4), (5, $l5), (6, $l6), (7, $l7) {
+  .pad-#{$level} { padding: $size !important; }
+  .pad-t-#{$level} { padding-top: $size !important; }
+  .pad-r-#{$level} { padding-right: $size !important; }
+  .pad-b-#{$level} { padding-bottom: $size !important; }
+  .pad-l-#{$level} { padding-left: $size !important; }
+  .pad-tb-#{$level} {
+    padding-top: $size !important;
+    padding-bottom: $size !important;
+  }
+}
+
+@each $name, $color in ('angel-list', #000), ('github', #333), ('medium', #00AB72), ('twitter', #00A3EC), ('email', #FF554A), ('keybase', #FF6F29), ('hacker-news', #FF6327) {
+  .link-#{$name} {    
+    &:hover {
+      color: $color !important;
+    }
+  }
+}

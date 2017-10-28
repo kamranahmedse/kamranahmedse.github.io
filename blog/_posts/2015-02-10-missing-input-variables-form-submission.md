@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Missing input variables upon form submission
 comments: true
 ---

@@ -1,0 +1,6 @@
+<header class="text-center">
+  {% if page.date %}
+  <time class="mar-b-6" datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%a, %B %-d, %Y" }}</time>
+  {% endif %}
+  <h1 class="mar-b-7">{{ page.title }}</h1>
+</header>

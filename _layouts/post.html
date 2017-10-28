@@ -1,25 +1,14 @@
 ---
-layout: default
+layout: base
 ---
 
-<div class="post-item">
+<article class="mar-b-7">
+  {% include header.html %}
 
-    <h1>{{ page.title }}</h1>
+  {{ content }}
+</article>
 
-    <div class="post-meta">
-        Posted by <strong>Kamran Ahmed</strong> on <strong>{{ page.date | date_to_long_string }}</strong>
-    </div>
+{% include mailchimp.html %}
 
-    {% include series.html %}
+{% include disqus.html %}
 
-    <div class="post-body">
-        {{ content }}
-
-        {% include series_navigation.html %}
-
-        {% include twitter_plug.html %}
-        {% include subscription_form.html %}
-    </div>
-</div>
-
-{% include comments.html %}

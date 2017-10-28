@@ -1,5 +1,4 @@
 ---
-layout: post
 title: How to structure your Javascript
 comments: true
 ---
@@ -32,15 +31,15 @@ Enough of the theory, let’s just dive into some Javascript to understand what 
 
 It would be better, if we use some real world example in our explanation. So I’m going to use the example of a simple feed reader that reads and parses XML feed of some site. A module looks like the following:
 
-<pre><code class="javascript">
+```javascript
 var FeedReader = {
  
 };
-</code></pre>
+```
 
 Just a simple Javascript object, which you are probably already familiar with. For consistency in my code, I follow some conventions i.e. name of module to be written in Pascal Case and for variables etc, I prefer camel case. Now that we have a module to work with, the next is some settings that we’ll define for this module.
 
-<pre><code class="javascript">
+```javascript
 var FeedReader = {
  
     settings: {
@@ -50,13 +49,13 @@ var FeedReader = {
         loadFeedButton: $('a.loadFeed')
     }
 };
-</code></pre>
+```
 
 We usually define `settings` property in each of our modules that holds some common settings for our module so that we can use them to modify some certain behavior of our module actions. For example, as you can see from the settings that I have defined, `feedItemsCount` holds the number of feed items that we want to fetch in a single Ajax request. `url` is the url from which we want to read the feed. `feedListing` is the reference to DOM element to which the fetched feeds will be appended and `loadFeedButton` is the button which will fetch feed from the url.
 
 The next most commong thing for a module is `init` function.
 
-<pre><code class="javascript">
+```javascript
 var FeedReader = {
  
     settings: {
@@ -80,13 +79,13 @@ var FeedReader = {
         // ...
     }
 };
-</code></pre>
+```
 
 `init` is the function that gets everything started. You may call some setup functions here, for examples notice the function call `FeedReader.showErrorIfSourceDead();` that would show an error to the user stating that the website is not alive and to stop further processing. Now in the function `showErrorIfSourceDead();` notice the function call `FeedReader.isSourceAlive();`. As you can, see how managed the code is.
 
 Next is, `bindUI` function to bind the user interface i.e. the place where all the event bindings take place.
 
-<pre><code class="javascript">
+```javascript
 var FeedReader = {
  
     settings: {
@@ -123,7 +122,7 @@ var FeedReader = {
         // Append the feed to the `FeedReader.settings.feedListing`
     }
 };
-</code></pre>
+```
 
 You’ll most commonly see the `bindUI` called in the `init` function of the module, as it is one of the most important part of the application as it sets up the event bindings etc that lets us interact with our application. As you can see in this example, we have fetched the `FeedReader.settings.loadFeed` button from the settings of the module and attached the `event` to this button. And then in click event we have called the `fetchFeed` function of the module that fetches feed from the `FeedReader.settings.url` and attaches the returned feed to `FeedReader.settings.feedListing` container.
 
@@ -145,7 +144,7 @@ Now, the examples regarding and `Sales` and `Purchases` etc might seem daunting 
 
 Now that we have created our module, it’s time to understand how to use it in our application. It’s as simple as the following:
 
-<pre><code class="html">
+```html
 &lt;html&gt;
     &lt;!--- All of your markup --&gt;
  
@@ -162,7 +161,7 @@ Now that we have created our module, it’s time to understand how to use it in 
         }());
     &lt;/script&gt;
 &lt;/html&gt;
-</code></pre>
+```
 
 # Conclusion
 

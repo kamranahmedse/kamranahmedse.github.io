@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Github took me back in time
 comments: true
 ---

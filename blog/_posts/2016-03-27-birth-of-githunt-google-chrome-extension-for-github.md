@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Githunt - A Google Chrome extension for Github
 comments: true
 ---

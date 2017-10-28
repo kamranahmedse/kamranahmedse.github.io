@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Laravel 5 - Sending data from route to middleware
 comments: true
 ---
@@ -9,16 +8,16 @@ Middlewares in Laravel 5 come real handy when you want to perform some actions b
 
 In my route, I stated the middleware as well as a key through which I wanted to send the data to middleware `moduleName` for example. Below is the route group that I created:
 
-<pre><code class="php">
+```php
 // User related route group
 Route::group([ 'prefix' => 'user', 'middleware' => 'tracker', 'moduleName' => 'users' ], function () {
     // User routes
 });
-</code></pre>
+```
 
 As you can see, I have middleware called `tracker` attached to this route group and I have specified the data that I wanted to send to my middleware in the `moduleName` key, you may name it whatever you want. And then in my middleware's `handle` function, I did something like the following to access the `moduleName` property of the route. Below is what I mean:
 
-<pre><code class="php">
+```php
 // The middleware `PerformerMiddleware`
 public function handle($request, Closure $next)
 {
@@ -33,7 +32,7 @@ public function handle($request, Closure $next)
 	   
     //...
 }
-</code></pre>
+```
 
 So to sum it up, in order to pass data from route to the middleware you have to do the following:
 - In the route, specify the middleware as well as the key/value pair of the data that you want to send to middleware

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Journey to ES6 and Beyond
 comments: true
 ---

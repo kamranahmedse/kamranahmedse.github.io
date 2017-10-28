@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Private and Public properties and methods in Javascript
 comments: true
 ---
@@ -7,7 +6,7 @@ As promised in my previous article [Understanding scope in Javascript](http://ka
 
 From one of the [previous article of mine on structuring Javascript](http://kamranahmed.info/blog/2014/08/07/how-to-structure-your-javascript/), we all know that how and why should we structure our Javascript code. I described how can we introduce modules in our Javascript code. Let me borrow an example from that article and show you how we decided our modules to look like:
 
-<pre><code class="javascript">
+```javascript
 var FeedReader = {
  
     settings: {
@@ -44,7 +43,7 @@ var FeedReader = {
         // Append the feed to the `FeedReader.settings.feedListing`
     }
 };
-</code></pre>
+```
 
 Structuring your code this way is good, but there is a little *problem* with this approach. As you can see, we don't have any `private` or `public` variables or functions setup, everything that is in `FeedReader` is public and can be accessed by the outer world whether it should be or not be. In this article, I am specifically going to deal with this problem and show you how you can make use of `private` and `public` variables and functions. So let's begin.
 
@@ -52,27 +51,27 @@ Structuring your code this way is good, but there is a little *problem* with thi
 
 First things first, let's create our *class* first and we will be gradually extending it as we advance in this article. I am going to use the word Module to reference our so called Javascript classes. Let's create a `Person` module that is just a simple function. Here is what I mean
 
-<pre><code class="javascript">
+```javascript
 // Person Module
 var Person = function ( name ) {
     // Do some stuff here    
 }
-</code></pre>
+```
 
 Above we have created our person module, which has a *constructor* that accepts `name` parameter. And here is how you can instantiate it.
 
-<pre><code class="javascript">
+```javascript
 // Create a person named Foo
 var Foo = new Person('Foo');
 // Create a person named Bar
 var Bar = new Person('Bar')
-</code></pre>
+```
 
 # Private Scope
 
 While writing your Javascript, security should be the one of your top priorities, as we can't afford to make our sensitive variables and functions be publically available as they have tendency to make us open to vulnerable attacks. You should never expose any unnecessary variables or functions. To do so, we make use of `private` variables and functions. Below is how we implement this privacy in our modules. In our example, let's create some private variables and functions
 
-<pre><code class="javascript">
+```javascript
 // Person Module
 var Person = function ( name ) {
     
@@ -90,11 +89,11 @@ var Person = function ( name ) {
         isAlive = false;
     }
 }
-</code></pre>
+```
 
 In the above snippet the variables and functions defined are only accessible inside the `Parent` module and cannot be accessed outside. Let's instantiate our module and see if we can access them outside the module or not.
 
-<pre><code class="javascript">
+```javascript
 // Create a person named Foo Bar
 var FooBar = new Person('Foo Bar');
 
@@ -104,7 +103,7 @@ FooBar.die();
 
 // undefined
 console.log( FooBar.isAlive );
-</code></pre>
+```
 
 As you can see, neither were we able to access any of the private variables nor any functions.
 
@@ -112,7 +111,7 @@ As you can see, neither were we able to access any of the private variables nor 
 
 In our `Person` module we only have got private variables and functions and there is no way for us to interact with `Person`. To make it more interactive, let's extend our `Person` a bit and add some public variables and functions.
 
-<pre><code class="javascript">
+```javascript
 // Person Module
 var Person = function ( name ) {
     
@@ -133,7 +132,7 @@ var Person = function ( name ) {
         }
     }
 }
-</code></pre>
+```
 
 To make some properties and methods public, all you have to do is return an object from the function i.e. your module. The properties and methods possessed by this object will be made public and will be accessible outside the Person module.
 
@@ -141,7 +140,7 @@ To make some properties and methods public, all you have to do is return an obje
 
 Let's extend our example module a bit and see what we have got
 
-<pre><code class="javascript">
+```javascript
 // Person Module
 var Person = function ( name ) {
     
@@ -210,7 +209,7 @@ var Person = function ( name ) {
         }
     }
 }
-</code></pre>
+```
 
 You can have a look at the [working demo of the module at jsfiddle](http://jsfiddle.net/41ootg5f/). 
 

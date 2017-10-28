@@ -1,51 +1,42 @@
 ---
-layout: default
-title: Home
 ---
 
-<!-- .page-header -->
-<div class="page-header">
-    <h1>{{ site.author.name }}</h1>
+<header class="intro mar-tb-7">
+    <h1 class="intro__head">Kamran Ahmed
+        <div class="intro__sub">Lead engineer at tajawal with an entrepreneurial spirit and knack for getting things done</div>
+    </h1>
+</header>
 
-    <p>I am a Lead Developer at<a href="http://tajawal.com" target="_blank" rel="external">Tajawal</a>with a knack for getting things done. I am quite active on<a href="http://github.com/kamranahmedse" target="_blank"
-                                                                rel="external">Github</a>and this is the place where I
-        blab about the technical stuff and sometimes about the stuff in general.</p>
+<!--<section id="featured" class="mar-b-7">-->
+    <!--<h3 class="section__title">Featured Writing</h3>-->
+    <!--<div class="feature-list">-->
+        <!--{% for post in site.featured %}-->
+        <!--<a id="f-{{ post.id }}" class="feature" href="{{ post.url }}">-->
+            <!--<span class="feature__title feature&#45;&#45;{{ post.type }}">{{ post.title }}</span>-->
+            <!--<time class="feature__date feature&#45;&#45;{{ post.type }}" datetime="{{ post.date | date: "%Y-%m-%d %H:%M" }}">{{ post.date | date: "%B %Y" }}</time>-->
+        <!--</a>-->
+        <!--{% endfor %}-->
+    <!--</div>-->
+<!--</section>-->
 
-
-    <p>Feel free to<a href="mailto:kamranahmed.se@gmail.com?subject=kamranahmed.info">drop me a line</a>or<a
-            href="{{ site.pages_list.Feed }}">subscribe to RSS</a>.</p>
+{% for post in site.posts %}
+{% assign currentdate = post.date | date: "%Y" %}
+{% if currentdate != date %}
+{% unless forloop.first %}</section>{% endunless %}
+{% if currentdate == '2015' %}
+{% include mailchimp.html %}
+{% endif %}
+<section id="y{{post.date | date: "%Y"}}" class="mar-b-7">
+<h3 class="section__title">{{ currentdate }}</h3>
+<div class="post-list">
+    {% assign date = currentdate %}
+    {% endif %}
+    <a class="post" href="{{ post.url | prepend: site.baseurl }}">
+        <span class="post__title">{{ post.title }}</span>
+        <time class="post__date" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%b %d" }}</time>
+    </a>
+    {% if forloop.last %}
 </div>
-<!-- /.page-header -->
-
-<hr>
-
-<div class="archive">
-    <ul class="posts">
-        {% for post in site.categories.blog %}
-
-            <!-- In case of series only show the first article-->
-            {% if post.series and post.series.index != 1 %}
-                {% continue %}
-            {% endif %}
-
-            {% assign currentdate = post.date | date: "%Y" %}
-            {% if currentdate != date %}
-            <li id="y{{currentdate}}"><h2 class="archive-title">{{ currentdate }}</h2></li>
-            {% assign date = currentdate %}
-            {% endif %}
-
-            <li class="article-list-item">
-                <span class="title">
-                    <a href="{{ post.url }}">
-                    {% if post.series and post.series.index == 1 %}
-                        <span class="label label-info">Series</span>
-                    {% endif %}
-
-                    {{ post.title }}
-                    </a>
-                </span>
-                <span class="date">{{ post.date | date_to_string }}</span>
-            </li>
-        {% endfor %}
-    </ul>
-</div>
+</section>
+{% endif %}
+{% endfor %}

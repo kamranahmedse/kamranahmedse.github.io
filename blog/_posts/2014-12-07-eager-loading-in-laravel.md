@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Eager Loading in Laravel
 comments: true
 ---
@@ -13,47 +12,41 @@ N+1 problem is related to the inefficient queries i.e. running one query and the
 
 Let's say we are developing that web based library management system for one of those colleges where under every stone lurks a student. In your database, we have got *two tables*, to make things simple, let's say `students` and `books`. As you can guess, there is one to many relation between both the tables as one student can have many books. Suppose, we want to get all the students and their books and we write the following SQL Statements to do so
 
-<pre><code class='sql'>
-
+```sql
 -- Select all the students
 SELECT * FROM students;
 
 -- Through a loop over the students you got from the above query, you get the books
 SELECT * FROM books WHERE student_id = ?
-
-</code></pre>
+```
 
 The above query alleviates the N+1 problem i.e. firstly, there is `one` select statement to get the students and then N additional selects for the books, where N is the number of students. In case of a large number of students and books as in our case, performance hit would be really significant. Now, above were just simple SQL statements so it was easy for us to guess the trap that we were setting for ourselves. 
 
 Let's say our system is being developed on top of Laravel and we have used it's awesome Eloquent ORM to aid us in the development. We have got two models i.e. `Student` and `Book` and the relationship between `Student` and the book is as follows:
 
-<pre><code class="php">
-
+```php
 // Model : Student
 public function books(){
     $this->hasMany('Book');
 }
-
-</code></pre>
+```
 
 Now as we wanted to get all the students and the books they have got issued, using eloquent, we might be tempted to do the following:
 
-<pre><code class="php">
-
+```php
 $students = Student::all();
 foreach( $students as $student ) {
     echo $student->name;    
     $books = $student->books;
     // Do someting with the $books
 }
-
-</code></pre>
+```
 
 It will work exactly how it is intended to work that is, it will get us the students and foreach of the students it will get us the books we want. From the above snippet, there doesn't seem to be anothing wrong with this code, but let's see what's going on under the hood. 
 
 Below are the queries that will be executed for this:
 
-<pre><code class="sql">
+```sql
 -- Select the students i.e. Student::all();
 SELECT * FROM students;
 
@@ -68,35 +61,33 @@ SELECT * FROM books WHERE student_id = 6
 SELECT * FROM books WHERE student_id = 7
 SELECT * FROM books WHERE student_id = 8
 ...
-</code></pre>
+```
 
 Notice how inefficient it will be in our case. Let's say we have got 1000 students then there will be 1 query to get the students then one query for each of students to get the books so there will be 1000+1 queries (thus N+1 problem) while we *might have* written two queries to handle this
 
-<pre><code class="sql">
+```sql
 SELECT * FROM students;
 SELECT * FROM books WHERE student_id IN (1,2,3,4,5,6,7,8..);
-</code></pre>
+```
 
 # Eager Loading
 Eager loading is how Laravel allows us to tackle the N+1 problem. It lets us specify the records that we need pre-hand resulting in more efficient database queries. Let me explain it with the example stated above. Assuming that the relationship between the `Student` and `Book` as stated above is in place, to avail eager loading we will have to modify our above statements as follows
 
-<pre><code class="php">
-
+```php
 $students = Student::with('books')->get();
 foreach( $students as $student ) {
     echo $student->name;    
     $books = $student->books;
     // Do someting with the $books
 }
-
-</code></pre>
+```
 
 What we are doing here by `Student::with('books')->get();` is letting Laravel know that we will need `books` for the students as well so make sure to load them `with` books. After making use of this, Laravel will be executing two queries i.e.
 
-<pre><code class="sql">
+```sql
 SELECT * FROM students;
 SELECT * FROM books WHERE student_id IN (1,2,3,4,5,6,7,8..);
-</code></pre>
+```
 
 As you can see, while making use of Laravel's eager loading, a slight modification in our retrieval process has allowed us to make our queries efficient i.e. contrary to the previously stated way in which there were N queries for N records retruned by our first query, we will only be executing two queries to get whatever number of students we have in our database.
 
@@ -104,7 +95,7 @@ In different scenarios, you might need to eager load differently. Below, I state
 
 If you want, you can **eager load multiple relations** at one time, for example let's say if we have `books` as well as `classes` in a `Student`, we might do the following to eager load all the `books` and `classes`
 
-<pre><code class="php">
+```php
 $students = Student::with('books', 'classes')->get();
 foreach( $students as $student ) {
     echo $student->name;    
@@ -112,11 +103,11 @@ foreach( $students as $student ) {
     $classes = $student->classes();
     // Do someting with the $books/$classes
 }
-</code></pre>
+```
 
 You may even **eager load nested relationships**. Extending from our last example, let's our `Book` model is further related to `Author`, we may do the following to eager load the `students`, `books` and the `authors` of those books
 
-<pre><code class="php">
+```php
 $students = Student::with('books.authors')->get();
 foreach( $students as $student ) {
     echo $student->name;
@@ -127,12 +118,11 @@ foreach( $students as $student ) {
         $authors = $book->authors;
     }
 }
-</code></pre>
+```
 
 Laravel also allows you to eager load with constraints so that you may not get all the records when you only want some. Proceeding with the previously stated examples, lets say we want all the students and the books but only those books that have the `status` set to `returned`, we'll do the following
 
-<pre><code class="php">
-
+```php
 $students = Student::with(array('books' => function( $query ){
     $query->where('status', '=', 'returned');
 }))->get();
@@ -142,7 +132,7 @@ foreach( $students as $student ) {
     $books = $student->books;
     // Do someting with the $books
 }
-</code></pre>
+```
 
 In the above example we'll be loading only those books that have the `status` set to `returned`.
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: How to completely remove a file from git history
 comments: true
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Behavioral Design Patterns
 comments: true
 series:
@@ -40,7 +39,6 @@ Wikipedia says
 **Programmatically** Translating our account example above. First of all we have a base account having the logic for chaining the accounts together and some accounts
 
 ```php
-
 abstract class Account
 {
     protected $successor;
@@ -103,7 +101,6 @@ class Bitcoin extends Account
 Now let's prepare the chain using the links defined above (i.e. Bank, Paypal, Bitcoin)
 
 ```php
-
 // Let's prepare a chain like below
 //      $bank->$paypal->$bitcoin
 //
@@ -143,7 +140,6 @@ Wikipedia says
 
 **Programmatically** First of all we have the receiver that has the implementation of every action that could be performed
 ```php
-
 // Receiver
 class Bulb
 {
@@ -160,7 +156,6 @@ class Bulb
 ```
 then we have an interface that each of the commands are going to implement and then we have a set of commands
 ```php
-
 interface Command
 {
     public function execute();
@@ -221,7 +216,6 @@ class TurnOff implements Command
 ```
 Then we have an `Invoker` with whom the client will interact to process any commands
 ```php
-
 // Invoker
 class RemoteControl
 {
@@ -233,7 +227,6 @@ class RemoteControl
 ```
 Finally let's see how we can use it in our client
 ```php
-
 $bulb = new Bulb();
 
 $turnOn = new TurnOn($bulb);
@@ -263,7 +256,6 @@ Wikipedia says
 In PHP it is quite easy to implement using SPL (Standard PHP Library). Translating our radio stations example from above. First of all we have `RadioStation`
 
 ```php
-
 class RadioStation
 {
     protected $frequency;
@@ -282,7 +274,6 @@ class RadioStation
 Then we have our iterator
 
 ```php
-
 use Countable;
 use Iterator;
 
@@ -340,7 +331,6 @@ class StationList implements Countable, Iterator
 ```
 And then it can be used as
 ```php
-
 $stationList = new StationList();
 
 $stationList->addStation(new RadioStation(89));
@@ -372,7 +362,6 @@ Wikipedia says
 First of all, we have the mediator i.e. the chat room
 
 ```php
-
 // Mediator
 class ChatRoom implements ChatRoomMediator
 {
@@ -388,7 +377,6 @@ class ChatRoom implements ChatRoomMediator
 
 Then we have our users i.e. colleagues
 ```php
-
 class User {
     protected $name;
     protected $chatMediator;
@@ -409,7 +397,6 @@ class User {
 ```
 And the usage
 ```php
-
 $mediator = new ChatRoom();
 
 $john = new User('John Doe', $mediator);
@@ -441,7 +428,6 @@ Usually useful when you need to provide some sort of undo functionality.
 First of all we have our memento object that will be able to hold the editor state
 
 ```php
-
 class EditorMemento
 {
     protected $content;
@@ -461,7 +447,6 @@ class EditorMemento
 Then we have our editor i.e. originator that is going to use memento object
 
 ```php
-
 class Editor
 {
     protected $content = '';
@@ -491,7 +476,6 @@ class Editor
 And then it can be used as
 
 ```php
-
 $editor = new Editor();
 
 // Type some stuff
@@ -528,7 +512,6 @@ Wikipedia says
 
 Translating our example from above. First of all we have job seekers that need to be notified for a job posting
 ```php
-
 class JobPost
 {
     protected $title;
@@ -562,7 +545,6 @@ class JobSeeker implements Observer
 ```
 Then we have our job postings to which the job seekers will subscribe
 ```php
-
 class JobPostings implements Observable
 {
     protected $observers = [];
@@ -587,7 +569,6 @@ class JobPostings implements Observable
 ```
 Then it can be used as
 ```php
-
 // Create subscribers
 $johnDoe = new JobSeeker('John Doe');
 $janeDoe = new JobSeeker('Jane Doe');
@@ -621,7 +602,6 @@ Wikipedia says
 Let's take an example of a zoo simulation where we have several different kinds of animals and we have to make them Sound. Let's translate this using visitor pattern
 
 ```php
-
 // Visitee
 interface Animal
 {
@@ -638,7 +618,6 @@ interface AnimalOperation
 ```
 Then we have our implementations for the animals
 ```php
-
 class Monkey implements Animal
 {
     public function shout()
@@ -680,7 +659,6 @@ class Dolphin implements Animal
 ```
 Let's implement our visitor
 ```php
-
 class Speak implements AnimalOperation
 {
     public function visitMonkey(Monkey $monkey)
@@ -702,7 +680,6 @@ class Speak implements AnimalOperation
 
 And then it can be used as
 ```php
-
 $monkey = new Monkey();
 $lion = new Lion();
 $dolphin = new Dolphin();
@@ -716,7 +693,6 @@ $dolphin->accept($speak);   // Tuut tutt tuutt!
 We could have done this simply by having a inheritance hierarchy for the animals but then we would have to modify the animals whenever we would have to add new actions to animals. But now we will not have to change them. For example, let's say we are asked to add the jump behavior to the animals, we can simply add that by creating a new visitor i.e.
 
 ```php
-
 class Jump implements AnimalOperation
 {
     public function visitMonkey(Monkey $monkey)
@@ -737,7 +713,6 @@ class Jump implements AnimalOperation
 ```
 And for the usage
 ```php
-
 $jump = new Jump();
 
 $monkey->accept($speak);   // Ooh oo aa aa!
@@ -767,7 +742,6 @@ Wikipedia says
 Translating our example from above. First of all we have our strategy interface and different strategy implementations
 
 ```php
-
 interface SortStrategy
 {
     public function sort(array $dataset): array;
@@ -798,7 +772,6 @@ class QuickSortStrategy implements SortStrategy
 
 And then we have our client that is going to use any strategy
 ```php
-
 class Sorter
 {
     protected $sorter;
@@ -816,7 +789,6 @@ class Sorter
 ```
 And it can be used as
 ```php
-
 $dataset = [1, 5, 4, 3, 2, 8];
 
 $sorter = new Sorter(new BubbleSortStrategy());
@@ -845,7 +817,6 @@ Let's take an example of text editor, it lets you change the state of text that 
 First of all we have our state interface and some state implementations
 
 ```php
-
 interface WritingState
 {
     public function write(string $words);
@@ -877,7 +848,6 @@ class Default implements WritingState
 ```
 Then we have our editor
 ```php
-
 class TextEditor
 {
     protected $state;
@@ -900,7 +870,6 @@ class TextEditor
 ```
 And then it can be used as
 ```php
-
 $editor = new TextEditor(new Default());
 
 $editor->type('First line');
@@ -945,7 +914,6 @@ Wikipedia says
 
 First of all we have our base class that specifies the skeleton for the build algorithm
 ```php
-
 abstract class Builder
 {
 
@@ -968,7 +936,6 @@ abstract class Builder
 Then we can have our implementations
 
 ```php
-
 class AndroidBuilder extends Builder
 {
     public function test()
@@ -1018,7 +985,6 @@ class IosBuilder extends Builder
 And then it can be used as
 
 ```php
-
 $androidBuilder = new AndroidBuilder();
 $androidBuilder->build();
 

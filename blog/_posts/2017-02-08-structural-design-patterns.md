@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Structural Design Patterns
 comments: true
 series:
@@ -40,7 +39,6 @@ Wikipedia says
 First we have an interface `Lion` that all types of lions have to implement
 
 ```php
-
 interface Lion
 {
     public function roar();
@@ -62,7 +60,6 @@ class AsianLion implements Lion
 ```
 And hunter expects any implementation of `Lion` interface to hunt.
 ```php
-
 class Hunter
 {
     public function hunt(Lion $lion)
@@ -74,7 +71,6 @@ class Hunter
 Now let's say we have to add a `WildDog` in our game so that hunter can hunt that also. But we can't do that directly because dog has a different interface. To make it compatible for our hunter, we will have to create an adapter that is compatible
 
 ```php
-
 // This needs to be added to the game
 class WildDog
 {
@@ -102,7 +98,6 @@ class WildDogAdapter implements Lion
 And now the `WildDog` can be used in our game using `WildDogAdapter`.
 
 ```php
-
 $wildDog = new WildDog();
 $wildDogAdapter = new WildDogAdapter($wildDog);
 
@@ -126,7 +121,6 @@ Wikipedia says
 **Programmatically** Translating our WebPage example from above. Here we have the `WebPage` hierarchy
 
 ```php
-
 interface WebPage
 {
     public function __construct(Theme $theme);
@@ -165,8 +159,6 @@ class Careers implements WebPage
 ```
 And the separate theme hierarchy
 ```php
-
-
 interface Theme
 {
     public function getColor();
@@ -196,7 +188,6 @@ class AquaTheme implements Theme
 ```
 And both the hierarchies
 ```php
-
 $darkTheme = new DarkTheme();
 
 $about = new About($darkTheme);
@@ -221,7 +212,6 @@ Wikipedia says
 **Programmatically** Taking our employees example from above. Here we have different employee types
 
 ```php
-
 interface Employee
 {
     public function __construct(string $name, float $salary);
@@ -299,7 +289,6 @@ class Designer implements Employee
 Then we have an organization which consists of several different types of employees
 
 ```php
-
 class Organization
 {
     protected $employees;
@@ -325,7 +314,6 @@ class Organization
 And then it can be used as
 
 ```php
-
 // Prepare the employees
 $john = new Developer('John Doe', 12000);
 $jane = new Designer('Jane', 10000);
@@ -354,7 +342,6 @@ Wikipedia says
 **Programmatically** Lets take coffee for example. First of all we have a simple coffee implementing the coffee interface
 
 ```php
-
 interface Coffee
 {
     public function getCost();
@@ -376,7 +363,6 @@ class SimpleCoffee implements Coffee
 ```
 We want to make the code extensible to allow options to modify it if required. Lets make some add-ons (decorators)
 ```php
-
 class MilkCoffee implements Coffee
 {
     protected $coffee;
@@ -441,7 +427,6 @@ class VanillaCoffee implements Coffee
 Lets make a coffee now
 
 ```php
-
 $someCoffee = new SimpleCoffee();
 echo $someCoffee->getCost(); // 10
 echo $someCoffee->getDescription(); // Simple Coffee
@@ -474,7 +459,6 @@ Wikipedia says
 **Programmatically** Taking our computer example from above. Here we have the computer class
 
 ```php
-
 class Computer
 {
     public function getElectricShock()
@@ -515,7 +499,6 @@ class Computer
 ```
 Here we have the facade
 ```php
-
 class ComputerFacade
 {
     protected $computer;
@@ -543,7 +526,6 @@ class ComputerFacade
 ```
 Now to use the facade
 ```php
-
 $computer = new ComputerFacade(new Computer());
 $computer->turnOn(); // Ouch! Beep beep! Loading.. Ready to be used!
 $computer->turnOff(); // Bup bup buzzz! Haah! Zzzzz
@@ -566,7 +548,6 @@ Wikipedia says
 Translating our tea example from above. First of all we have tea types and tea maker
 
 ```php
-
 // Anything that will be cached is flyweight.
 // Types of tea here will be flyweights.
 class KarakTea
@@ -592,7 +573,6 @@ class TeaMaker
 Then we have the `TeaShop` which takes orders and serves them
 
 ```php
-
 class TeaShop
 {
     protected $orders;
@@ -619,7 +599,6 @@ class TeaShop
 And it can be used as below
 
 ```php
-
 $teaMaker = new TeaMaker();
 $shop = new TeaShop($teaMaker);
 
@@ -647,7 +626,6 @@ Wikipedia says
 **Programmatically** Taking our security door example from above. Firstly we have the door interface and an implementation of door
 
 ```php
-
 interface Door
 {
     public function open();
@@ -669,7 +647,6 @@ class LabDoor implements Door
 ```
 Then we have a proxy to secure any doors that we want
 ```php
-
 class Security
 {
     protected $door;
@@ -701,7 +678,6 @@ class Security
 ```
 And here is how it can be used
 ```php
-
 $door = new Security(new LabDoor());
 $door->open('invalid'); // Big no! It ain't possible.
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Creational Design Patterns
 comments: true
 series:
@@ -33,7 +32,6 @@ Wikipedia says
 
 **Programmatically** first of all we have a door interface and the implementation
 ```php
-
 interface Door
 {
     public function getWidth(): float;
@@ -64,7 +62,6 @@ class WoodenDoor implements Door
 ```
 Then we have our door factory that makes the door and returns it
 ```php
-
 class DoorFactory
 {
     public static function makeDoor($width, $height): Door
@@ -75,7 +72,6 @@ class DoorFactory
 ```
 And then it can be used as
 ```php
-
 $door = DoorFactory::makeDoor(100, 200);
 echo 'Width: ' . $door->getWidth();
 echo 'Height: ' . $door->getHeight();
@@ -100,7 +96,6 @@ Wikipedia says
  **Programmatically** taking our hiring manager example above. First of all we have an interviewer interface and some implementations for it
 
 ```php
-
 interface Interviewer
 {
     public function askQuestions();
@@ -126,7 +121,6 @@ class CommunityExecutive implements Interviewer
 Now let us create our `HiringManager`
 
 ```php
-
 abstract class HiringManager
 {
 
@@ -139,11 +133,9 @@ abstract class HiringManager
         $interviewer->askQuestions();
     }
 }
-
 ```
 Now any child can extend it and provide the required interviewer
 ```php
-
 class DevelopmentManager extends HiringManager
 {
     public function makeInterviewer(): Interviewer
@@ -163,7 +155,6 @@ class MarketingManager extends HiringManager
 and then it can be used as
 
 ```php
-
 $devManager = new DevelopmentManager();
 $devManager->takeInterview(); // Output: Asking about design patterns
 
@@ -190,7 +181,6 @@ Wikipedia says
 **Programmatically** translating the door example above. First of all we have our `Door` interface and some implementation for it
 
 ```php
-
 interface Door
 {
     public function getDescription();
@@ -215,7 +205,6 @@ class IronDoor implements Door
 Then we have some fitting experts for each door type
 
 ```php
-
 interface DoorFittingExpert
 {
     public function getDescription();
@@ -240,7 +229,6 @@ class Carpenter implements DoorFittingExpert
 
 Now we have our abstract factory that would let us make family of related objects i.e. wooden door factory would create a wooden door and wooden door fitting expert and iron door factory would create an iron door and iron door fitting expert
 ```php
-
 interface DoorFactory
 {
     public function makeDoor(): Door;
@@ -277,7 +265,6 @@ class IronDoorFactory implements DoorFactory
 ```
 And then it can be used as
 ```php
-
 $woodenFactory = new WoodenDoorFactory();
 
 $door = $woodenFactory->makeDoor();
@@ -316,7 +303,6 @@ Wikipedia says
 Having said that let me add a bit about what telescoping constructor anti-pattern is. At one point or the other we have all seen a constructor like below:
 
 ```php
-
 public function __construct($size, $cheese = true, $pepperoni = true, $tomato = false, $lettuce = true)
 {
 }
@@ -327,7 +313,6 @@ As you can see; the number of constructor parameters can quickly get out of hand
 **Programmatically** the sane alternative is to use the builder pattern. First of all we have our burger that we want to make
 
 ```php
-
 class Burger
 {
     protected $size;
@@ -351,7 +336,6 @@ class Burger
 And then we have the builder
 
 ```php
-
 class BurgerBuilder
 {
     public $size;
@@ -399,7 +383,6 @@ class BurgerBuilder
 And then it can be used as:
 
 ```php
-
 $burger = (new BurgerBuilder(14))
                     ->addPepperoni()
                     ->addLettuce()
@@ -427,7 +410,6 @@ In short, it allows you to create a copy of an existing object and modify it to 
 **Programmatically** in PHP it can be easily done using `clone`
 
 ```php
-
 class Sheep
 {
     protected $name;
@@ -462,7 +444,6 @@ class Sheep
 ```
 Then it can be cloned like below
 ```php
-
 $original = new Sheep('Jolly');
 echo $original->getName(); // Jolly
 echo $original->getCategory(); // Mountain Sheep
@@ -496,7 +477,6 @@ Singleton pattern is actually considered an anti-pattern and overuse of it shoul
 **Programmatically** to create a singleton, make the constructor private, disable cloning, disable extension and create a static variable to house the instance
 
 ```php
-
 final class President
 {
     private static $instance;
@@ -528,7 +508,6 @@ final class President
 ```
 Then in order to use
 ```php
-
 $president1 = President::getInstance();
 $president2 = President::getInstance();
 

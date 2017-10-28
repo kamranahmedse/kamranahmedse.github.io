@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Let the comments drive your code
 comments: true
 ---
@@ -13,8 +12,7 @@ You might even be doing the same thing without noticing the fact that what you a
 >**Disclaimer:** Nothing to take seriously here. <u>Ignore the fact that there is anything such as OOP</u>. <u>Ignore all those SOLID principles</u>. Let the <u>architect inside you sleep for a bit</u> and take this example only as the means to understand Comment Driven Development ;)
 
 
-<pre><code class="php">
-
+```php
 // Sell an item
 
 // Check the availability
@@ -24,12 +22,11 @@ You might even be doing the same thing without noticing the fact that what you a
 // Trigger the confirmation email
 // Show the confirmation View
 
-</code></pre>
+```
 
 As you can see, the steps to sell an item are clear now and so we can go about transforming it to the actual code and I might turn it to something like following.
 
-<pre><code class="php">
-
+```php
 function sellItem( $item ) {
     // Check the availability
     if( !$item->isAvailable() ) {
@@ -57,7 +54,7 @@ function sellItem( $item ) {
     // Show the confirmation view
     return $this->url->to('/item-sold');
 }
-</code></pre>
+```
 
 Now that we have the code ready, we can go about removing the comments which may deem unnecessary. 
 

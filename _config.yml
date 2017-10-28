@@ -1,32 +1,68 @@
-# Permalinks
-permalink:        pretty
+title: Kamran Ahmed
+description: "Lead engineer at tajawal with an entrepreneurial spirit and knack for getting things done"
+url: "http://kamranahmed.info"
+author: "Kamran Ahmed"
+keywords: "kamran,kamranahmedse,kamran ahmed,code,javascript,php,databases,entrepreneurship,startups,react,angular,javascript"
+github: kamranahmedse
+medium: kamranahmedse
+twitter: kamranahmedse
+email: kamranahmedse@gmail.com
 
-# Setup
-title:            '@kamranahmedse'
-tagline:          Ramblings of a full-stack web developer
-url:              http://kamranahmed.info
-paginate:         1
-baseurl:          /
-author:
-  name:           Kamran Ahmed
-  url:            https://kamranahmed.info
-  email:          kamranahmed.se@gmail.com
-  github:         http://github.com/kamranahmedse
-  description:	  'I am Kamran Ahmed, a full stack web developer.'
+exclude: ["README.md", "CNAME", "LICENSE", ".gitignore"]
+include: ["résumé.pdf"]
 
-# Custom vars
-version:          1.0.0
-github:
-  repo:           https://github.com/kamranahmedse/kamranahmedse.github.io
+permalink: pretty
+timezone: Asia/Abu_Dhabi
 
-# Menu
-pages_list:       
-  Archive: '/archive'
-  About: '/about'
-  Feed: '/atom.xml'
+gems: []
 
-# Stay in touch
-external_links:
-  'github.com/kamranahmedse': 'http://github.com/kamranahmedse'
-  'kamranahmed.se@gmail.com': 'mailto:kamranahmed.se@gmail.com'
-  'pk.linkedin.com/in/kaamranahmed': 'http://pk.linkedin.com/in/kaamranahmed'
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+sass:
+  style: compressed
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "base"
+
+featured:
+  - id: 1
+    title: Journey to HTTP/2
+    date: 2016-08-13 12:30:00
+    type: light
+    url: /blog/2016/08/13/http-in-depth/
+  - id: 2
+    title: Web Cache in Depth
+    date: 2017-03-14 11:50:00
+    type: light
+    url: /blog/2017/03/14/quick-guide-to-http-caching/
+
+about:
+  - name: Github
+    username: kamranahmedse
+    url: https://github.com/kamranahmedse
+    class: github
+  - name: Medium
+    username: kamranahmedse
+    url: https://medium.com/@kamranahmedse
+    class: medium
+  - name: Twitter
+    username: kamranahmedse
+    url: https://twitter.com/kamranahmedse
+    class: twitter
+  - name: Email
+    username: kamranahmed.se@gmail.com
+    class: email
+    url: mailto:kamranahmed.se@gmail.com

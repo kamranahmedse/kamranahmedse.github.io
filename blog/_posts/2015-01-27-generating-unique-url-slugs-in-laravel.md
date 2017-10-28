@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Generating unique URL slugs in Laravel
 comments: true
 ---
@@ -13,7 +12,7 @@ In my case, there were two places where I decided to do this i.e.
 
 Below is the super simple function that I used, which you can adapt to your own needs.
 
-<pre><code class="php">
+```php
 function generateSlug( $tipTitle ) {
 
     $slug = Str::slug( $tipTitle );
@@ -32,6 +31,6 @@ function generateSlug( $tipTitle ) {
     // Increment/append the counter and return the slug we generated
     return $slug . '-' . ($lastSlugNumber + 1);
 }
-</code></pre>
+```
 
 What's happening here is self explanatory, however if you have any problems understanding, feel free to leave a comment below. Also, you should note that I have used MySQL in this case, check you RDBMS' manual for the implementation of regular expressions.

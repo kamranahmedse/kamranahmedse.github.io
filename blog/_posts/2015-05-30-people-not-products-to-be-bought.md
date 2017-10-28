@@ -1,5 +1,4 @@
 ---
-layout: post
 title: People are not products to be bought!
 comments: true
 ---

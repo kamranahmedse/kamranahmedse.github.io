@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Internal Application Configuration
 comments: true
 ---
@@ -13,7 +12,6 @@ I recently created an SDK for an API where I used the similar approach for the c
 For example if you have a file that looks like below
 
 ```php
-
 // config/app.php
 
 return [
@@ -40,7 +38,6 @@ return [
 You can get the above configuration array in a variable simply by doing
 
 ```php
-
 $appConfig = include 'config/app.php';
 var_dump($appConfig);	// The array from config/app.php file above
 ```
@@ -50,7 +47,6 @@ And then you can mould this array however you want to get the configuration. [La
 As far as the configuration loader is concerned, you can create a helper, for example, that loads the configuration data for you i.e. maybe something like
 
 ```php
-
 /**
  * Loads the data from configuration files
  * @param  string $fileName

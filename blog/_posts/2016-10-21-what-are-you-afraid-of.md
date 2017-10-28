@@ -1,5 +1,4 @@
 ---
-layout: post
 title: What are you afraid of?
 comments: true
 ---

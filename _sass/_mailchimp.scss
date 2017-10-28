@@ -1,0 +1,78 @@
+#mc_embed_signup {
+  margin: 3rem 0;
+  border: 1px solid $gray-light;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
+  padding: .5rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: $gray-lightest;
+}
+
+.mc-title-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+  
+  &__main {
+    color: $black;
+    font-size: .95rem;
+    font-family: $sans;
+    font-weight: 700;
+  }
+
+  &__sub {
+    color: $gray;
+    font-size: .95rem;
+    font-family: $sans;
+  }
+}
+
+.mc-form {
+  display: flex;
+
+  &__email {
+    flex: 8;
+    color: $black;
+    margin-right: 0;
+    border: 1px solid $gray-light;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: .65rem .75rem;
+    font-size: 1rem;
+    outline: 0;
+    -webkit-appearance: none;
+    
+    &:hover {
+      border-color: $blue;
+      transition: border-color .25s;
+    }
+
+    &:focus {
+      border-color: $red;
+      transition: border-color .25s;
+    }
+  }
+
+  &__button {
+    flex: 2;
+    background-color: $white;
+    color: $black;
+    margin-left: 0;
+    border: 1px solid $gray-light;
+    border-left-width: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding: .65rem .75rem;
+    font-size: .9rem;
+    font-weight: 700;
+    font-family: $sans;
+    cursor: pointer;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}

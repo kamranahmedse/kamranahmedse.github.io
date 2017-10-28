@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Updates from the last Week
 comments: true
 ---

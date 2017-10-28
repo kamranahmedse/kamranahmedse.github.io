@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Github - Contribute to evolve
 comments: true
 ---

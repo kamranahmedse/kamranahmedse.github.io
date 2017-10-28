@@ -1,5 +1,4 @@
 ---
-layout: post
 title: CSS - Yellow Fade Technique
 comments: true
 ---
@@ -7,7 +6,7 @@ I just wrote this little CSS snippet implementing [Yello Fade Technique](https:/
 
 I could just as well write a little jquery animation snippet but couldn't fathom writing Javascript for this simple CSS task. So the CSS snippet is given below:
 
-<pre><code class="css">
+```css
 @keyframes yellowfade {
     from { background: yellow; }
     to { background: transparent; }
@@ -16,7 +15,8 @@ I could just as well write a little jquery animation snippet but couldn't fathom
 .new-item {
     animation-name: yellowfade;
     animation-duration: 1.5s;
-}</code></pre>
+}
+```
 
 **Note** For the sake of brevity I haven't used any prefixes, but real world usage should use the vendor prefixes.
 

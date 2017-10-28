@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Git - Moving changes from one branch to another
 comments: true
 ---
@@ -8,11 +7,11 @@ Sometimes it may happen that you accidentally start working upon a wrong branch 
 
 In situations similar to above said, you may want to move your changes to some separate branch. If it is so, you should do this:
 
-<pre><code class="bash">
+```bash
 git stash
 git checkout someBranch
 git stash pop
-</code></pre>
+```
 
 Here is what’s happening, you stash your changes, checkout the other branch i.e. someBranch in this case upon which you wanted the changes and get the changes off of the stash.
 

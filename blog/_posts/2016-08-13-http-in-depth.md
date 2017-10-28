@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Journey to HTTP/2
 comments: true
 ---
@@ -19,13 +18,11 @@ First things first, what is HTTP? HTTP is the `TCP/IP` based application layer c
 The first documented version of HTTP was [`HTTP/0.9`](https://www.w3.org/Protocols/HTTP/AsImplemented.html) which was put forward in 1991. It was the simplest protocol ever; having a single method called `GET`. If a client had to access some webpage on the server, it would have made the simple request like below
 
 ```
-
 GET /index.html
 ```
 And the response from server would have looked as follows
 
 ```html
-
 (response body)
 (connection closed)
 ```
@@ -47,7 +44,6 @@ Unlike `HTTP/0.9` which was only designed for HTML response, `HTTP/1.0` could no
 Here is how a sample `HTTP/1.0` request and response might have looked like:
 
 ```
-
 GET / HTTP/1.0
 Host: kamranahmed.info
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5)
@@ -59,7 +55,6 @@ As you can see, alongside the request, client has also sent it's personal inform
 Example response to the request above may have looked like below
 
 ```
-
 HTTP/1.0 200 OK 
 Content-Type: text/plain
 Content-Length: 137582

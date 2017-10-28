@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Design Patterns for Humans
 comments: true
 series:

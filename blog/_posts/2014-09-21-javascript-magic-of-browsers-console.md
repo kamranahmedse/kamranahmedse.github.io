@@ -1,26 +1,25 @@
 ---
-layout: post
 title: Javascript - Use console like a pro
 comments: true
 ---
 
 If you use Javascript in development then definitely you use
 
-<pre><code class="javascript">
+```javascript
 console.*
-</code></pre>
+```
 
 or at the very least
 
-<pre><code class="javascript">
+```javascript
 console.log('Your message')
-</code></pre>
+```
 
 for debugging purposes. If you don’t know about it, it’s a utility that Javascript developers use while debugging their Javascript. Console is a part of almost all the major browsers and it comes very handy while debugging your Javascript. You use the `console` object of Javascript to access the console of your browser. You just do
 
-<pre><code class="javascript">
+```javascript
 console.log(anything)
-</code></pre>
+```
 
 to debug literally anything (a string, an object, array etc) and the content of that anything will be printed to the console of your browser.
 
@@ -42,7 +41,7 @@ Now let’s get to the real meat of this article and let’s see, what `console`
 
 Of course you already know about it as it’s the most popular one provided by the `console`. `console.log()` takes one or more parameters and prints it to the console of the browser. It comes handy when you want to have a look at content of some variable etc or you want to check the flow of the control. Let’s demonstrate it with and example, let’s say you were building some game let’s say, featuring [Penguins of Madagascar](http://www.imdb.com/title/tt1911658/) and you have written a script and a part of the script looks like:
 
-<pre><code class="javascript">
+```javascript
 var penguins = [];
  
 penguins.push({ name : "Skipper", role : "Leader" });
@@ -52,7 +51,7 @@ penguins.push({ name : "Private", role : "sensitive rookie of the group"});
  
 // Let's see, do we have the right penguins
 console.log( penguins );
-</code></pre>
+```
 
 You load the page in to your browser and let’s check the browser’s console, you’ll see the following:
 
@@ -60,11 +59,11 @@ You load the page in to your browser and let’s check the browser’s console, 
 
 As you can see, there is structure of the array showing that there are 4 objects in the array. Also there is a little arraow on the left of the array upon clicking which the content of the array shows up and in the same manner you can further check the content of the objects of the array as well. Pretty useful huh? It should be noted that you can pass multiple arguments to the `console.log()` separated by the comma and all the arguments passed to the array will be logged to the console. For example let’s say you wanted to check just the length of the array and not the contents, here is how you’d do that:
 
-<pre><code class="javascript">
+```javascript
 console.log("The cast of penguins of madagascar contains ", penguins.length, " penguins.");
 // or you could do
 console.log("The cast of penguins of madagascar contains " + penguins.length + " penguins.");
-</code></pre>
+```
 
 # Logging Errors `console.error()`
 
@@ -74,7 +73,7 @@ This works just like the `console.log()` I mean, the parameters etc are provided
 
 Below is the example demonstrating the user of `console.error()` (I’m going to continue using the previous example).
 
-<pre><code class="javascript">
+```javascript
 var penguins = [];
  
 penguins.push({ name : "Skipper", role : "Leader" });
@@ -85,7 +84,7 @@ penguins.push({ name : "Kowalski", role : "Group strategist and gadgeteer" });
 if ( penguins.length !== 4 ) {
     console.error("All the members of the crew are not on board.");
 }
-</code></pre>
+```
 
 The output looks like:
 
@@ -97,7 +96,7 @@ As you can see the message is now reddish in color and there is a little cross i
 
 Sometimes you may want to throw some warnings. To generate warnings, you use `console.warn()`. Again, it works the same like `console.error()` and `console.log()` as discussed above, the difference is how they are formatted. Let’s demonstrate it through an example:
 
-<pre><code class="javascript">
+```javascript
 var penguins = [], beingAttacked = true;
  
 penguins.push({ name : "Skipper", role : "Leader" });
@@ -109,7 +108,7 @@ penguins.push({ name : "Private", role : "sensitive rookie of the group"});
 if ( beingAttacked ) {
  console.warn("Penguins!! The ship is under attack, I repeat, the ship is under attack");
 }
-</code></pre>
+```
 
 Let’s see how this warning would look like in the console.
 
@@ -121,7 +120,7 @@ Also notice the little yellow triangular icon to the left of the message.
 
 `console.info()` is used to write some informational text to the console. The output is blue text with little information icon on it’s left. It works the same like the functions discussed above, the difference is how the text generated is formatted in the console. Let’s demonstrate it with an example:
 
-<pre><code class="javascript">
+```javascript
 var penguins = [], onMission = true;
  
 penguins.push({ name : "Skipper", role : "Leader" });
@@ -133,7 +132,7 @@ penguins.push({ name : "Private", role : "sensitive rookie of the group"});
 if ( onMission ) {
  console.info("Penguins are on mission. Let's keep it secret for a moment!");
 }
-</code></pre>
+```
 
 Below is how the output looks like
 
@@ -145,7 +144,7 @@ Now here is the one that’s the most handy one. It turns the array of objects i
 
 Let’s demonstrate it with an example:
 
-<pre><code class="javascript">
+```javascript
 var penguins = [];
  
 penguins.push({ name : "Skipper", role : "Leader" });
@@ -155,7 +154,7 @@ penguins.push({ name : "Private", role : "sensitive rookie of the group"});
  
 // Let's see, do we have the right penguins
 console.table( penguins );
-</code></pre>
+```
 
 And here is how the data in console would look like:
 
@@ -167,10 +166,10 @@ Handy! Isn’t it? The same using `console.log` would have looked like the figur
 
 Yes! You CAN use CSS to format the text in the console. %c format specifier is used to apply custom CSS rules to any string you write to the console with console.log() or related methods. Below example demonstrates, how it works:
 
-<pre><code class="javascript">
+```javascript
 var penguins = 'Skipper, Rice, Kowalski and Private';
 console.log("%cPenguins of the article were " + penguins, "color: blue; font-weight: bold");
-</code></pre>
+```
 
 Now let’s look at the output in Console. Here is how it looks like:
 
@@ -192,11 +191,11 @@ And that’s it that we were going to discuss in this article. Now, before takin
 
 Also you should know that console.* isn’t supported supported by IE-9 and below, so you should place some checks before using these, maybe you should do:
 
-<pre><code class="javascript">
+```javascript
 if ( window.console ) {
    // do something with console
 }
-</code></pre>
+```
 
 Also keep in mind that Console API is huge and I have just scratched the surface. I’ve tried to demonstrate only those utilities that I thought might come handy. To go more in depth, I would refer you to [Using the Console](https://developer.chrome.com/devtools/docs/console)
 

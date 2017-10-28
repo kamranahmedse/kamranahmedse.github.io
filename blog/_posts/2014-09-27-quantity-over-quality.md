@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Quantity over Quality!...What?
 comments: true
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Timezone aware web application
 comments: true
 ---
@@ -13,31 +12,31 @@ I recently had the chance to work on a web application targetting people from di
 
 PHP's `DateTime` is supported in `>=5.2` versions and is really powerful. Below, I show some examples of how to convert from one timezone to another. I am going to take my current timezone into account which is `Asia/Karachi` and is `GMT+5`.
 
-<pre><code class="php">
+```php
 // Convert from some Timezone to UTC
 $clientDateTime = new DateTime('2015-01-19 07:00', new DateTimeZone('Asia/Karachi'));
 $clientDateTime->setTimezone(new DateTimeZone('UTC'));
 $utcDateTime = $clientDateTime->format("Y-m-d H:i A");
 
 echo $utcDateTime;   // Prints 2015-01-19 02:00 AM
-</code></pre>
+```
 
 As you can see the date and time which, according to my timezone (`GMT+5`), is `2015-01-19 07:00` has been converted to `UTC/GMT+0` i.e. 5 hours minus my date which becomes exactly `2015-01-19 02:00 AM`. In a very similar fashion, UTC date can be converted to anyother timezone
 
-<pre><code class="php">
+```php
 // Convert from some UTC to someother Timezone
 $utcDateTime = new DateTime('2015-01-19 02:00', new DateTimeZone('UTC'));
 $utcDateTime->setTimezone(new DateTimeZone('Asia/Karachi'));
 $clientDateTime = $utcDateTime->format("Y-m-d H:i A");
 
 echo $clientDateTime;   // Prints 2015-01-19 07:00 AM
-</code></pre>
+```
 
 Also, one might want to generate a dropdown or a list of timezones. Instead of grabbing it from somewhere else, I would suggest to have PHP generate that for you. Below is how:
 
-<pre><code class="php">
+```php
 $timezones = DateTimeZone::listIdentifiers(DateTimeZone::ALL);
-</code></pre>
+```
 
 It will return an array consisting of the timezones.
 

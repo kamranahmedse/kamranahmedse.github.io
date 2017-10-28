@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Dependency management with Composer
 comments: true
 ---
@@ -18,15 +17,15 @@ Meet [Composer](http://getcomposer.org/) - a dependency manager that will revolu
 
 Enough theory, let’s discuss how can we harness the power of composer in our projects. Firstly, you need to [install composer](https://getcomposer.org/download/), you can visit the site or follow the instructions as given below, if you are using any linux based system.
 
-<pre><code class="bash">
+```bash
 curl -sS https://getcomposer.org/installer | php
-</code></pre>
+```
 
 This command downloads the composer and if all is good then composer is perfectly usable now except you’ll have to specify the path to composer.phar whenever you are going to use it. So to ease our sufferings, let’s move it to **/usr/local/bin** so that we may easily access it. You can do that by
 
-<pre><code class="bash">
+```bash
 sudo mv composer.phar /usr/local/bin
-</code></pre>
+```
 
 Now go to the command line and type `composer` and press enter and see if you are able to see the screen similar to the following
 
@@ -40,25 +39,25 @@ Now that we are all set up, let’s see how can we harness the power of composer
 
 First step is to create a really simple file called `composer.json` having the following content in it
 
-<pre><code class="json">
+```json
 {
     "require": {
         "kamranahmedse/php-geocode": "*"
     }
 }
-</code></pre>
+```
 
 Before moving on to the next step, let me explain what we have here in composer.json. The above json will require php-geocode package created by kamranahmedse (my user name at packagist) in this project as a dependency. The * here means that we have no restrictions over the version of the package and this dependency can be resolved by any version of the package. To specify some specific version, you can instead do the following
 
-<pre><code class="json">
+```json
 "kamranahmedse/php-geocode": "1.0"
-</code></pre>
+```
 
 Also, you can combine the above two i.e.
 
-<pre><code class="json">
+```json
 "kamranahmedse/php-geocode": "1.*"
-</code></pre>
+```
 
 And this would now require any version having 1 as a major version number i.e. it can be 1.1, 1.2, 1.3 or whatever.
 
@@ -66,9 +65,9 @@ And this would now require any version having 1 as a major version number i.e. i
 
 Now that you have specified the dependencies in `composer.json` of your project, you can run the following command to get the dependencies downloaded and be placed in **vendor** directory
 
-<pre><code class="bash">
+```bash
 composer install
-</code></pre>
+```
 
 You’ll notice that all of the dependencies will now be placed inside the vendor folder. Also, you can see, a few new files have been created in our project folder
 
@@ -78,7 +77,7 @@ You’ll notice that all of the dependencies will now be placed inside the vendo
 
 If for some reason, you want to change the name of `vendor` folder, you can modify your `composer.json` file to look like the following:
 
-<pre><code class="json">
+```json
 {
     "require": {
         "kamranahmedse/php-geocode": "*"
@@ -87,7 +86,7 @@ If for some reason, you want to change the name of `vendor` folder, you can modi
         "vendor-dir": "whatever"
     }
 }
-</code></pre>
+```
 
 and now instead of naming the folder `vendor`, composer will now name it as `whatever` as specified in this case.
 
@@ -97,7 +96,7 @@ Now that we have installed our dependencies using `composer install`, it’s tim
 
 In the same web root as `composer.json`, create a new file and place the following code in it
 
-<pre><code class="php">
+```php
 // Include the autloader
 require_once('vendor/autoload.php');
  
@@ -116,7 +115,7 @@ echo "District : " . $geocode->getDistrict() . "&lt;br&gt;";
 echo "Postal Code : " . $geocode->getPostcode() . "&lt;br&gt;";
 echo "Town : " . $geocode->getTown() . "&lt;br&gt;";
 echo "Street # : " . $geocode->getStreetNumber() . "&lt;br&gt;";
-</code></pre>
+```
 
 In the above code, we are including the composer generated autoloader, then we introduce the namespace containing our class so that we can use it. We don’t need to include that, composer’s autoloader will automatically handle the inclusion. After that, I am simply using the functionality provided by our dependency i.e. Geocode class.
 

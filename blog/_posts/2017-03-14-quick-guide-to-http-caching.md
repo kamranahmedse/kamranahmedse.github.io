@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Web Cache - Everything you need to know
 comments: true
 ---
@@ -12,7 +11,7 @@ As users, we easily get frustrated by the buffering videos, the images that take
 
 What is web cache? It is something that sits somewhere between the client and the server, continuously looking at the requests and their responses, looking for any responses that can be cached. So that there is less time consumed when the same request is made again. 
 
-![Web Cache](http://i.imgur.com/xMHiYhJ.png)
+![Web Cache](/blog/assets/2017/03/web-cache.png)
 
 > Note that this image is just to give you an idea. Depending upon the type of cache, the place where it is implemented could vary. More on this later.
 
@@ -25,7 +24,7 @@ Before we get into further details, let me give you an overview of the terms tha
 - **Cache Validation** is the process of contacting the server to check the validity of the cached content and get it updated for when it is going to expire
 - **Cache Invalidation** is the process of removing any stale content available in the cache
 
-![Caching terms](http://i.imgur.com/vIMNEeD.png)
+![Caching terms](/blog/assets/2017/03/caching-terms.png)
 
 ## Caching Locations
 
@@ -34,7 +33,7 @@ Web cache can be shared or private depending upon the location where it exists. 
 ### Browser Cache
 You might have noticed that when you click the back button in your browser it takes less time to load the page than the time that it took during the first load; this is the browser cache in play. Browser cache is the most common location for caching and browsers usually reserve some space for it.
 
-![Browser Cache](http://i.imgur.com/DL9HvLX.png)
+![Browser Cache](/blog/assets/2017/03/web-cache.png)
 
 A browser cache is limited to just one user and unlike other caches, it can store the "private" responses. More on it later.
 
@@ -42,7 +41,7 @@ A browser cache is limited to just one user and unlike other caches, it can stor
 
 Unlike browser cache which serves a single user, proxy caches may serve hundreds of different users accessing the same content. They are usually implemented on a broader level by ISPs or any other independent entities for example.
 
-![Proxy Cache](http://i.imgur.com/ndj9W6o.png)
+![Proxy Cache](/blog/assets/2017/03/proxy-cache.png)
 
 ### Reverse Proxy Cache
 
@@ -220,7 +219,6 @@ Header set Cache-Control "max-age=31536000, public"
 You can further use `filesMatch` directive to add conditionals and use different caching strategy for different kinds of files e.g.
  
 ```html
-
 # Cache any images for one year
 <filesMatch ".(png|jpg|jpeg|gif)$">
     Header set Cache-Control "max-age=31536000, public"
