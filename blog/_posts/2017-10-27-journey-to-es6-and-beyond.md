@@ -6,7 +6,9 @@ comments: true
 
 [Traveling to Al Qudra lakes](https://twitter.com/kamranahmedse/status/924035150429720577), with nothing much to do for about next hour, here comes a post about the history of JavaScript discussing how did we get here and what to expect in future.
 
-Around 10 years ago, Jeff Atwood (the founder of stackoverflow) made a case that JavaScript is going to be the future and he coined the "Atwood Law" which states that *Any application that can be written in JavaScript will eventually be written in JavaScript*. Fast-forward to today, 10 years later, if you look at it –– it is truer than ever. JavaScript is continuing to gain more and more adoption. 
+Around 10 years ago, Jeff Atwood (the founder of stackoverflow) made a case that JavaScript is going to be the future and he coined the "Atwood Law" which states that *Any application that can be written in JavaScript will eventually be written in JavaScript*. Fast-forward to today, 10 years later, if you look at it –– it rings truer than ever. JavaScript is continuing to gain more and more adoption. 
+
+## ES1 is announced
 
 JavaScript was initially created by [Brendan Eich](https://twitter.com/BrendanEich) of NetScape and was first announced in a press release by Netscape in 1995. It has a bizarre history of naming; initally it was named `Mocha` by the creator, which was later renamed to `LiveScript`. In 1996, about a year later after the release, NetScape decided to rename it to be `JavaScript` with hopes of capitalizing on the Java community (although JavaScript did not have any relationship with Java) and released Netscape 2.0 with the official support of JavaScript. 
 
