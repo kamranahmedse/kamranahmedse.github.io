@@ -3,20 +3,22 @@
 
 <header class="intro mar-tb-7">
     <h1 class="intro__head">Kamran Ahmed
-        <div class="intro__sub">Lead engineer at tajawal with an entrepreneurial spirit and knack for getting things done</div>
+        <div class="intro__sub">Lead engineer at tajawal with an entrepreneurial spirit and knack for getting things
+            done
+        </div>
     </h1>
 </header>
 
 <!--<section id="featured" class="mar-b-7">-->
-    <!--<h3 class="section__title">Featured Writing</h3>-->
-    <!--<div class="feature-list">-->
-        <!--{% for post in site.featured %}-->
-        <!--<a id="f-{{ post.id }}" class="feature" href="{{ post.url }}">-->
-            <!--<span class="feature__title feature&#45;&#45;{{ post.type }}">{{ post.title }}</span>-->
-            <!--<time class="feature__date feature&#45;&#45;{{ post.type }}" datetime="{{ post.date | date: "%Y-%m-%d %H:%M" }}">{{ post.date | date: "%B %Y" }}</time>-->
-        <!--</a>-->
-        <!--{% endfor %}-->
-    <!--</div>-->
+<!--<h3 class="section__title">Featured Writing</h3>-->
+<!--<div class="feature-list">-->
+<!--{% for post in site.featured %}-->
+<!--<a id="f-{{ post.id }}" class="feature" href="{{ post.url }}">-->
+<!--<span class="feature__title feature&#45;&#45;{{ post.type }}">{{ post.title }}</span>-->
+<!--<time class="feature__date feature&#45;&#45;{{ post.type }}" datetime="{{ post.date | date: "%Y-%m-%d %H:%M" }}">{{ post.date | date: "%B %Y" }}</time>-->
+<!--</a>-->
+<!--{% endfor %}-->
+<!--</div>-->
 <!--</section>-->
 
 {% for post in site.posts %}
@@ -26,14 +28,19 @@
 {% if currentdate == '2015' %}
 {% include mailchimp.html %}
 {% endif %}
-<section id="y{{post.date | date: "%Y"}}" class="mar-b-7">
+<section id="y{{post.date | date: " %Y"}}" class="mar-b-7">
 <h3 class="section__title">{{ currentdate }}</h3>
 <div class="post-list">
     {% assign date = currentdate %}
     {% endif %}
-    <a class="post" href="{{ post.url | prepend: site.baseurl }}">
+    {% if post.type != 'link' %}
+        <a class="post" href="{{ post.url | prepend: site.baseurl }}">
+    {% endif %}
+    {% if post.type == 'link' %}
+        <a target="_blank" class="post" href="{{ post.external_url }}">
+    {% endif %}
         <span class="post__title">{{ post.title }}</span>
-        <time class="post__date" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%b %d" }}</time>
+        <time class="post__date" datetime="{{ post.date | date: " %Y-%m-%d" }}">{{ post.date | date: "%b %d" }}</time>
     </a>
     {% if forloop.last %}
 </div>
