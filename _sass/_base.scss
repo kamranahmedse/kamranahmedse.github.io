@@ -36,10 +36,11 @@ a {
 }
 
 hr {
-  margin: 4rem auto 5rem;
   border: 0;
-  width: 100%;
+  height: 25px;
+  margin: 4rem auto;
   text-align: center;
+  width: 100%;
 
   &::before {
     color: $gray;
