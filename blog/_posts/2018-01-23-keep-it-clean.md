@@ -1,5 +1,5 @@
 ---
-title: Keep it Clean
+title: Keep it clean while you Code
 comments: true
 ---
 About a week ago, I relocated to Berlin and among the things that I tried for the first time, was cooking a meal myself. If you have ever cooked one, you would probably know that things tend to get messy pretty fast; you haven't completed cooking yet and are already horrified by the sink filled with those dirty pans, skillets, mixing bowls, a pile of dirty plates and all those greasy utensils already shouting for a scrub. Somtimes you have to waste an hour or two after cooking the meal to clean up the mess that you made. But it did not have to be this way, what if you were a little cautious while you were cooking, what if you had reused some of those not-so-dirty utensils, what if you had reused some plates instead of grabbing a new one every time, what if were not so lazy and had cleaned some of those utensils while you were cooking, what if you had kept putting the seasonings back after they had been used. What if you had thought about some of these what ifs and saved yourself some time and comfort so that you could enjoy that delicious meal afterwards without thinking about cleaning up the mess you made along the way.
