@@ -7,7 +7,7 @@ It is quite common to have both the query and route parameters in any single pag
 
 ## Reading from the Snapshot
 
-First and the simplest way to do that is reading them from the `snapshot` of the active route when it was loaded i.e. inject the instance of `ActivatedRoute` into your component's constructor or pull the instance from the `Injector` and read it from there i.e.
+First and the simplest way to do that is reading them from the `snapshot` of the active route i.e. inject the instance of `ActivatedRoute` into your component's constructor or pull it from the `Injector` and read it from there i.e.
 
 ```javascript
 import { ActivatedRoute } from '@angular/router';
@@ -29,13 +29,17 @@ export class UserDetailComponent implements OnInit {
     }
 }
 ```
-But there is a little gotcha here, as the name specifies, these parameters are from the snapshot of the route at the time of first loading i.e. these values will be calculated for the first component loading and they won't change unless you reload the page. Why could it be a problem? Well let's say you had a list of users on the sidebar and clicking any user loads this user detail component. It would work fine for the first time i.e. when none of the details were openend and you clicked any user and loaded the details for the first time. Now let's say you want to open the details of another user, if you try and click the other one, it won't work. Why? because the component is already loaded, angular is smart and won't reload the component; it will just change the route params, which won't have any affect on the component because we read from the initial snapshot and so we don't have access to the update routed params. 
+But there is a little gotcha here. As the name `snapshot` specifies, these parameters are from the snapshot of the route at the first load of the component. These values will be calculated for the first load of the component and they won't change unless you reload the page.
+
+Why could it be a problem? Well let's say you had a list of users on the sidebar and clicking any user loads this user detail component. It would work fine for the first time i.e. when none of the details were openend and you clicked any user and loaded the details for the first time. Now let's say you want to open the details of another user, if you try and click the other one, it won't work. Why? because the component is already loaded, angular is smart and won't reload the component; it will just change the route params, which won't have any affect on the component because we read from the initial snapshot and so we don't have access to the update routed params. 
 
 So how can we fix this? Well we can do that by adding a listener to the route params.
 
 ## Reading via Subscriptions
 
-As discussed above, the snapshot won't get updated if we try to reload the current route with different route parameters and our little example won't work. Good news! apart from the snapshot, active route provides the query and route parameters in the form of observables. We can subscribe to them and thus can fire our `loadUserDetail` whenever the route parameters will get changed. In order to do that, we will have to change our `ngOnInit` hook as follows
+As discussed above, the snapshot won't get updated if we try to reload the current route with different route parameters. Good news! apart from the snapshot, active route also provides the query and route parameters in the form of observables. We can subscribe to those observables and thus whenever the route params might get changed we will get notified in our subscriber and so we can load the user details. 
+
+Here is how it would look like in code:
 
 ```javascript
 ngOnInit() {
@@ -53,8 +57,7 @@ Perfect! Now the query and route parameters are not bound to the snapshot and wh
 
 ## Reading them at once
 
-But let's say that our situation has been a little changed now. Now we need to read one parameter from the query params and the other from the route params and we need to send them both in the `loadUserDetail` api call. How can we do that? 
-
+But let's say that our situation has been a little changed and we need both the query and route params at once. We need to read one parameter from the query params and the other from the route params and we need to send them both in the `loadUserDetail` API call. How can we do that? 
 
 ## The Dirty Way
 
