@@ -15,13 +15,21 @@
 <div class="page-wrap">
     <section class="section__header" id="driver-demo-head">
         <h1><span id="logo_emoji" class="emoji">👨‍🔧️</span> <span id="name_driver">Driver</span></h1>
-        <p class="text-muted">A light-weight, no-dependency, vanilla JavaScript library to drive the user's focus across the
+        <p class="text-muted">A light-weight, no-dependency, vanilla JavaScript library to drive the user's focus across
+            the
             page</p>
         <a href="javascript:void(0)" class="btn btn__example btn__dark">Quick Tour</a>
+
+        <div class="github-button top-20">
+            <!-- Place this tag where you want the button to render. -->
+            <a class="github-button" href="https://github.com/kamranahmedse/driver.js" data-size="large"
+               data-show-count="true" aria-label="Star kamranahmedse/driver.js on GitHub">Star</a>
+        </div>
     </section>
 
     <blockquote>
-        <p>A lightweight (~4kb gzipped) yet powerful JavaScript engine that helps you drive the user's focus on page.</p>
+        <p>A lightweight (~4kb gzipped) yet powerful JavaScript engine that helps you drive the user's focus on
+            page.</p>
         <p class="zero-bottom">Some sample use-cases can be creating powerful feature introductions, call-to-action
             components, focus shifters etc.</p>
     </blockquote>
@@ -45,8 +53,10 @@
     <hr class="hr__fancy">
     <section class="section__how">
         <h3>How does it do that?</h3>
-        <p>In it simplest, it puts the canvas on top of the whole page and then cuts the part that is over the element to be
-            highlighted and provides you several hooks when highlighting, highlighted or un-highlighting elements making it
+        <p>In it simplest, it puts the canvas on top of the whole page and then cuts the part that is over the element
+            to be
+            highlighted and provides you several hooks when highlighting, highlighted or un-highlighting elements making
+            it
             highly customizable.</p>
     </section>
     <hr class="hr__fancy">
@@ -58,7 +68,8 @@
         </div>
         <div id="single-element-no-popover" class="section__example">
             <h4>Highlighting a Single Element – Without Popover</h4>
-            <p class="zero-bottom">If all you want is just highlight a single element, you can do that simply by passing the
+            <p class="zero-bottom">If all you want is just highlight a single element, you can do that simply by passing
+                the
                 selector</p>
             <a href="#" class="btn__run-demo" id="run-single-element-no-popover">Show Demo</a>
             <pre><code class="javascript">const driver = new Driver();
@@ -69,7 +80,8 @@ driver.highlight('#create-post');
         <hr class="hr__fancy">
 
         <div class="section__example">
-            <p>A <strong>real world use-case</strong> for this could be highlighting an element when user is interacting with
+            <p>A <strong>real world use-case</strong> for this could be highlighting an element when user is interacting
+                with
                 it</p>
             <pre><code class="javascript">const focusDriver = new Driver();
 
@@ -79,7 +91,8 @@ document.getElementById('creation-input')
     focusDriver.focus('#creation-input');
   });
 </code></pre>
-            <p class="top-20">Focus any of the inputs and see how it moves the highlight from one element to the other</p>
+            <p class="top-20">Focus any of the inputs and see how it moves the highlight from one element to the
+                other</p>
             <div id="creation-forms">
                 <input type="text" id="creation-input" class="form-control" placeholder="Focus any of the inputs">
                 <input type="text" id="creation-input-2" class="form-control" placeholder="Focus any of the inputs">
@@ -94,7 +107,8 @@ document.getElementById('creation-input')
 
         <div id="single-element-with-popover" class="section__example">
             <h4>Highlighting a Single Element – With Popover</h4>
-            <p>If you would like to show some details alongside the highlighted element, you can do that easily by specifying
+            <p>If you would like to show some details alongside the highlighted element, you can do that easily by
+                specifying
                 title and description</p>
             <a href="#" class="btn__run-demo" id="run-single-element-with-popover">Show Demo</a>
             <pre><code class="javascript">const driver = new Driver();
@@ -135,7 +149,8 @@ driver.highlight({
                 <a href="#" id="position-btn-bottom">On my Bottom</a>
                 <a href="#" id="position-btn-right">On my Right</a>
             </div>
-            <p class="top-20">If you don't specify the position or specify it to be <code>auto</code>, it will automatically
+            <p class="top-20">If you don't specify the position or specify it to be <code>auto</code>, it will
+                automatically
                 find the suitable position for the popover and show it</p>
         </div>
         <hr class="hr__fancy">
@@ -160,9 +175,12 @@ driver.highlight({
 
         <div id="third-element-introduction" class="section__example">
             <h4 id="first-element-introduction">Creating Feature Introductions</h4>
-            <p id="second-para-feature-introductions">You can also make powerful feature introductions to guide the users
-                about the features. Just provide an array of steps where each step specifies an element to highlight.</p>
-            <p id="third-para-feature-introductions">Below is just a quick example showing you how to combine the steps in
+            <p id="second-para-feature-introductions">You can also make powerful feature introductions to guide the
+                users
+                about the features. Just provide an array of steps where each step specifies an element to
+                highlight.</p>
+            <p id="third-para-feature-introductions">Below is just a quick example showing you how to combine the steps
+                in
                 introduction.</p>
             <a href="#" class="btn__run-demo" id="run-multi-element-popovers">Show Demo</a>
         </div>
@@ -197,18 +215,21 @@ driver.defineSteps([
 // Start the introduction
 driver.start();
 </code></pre>
-        <p class="top-20">This is just a quick example for the feature introduction. For a richer one, please have a look at
+        <p class="top-20">This is just a quick example for the feature introduction. For a richer one, please have a
+            look at
             the
             <a href="#" class="btn__example">"Quick Tour"</a></p>
 
-        <p>You may also turn off the footer buttons in popover, in which case user can control the popover using the arrows
+        <p>You may also turn off the footer buttons in popover, in which case user can control the popover using the
+            arrows
             keys on keyboard. Or you may control it using the methods provided by Driver.</p>
 
         <hr class="hr__fancy">
 
         <div id="element-without-popover" class="section__example">
             <h4>Without Overlay</h4>
-            <p>You can create feature introductions and do everything listed above without overlays also. All you have to do
+            <p>You can create feature introductions and do everything listed above without overlays also. All you have
+                to do
                 is just set the opacity to `0`.</p>
             <a href="#" class="btn__run-demo" id="run-element-without-popover">Show Demo</a>
             <pre><code class="javascript">const driver = new Driver({
@@ -248,7 +269,8 @@ driver.highlight({
         </div>
         <div class="section__example">
             <h4>Step Definition</h4>
-            <p>Here are the set of options that you can pass in each step i.e. an item in array of steps or the object that
+            <p>Here are the set of options that you can pass in each step i.e. an item in array of steps or the object
+                that
                 you pass to <code>highlight</code> method</p>
             <pre><code class="javascript">const stepDefinition = {
   element: '#some-item', // Query selector for the item to be highlighted
@@ -289,8 +311,10 @@ activeElement.showPopover();  // Show the popover
 activeElement.getNode();  // Gets the DOM Element behind this element
 </code></pre>
         </div>
-        <p class="top-20">You can use a variety of options to achieve whatever you may want. I have some plans on improving
-            it further, make sure to keep an eye on the <a href="https://github.com/kamranahmedse/driver.js" target="_blank">github
+        <p class="top-20">You can use a variety of options to achieve whatever you may want. I have some plans on
+            improving
+            it further, make sure to keep an eye on the <a href="https://github.com/kamranahmedse/driver.js"
+                                                           target="_blank">github
                 page</a></p>
     </section>
     <hr class="hr__fancy">
@@ -302,8 +326,10 @@ activeElement.getNode();  // Gets the DOM Element behind this element
     </div>
     <hr class="hr__fancy">
     <div class="section__example">
-        <p>A product by <a href="http://twitter.com/kamranahmedse" target="_blank">Kamran</a> produced out of boredom and
-            frustration in cold Berlin after he gave up on trying to find a perfect solution to integrate journey introduction
+        <p>A product by <a href="http://twitter.com/kamranahmedse" target="_blank">Kamran</a> produced out of boredom
+            and
+            frustration in cold Berlin after he gave up on trying to find a perfect solution to integrate journey
+            introduction
             and overlays.</p>
         <a href="https://twitter.com/kamranahmedse?ref_src=twsrc%5Etfw"
            class="twitter-follow-button mr-3"
