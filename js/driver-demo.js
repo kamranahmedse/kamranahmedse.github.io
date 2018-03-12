@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         element: '#free_use_feature',
         popover: {
             title: 'MIT License',
-            description: 'I believe in open=source and thus Driver is completely free for both personal or commercial use'
+            description: 'I believe in open-source and thus Driver is completely free for both personal or commercial use'
         }
     }, {
         element: '#lightweight_feature',
