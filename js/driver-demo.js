@@ -302,4 +302,10 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         featureIntroductionDriver.start();
     });
+
+    const newURL = location.href.split("?")[0];
+    if (newURL !== location.href) {
+        window.location = newURL;
+        window.location.href = newURL;
+    }
 });
