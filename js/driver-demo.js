@@ -2,14 +2,8 @@
 
 /* eslint-disable */
 document.addEventListener("DOMContentLoaded", function () {
-    var tourDriver = new Driver({
-        animate: true,
-        opacity: 0.8,
-        padding: 5,
-        showButtons: true
-    });
 
-    tourDriver.defineSteps([{
+    var tourSteps = [{
         element: '#driver-demo-head',
         popover: {
             title: 'Before we start',
@@ -95,10 +89,31 @@ document.addEventListener("DOMContentLoaded", function () {
             title: 'Quick Tour Ends',
             description: 'This was just a sneak peak, have a look at the API section and examples to learn more!'
         }
-    }]);
+    }];
 
-    document.querySelector('.btn__example').addEventListener('click', function () {
-        tourDriver.start();
+    var animatedTourDriver = new Driver({
+        animate: true,
+        opacity: 0.8,
+        padding: 5,
+        showButtons: true
+    });
+
+    var boringTourDriver = new Driver({
+        animate: false,
+        opacity: 0.8,
+        padding: 5,
+        showButtons: true
+    });
+
+    boringTourDriver.defineSteps(tourSteps);
+    animatedTourDriver.defineSteps(tourSteps);
+
+    document.querySelector('#animated-tour').addEventListener('click', function () {
+        animatedTourDriver.start();
+    });
+
+    document.querySelector('#boring-tour').addEventListener('click', function () {
+        boringTourDriver.start();
     });
 
     document.querySelectorAll('pre code').forEach(function (element) {
@@ -117,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
     /////////////////////////////////////////////
     // Form focus examples
     /////////////////////////////////////////////
-    var focusDriver = new Driver({padding: 0});
+    var focusDriver = new Driver({ padding: 0 });
     var inputIds = ['creation-input', 'creation-input-2', 'creation-input-3', 'creation-input-4'];
     inputIds.forEach(function (inputId) {
         // Highlight the section on focus
@@ -266,7 +281,7 @@ document.addEventListener("DOMContentLoaded", function () {
         popover: {
             title: 'Title on Popover',
             description: 'Body of the popover',
-            position: 'bottom'
+            position: 'top'
         }
     }, {
         element: '#second-para-feature-introductions',
@@ -300,10 +315,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelector('#run-multi-element-popovers').addEventListener('click', function (e) {
         e.preventDefault();
+        e.stopPropagation();
         featureIntroductionDriver.start();
     });
 
-    const newURL = location.href.split("?")[0];
+    var newURL = location.href.split("?")[0];
     if (newURL !== location.href) {
         window.location = newURL;
         window.location.href = newURL;
