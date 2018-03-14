@@ -166,6 +166,28 @@ driver.highlight({
         <p class="top-20">And of course it can be any valid HTML.</p>
 
         <hr class="hr__fancy">
+        <div id="single-element-no-close" class="section__example">
+            <h4>Disable Close on Outside Click</h4>
+            <p>By default, driver.js gets reset if user clicks outside the highlighted element, you can disable this:</p>
+            <a href="#" class="btn__run-demo" id="run-single-element-no-close">Show Demo</a>
+            <pre><code class="javascript">const driver = new Driver({
+    allowClose: false,
+});
+
+driver.highlight({
+  element: '#some-element',
+  popover: {
+    title: '&lt;em&gt;An italicized title&lt;/em&gt;',
+    description: 'Description may also contain &lt;strong&gt;HTML&lt;/strong&gt;'
+  }
+});
+</code></pre>
+        <p class="top-20">
+            If you use this option, for multi-step driver, it would close after you are done with the popover or you can close it programmatically. For single element popover, you need to close it properly, otherwise it won't be closed
+        </p>
+            <pre><code class="javascript">driver.reset()</code></div>
+
+        <hr class="hr__fancy">
 
         <div id="third-element-introduction" class="section__example">
             <h4 id="first-element-introduction">Creating Feature Introductions</h4>
@@ -249,7 +271,7 @@ driver.highlight({
   animate: true,  // Animate while changing highlighted element
   opacity: 0.75,  // Background opacity (0 means only popovers and without overlay)
   padding: 10,    // Distance of element from around the edges
-  clickOutsideToClose: true, // Whether clicking on overlay should close or not
+  allowClose: true, // Whether clicking on overlay should close or not
   scrollIntoViewOptions: {}, // We use `scrollIntoView()` when possible, pass here the options for it if you want any
   onHighlightStarted: (Element) {}, // Called when element is about to be highlighted
   onHighlighted: (Element) {}, // Called when element is fully highlighted
