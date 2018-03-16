@@ -2,7 +2,6 @@
 
 /* eslint-disable */
 document.addEventListener("DOMContentLoaded", function () {
-
     var tourSteps = [{
         element: '#driver-demo-head',
         popover: {
@@ -109,10 +108,18 @@ document.addEventListener("DOMContentLoaded", function () {
     animatedTourDriver.defineSteps(tourSteps);
 
     document.querySelector('#animated-tour').addEventListener('click', function () {
+        if (boringTourDriver.isActivated) {
+            boringTourDriver.reset(true);
+        }
+
         animatedTourDriver.start();
     });
 
     document.querySelector('#boring-tour').addEventListener('click', function () {
+        if (animatedTourDriver.isActivated) {
+            animatedTourDriver.reset(true);
+        }
+
         boringTourDriver.start();
     });
 
@@ -132,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
     /////////////////////////////////////////////
     // Form focus examples
     /////////////////////////////////////////////
-    var focusDriver = new Driver({padding: 0});
+    var focusDriver = new Driver({ padding: 0 });
     var inputIds = ['creation-input', 'creation-input-2', 'creation-input-3', 'creation-input-4'];
     inputIds.forEach(function (inputId) {
         // Highlight the section on focus
@@ -318,35 +325,6 @@ document.addEventListener("DOMContentLoaded", function () {
         e.stopPropagation();
         featureIntroductionDriver.start();
     });
-
-    const singleNoClose = new Driver({
-        allowClose: false,
-        position: 'top'
-    });
-
-    singleNoClose.defineSteps([
-        {
-            element: '#single-element-no-close',
-            popover: {
-                title: 'Uh-huh!',
-                description: 'You cannot close by clicking outside'
-            }
-        },
-        {
-            element: '#third-element-introduction',
-            popover: {
-                title: 'Title on Popover',
-                description: 'Body of the popover',
-                position: 'top'
-            }
-        }
-    ]);
-
-    document.querySelector('#run-single-element-no-close')
-        .addEventListener('click', function (e) {
-            e.preventDefault();
-            singleNoClose.start();
-        });
 
     var newURL = location.href.split("?")[0];
     if (newURL !== location.href) {
