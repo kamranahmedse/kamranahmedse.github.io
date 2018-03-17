@@ -149,6 +149,38 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     /////////////////////////////////////////////
+    // Single no close demo
+    /////////////////////////////////////////////
+    const singleNoClose = new Driver({
+        allowClose: false,
+        position: 'top'
+    });
+
+    singleNoClose.defineSteps([
+        {
+            element: '#single-element-no-close',
+            popover: {
+                title: 'Uh-huh!',
+                description: 'You cannot close by clicking outside'
+            }
+        },
+        {
+            element: '#third-element-introduction',
+            popover: {
+                title: 'Title on Popover',
+                description: 'Body of the popover',
+                position: 'top'
+            }
+        }
+    ]);
+
+    document.querySelector('#run-single-element-no-close')
+        .addEventListener('click', function (e) {
+            e.preventDefault();
+            singleNoClose.start();
+        });
+
+    /////////////////////////////////////////////
     // Highlighting single element with popover
     /////////////////////////////////////////////
     var singleDriverWithPopover = new Driver();
