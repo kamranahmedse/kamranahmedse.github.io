@@ -14,7 +14,7 @@ include: ["résumé.pdf"]
 permalink: pretty
 timezone: Asia/Abu_Dhabi
 
-gems: []
+plugins: []
 
 markdown: kramdown
 kramdown:
