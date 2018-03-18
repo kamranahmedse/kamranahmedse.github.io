@@ -31,6 +31,8 @@ From the technical implementation, in the beginning it was just supposed to be a
 
 Canvas was a good match for the initial implementation (as there was no CSS and only a minimal JavaScript) but as I kept extending it, canvas started to become weary. The implementation for the tours and animations would have been quite simpler and more browser compatible, if I had used HTML/CSS. But then it was too late to rewrite at that time, so I decided to push it forward, complete it and leave the re-write for later. As they say, "He who ships, wins" (do they? or did I just make it up).
 
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Rewrote Driver.js from the ground up to drop canvas and use HTML/CSS. Feedback, bug reports and contributions welcomed 🤗 <a href="https://t.co/SjDZfqbUj5">pic.twitter.com/SjDZfqbUj5</a></p>&mdash; Kamran Ahmed 🦀 (@kamranahmedse) <a href="https://twitter.com/kamranahmedse/status/973722773355925504?ref_src=twsrc%5Etfw">March 14, 2018</a></blockquote>
+
 I wasn't happy with the canvas implementation so the next night after the launch, I started working on the rewrite using HTML/CSS and it felt so good to delete so much code and those hacky solutions that I had to implement to make it work with canvas. The things that I had to do with canvas just to position the canvas on top of the overlay were just horrible; I had to listen to the scroll event and redraw the whole thing on each scroll. However, after the new implementation, there was just one rendering and then CSS positioning did all the heavy lifting for me.
  
 ![](https://i.imgur.com/0LCBV82.png)
