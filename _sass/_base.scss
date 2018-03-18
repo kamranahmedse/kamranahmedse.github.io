@@ -48,7 +48,7 @@ hr {
     content: "•••";
     font-size: 1rem;
     letter-spacing: 1rem;
-  } 
+  }
 }
 
 blockquote {
@@ -219,7 +219,7 @@ footer {
 
   &__content {
     padding: 0 0 0 1rem;
-    
+
     @media screen and (max-width: $sm) {
       padding: 0;
     }
@@ -294,7 +294,6 @@ footer {
   }
 }
 
-
 #f-1 {
   background: url(../img/new.png);
   background-size: 100%;
@@ -323,7 +322,7 @@ footer {
   color: $black;
   text-decoration: none;
   transition: color .25s, padding-left .25s;
-  
+
   &:hover {
     color: $blue;
     padding-left: 1rem;
@@ -337,4 +336,9 @@ footer {
     color: $gray;
     font-size: .8rem;
   }
+}
+
+twitterwidget {
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
