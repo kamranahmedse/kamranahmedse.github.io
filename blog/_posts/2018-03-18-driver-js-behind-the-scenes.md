@@ -75,7 +75,7 @@ As it happens when you launch something – the thrill and that adrenaline rush,
 
 ![](https://imgur.com/IgSfbFQ.png)
 
-<sub>Feel free to steal it and use it when on your launch next time</sub>
+<sub>Feel free to steal it and use it on your launch next time</sub>
 
 ## The Next Day
 
@@ -95,6 +95,6 @@ It did not get much love on newshacker but apart from this it also ended up hitt
 
 ## What's the point?
 
-So has it all been about the stars and getting props? Honestly, I never even think about this stuff while I am working on something. I am a strong believer of the fact that if YOU think you are doing a good job then you don't need to look for approval from others. I [already have them in abundance](http://github.com/kamranahmedse) and for this project specifically I didn't even think that it would get that big or to show up in the "popular projects" section in my profile. I started working on it mainly because it seemed interesting and seemed to be something that had a real use for me and might be for others. I couldn't care less about the stars; I will still make things when nobody is watching. Plus, it has been quite some time since [I last played](https://github.com/kamranahmedse/jumper-bot) with `canvas` and wanted to make something interesting. And I did learn a couple of things, so stars were just a positive side-effect that I wasn't aiming for.
+So has it all been about the stars and getting props? Honestly, I never even think about this stuff while I am working on something. I am a strong believer of the fact that if YOU think you are doing a good job then you don't need to look for approval from others. I [already have them in abundance](http://github.com/kamranahmedse) and for this project specifically I didn't even think that it would get that big or to show up in the "popular projects" section in my profile. I started working on it mainly because it seemed interesting and seemed to be something that had a real use for me and maybe for others. I couldn't care less about the stars; I will still make things when nobody is watching. Plus, it has been quite some time since [I last played](https://github.com/kamranahmedse/jumper-bot) with `canvas` and wanted to make something interesting. And I did learn a couple of things, so stars were just a positive side-effect that I wasn't aiming for.
 
 And that about wraps it up. Until next time, keep making!
