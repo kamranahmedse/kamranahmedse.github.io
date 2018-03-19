@@ -3,7 +3,7 @@ title: Driver.js – Behind the Scenes
 comments: true
 ---
 
-I launched [Driver.js](http://kamranahmed.info/driver) last week which apparently went big. This post is going to be a quick "behind the scenes" towards how I came up with the idea and what went into writing it and then rewriting in two days after the launch and also to give you a little perspective regarding how I approach the ideas that I have.
+I launched [Driver.js](http://kamranahmed.info/driver) last week which apparently went big. This post is going to be a quick "behind the scenes" towards how I came up with the idea and what went into writing it and then rewriting in two days after the launch and also to give you a little perspective on how I approach the ideas that I have.
 
 ## Ideas, Ideas and Ideas
 
