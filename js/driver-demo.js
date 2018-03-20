@@ -124,9 +124,10 @@ document.addEventListener("DOMContentLoaded", function () {
         boringTourDriver.start();
     });
 
-    document.querySelectorAll('pre code').forEach(function (element) {
-        hljs.highlightBlock(element);
-    });
+    var codes = document.querySelectorAll('pre code');
+    for(var counter = 0; counter < codes.length; counter++) {
+        hljs.highlightBlock(codes[counter]);
+    }
 
     /////////////////////////////////////////////
     // First example – highlighting without popover
@@ -142,12 +143,12 @@ document.addEventListener("DOMContentLoaded", function () {
     /////////////////////////////////////////////
     var focusDriver = new Driver({ padding: 0 });
     var inputIds = ['creation-input', 'creation-input-2', 'creation-input-3', 'creation-input-4'];
-    inputIds.forEach(function (inputId) {
+    for(var counter2 =0; counter2 <= inputIds.length; counter2++) {
         // Highlight the section on focus
-        document.getElementById(inputId).addEventListener('focus', function () {
+        document.getElementById(inputIds[counter2]).addEventListener('focus', function () {
             focusDriver.highlight('#' + inputId);
         });
-    });
+    }
 
     /////////////////////////////////////////////
     // Single no close demo
