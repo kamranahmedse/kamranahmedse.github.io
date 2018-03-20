@@ -143,10 +143,10 @@ document.addEventListener("DOMContentLoaded", function () {
     /////////////////////////////////////////////
     var focusDriver = new Driver({ padding: 0 });
     var inputIds = ['creation-input', 'creation-input-2', 'creation-input-3', 'creation-input-4'];
-    for(var counter2 =0; counter2 <= inputIds.length; counter2++) {
+    for(var counter2 =0; counter2 < inputIds.length; counter2++) {
         // Highlight the section on focus
         document.getElementById(inputIds[counter2]).addEventListener('focus', function () {
-            focusDriver.highlight('#' + inputId);
+            focusDriver.highlight('#' + inputIds[counter2]);
         });
     }
 
