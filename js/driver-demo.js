@@ -1,6 +1,7 @@
 'use strict';
 
 /* eslint-disable */
+
 document.addEventListener("DOMContentLoaded", function () {
     var tourSteps = [{
         element: '#driver-demo-head',
@@ -151,34 +152,30 @@ document.addEventListener("DOMContentLoaded", function () {
     /////////////////////////////////////////////
     // Single no close demo
     /////////////////////////////////////////////
-    const singleNoClose = new Driver({
+    var singleNoClose = new Driver({
         allowClose: false,
         position: 'top'
     });
 
-    singleNoClose.defineSteps([
-        {
-            element: '#single-element-no-close',
-            popover: {
-                title: 'Uh-huh!',
-                description: 'You cannot close by clicking outside'
-            }
-        },
-        {
-            element: '#third-element-introduction',
-            popover: {
-                title: 'Title on Popover',
-                description: 'Body of the popover',
-                position: 'top'
-            }
+    singleNoClose.defineSteps([{
+        element: '#single-element-no-close',
+        popover: {
+            title: 'Uh-huh!',
+            description: 'You cannot close by clicking outside'
         }
-    ]);
+    }, {
+        element: '#third-element-introduction',
+        popover: {
+            title: 'Title on Popover',
+            description: 'Body of the popover',
+            position: 'top'
+        }
+    }]);
 
-    document.querySelector('#run-single-element-no-close')
-        .addEventListener('click', function (e) {
-            e.preventDefault();
-            singleNoClose.start();
-        });
+    document.querySelector('#run-single-element-no-close').addEventListener('click', function (e) {
+        e.preventDefault();
+        singleNoClose.start();
+    });
 
     /////////////////////////////////////////////
     // Highlighting single element with popover
