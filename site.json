@@ -1,0 +1,29 @@
+{
+  "title": "Kamran Ahmed",
+  "subtitle": "Lead engineer at tradeling — tech guy with an entrepreneurial spirit and knack for getting things done",
+  "owner": {
+    "name": "Kamran Ahmed",
+    "email": "kamranahmed.se@gmail.com"
+  },
+  "social": {
+    "github": "kamranahmedse",
+    "medium": "kamranahmedse",
+    "twitter": "kamranahmedse"
+  },
+  "newsletter": {
+    "showTwitterBanner": true,
+    "currentCount": "2,000",
+    "revueUsername": "roadmapsh"
+  },
+  "seo": {
+    "title": "Kamran Ahmed",
+    "description": "Blog of a Software Engineer",
+    "author": "Kamran Ahmed",
+    "keywords": [
+      "blog",
+      "developer blog",
+      "engineering blog"
+    ]
+  },
+  "cname": "kamranahmed.info"
+}
