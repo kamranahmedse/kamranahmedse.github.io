@@ -11,3 +11,13 @@ My personal blog created using [github-pages-blog-action](https://github.com/kam
 * Push the repository to your github profile under `[yourusername].github.io`
 * Go to repository pages settings at `Settings > Pages` and change settings if required.
 * Visit your website at `yourusername.github.io` 🎊
+
+## Troubleshooting
+
+* CSS was not found (404 in browser console):
+  * Maybe the baseUrl is broken for you. In this case you can specify it in the [site.json](https://github.com/kamranahmedse/kamranahmedse.github.io/blob/master/site.json):
+  ```json
+  {
+    "baseUrl": "https://<your-gh-pages-blog>"
+  }
+  ```
