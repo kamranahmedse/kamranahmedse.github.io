@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Dependency management with Composer</title>
+    <meta name="description" content="Blog of a Software Engineer"/>
+    <meta name="keywords" content="blog,developer blog,engineering blog"/>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Alegreya:400,400i|Lato:400,400i,700,900|Roboto+Mono:400,300">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/shades-of-purple.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav__left">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+    <div class="nav__right">
+        <a target="_blank" href="https://github.com/kamranahmedse" class="link-github">GitHub</a>
+        <a target="_blank" href="https://twitter.com/kamranahmedse" class="link-twitter">Twitter</a>
+        <a href="mailto:kamranahmed.se@gmail.com" class="link-email">Email</a>
+    </div>
+</nav>
+
+<article class="mar-b-7">
+    <header class="text-center">
+        <time class="mar-b-6" datetime="Mon, November 03, 2014">Mon, November 03, 2014</time>
+        <h1 class="mar-b-7">Dependency management with Composer</h1>
+    </header>
+    <p>Composer is an application level dependency manager for PHP and it must be a part of the toolkit of a modern PHP Developer, I would say. Projects these days are not developed in isolation. There are many incredibly intelligent developers out there constantly developing awesome “things” to solve the common problems, so whenever you are going to develop something there is fair chance that it might have been developed by someone out there already, so why reinventing the wheel? Right? Why not use that already developed library or whatever?</p>
+<h1 id="theneed">The Need</h1>
+<p>Let’s say you agreed with me on this not-reinventing-the-wheel thing and you are ready to use some library already developed by someone out there. Now if you use any external library, it would become a dependency of your project. Dependencies can be a great asset, yet at the same time a great source of confusion and frustration and it requires a lot of thinking to get them all play together nicely. And here is more, if that dependency that you are going to use has any further dependencies, it might become a nightmare to manage all of them. Not only that but also when you are working in a team of people working upon the same project, making sure that each of the team member has the right development that is right set of dependencies and their required versions. “Ehhh… I am going to reinvent the wheel..” Don’t rush to the decision right away. Brace yourself for what I am going to introduce to you in this article.</p>
+<h1 id="thesolution">The Solution</h1>
+<p>Meet <a href="http://getcomposer.org/">Composer</a> - a dependency manager that will revolutionize the way how you code. You just have to specify your dependencies and composer will automatically download them (and the dependencies of the dependencies) and automatically place them at a specific location where they can easily be accessed.At <a href="http://packagist.org">packagist.org</a> you can find thousands of packages (~40,000 at the time of this writing) to assist you in your development. Massively popular projects such as <a href="https://packagist.org/packages/laravel/laravel">Laravel</a>, <a href="https://packagist.org/packages/symfony/symfony">Symfony</a>, <a href="https://packagist.org/packages/phpunit/phpunit">PHP Unit</a>, <a href="https://packagist.org/packages/kamranahmedse/php-geocode">PHP Geocode</a> (ok ok.. this one is not that popular, it’s here because it’s mine ;) ) are using composer as their dependency manager and can be found on <a href="http://packagist.org">packagist.org</a>. Also, you can use packagist to search the package of your need, find the one that you want, introduce it in your project using composer and use it.</p>
+<h1 id="gettingstartedwithcomposer">Getting Started with Composer</h1>
+<p>Enough theory, let’s discuss how can we harness the power of composer in our projects. Firstly, you need to <a href="https://getcomposer.org/download/">install composer</a>, you can visit the site or follow the instructions as given below, if you are using any linux based system.</p>
+<pre><code class="bash language-bash">curl -sS https://getcomposer.org/installer | php
+</code></pre>
+<p>This command downloads the composer and if all is good then composer is perfectly usable now except you’ll have to specify the path to composer.phar whenever you are going to use it. So to ease our sufferings, let’s move it to <strong>/usr/local/bin</strong> so that we may easily access it. You can do that by</p>
+<pre><code class="bash language-bash">sudo mv composer.phar /usr/local/bin
+</code></pre>
+<p>Now go to the command line and type <code>composer</code> and press enter and see if you are able to see the screen similar to the following</p>
+<p><img src="http://i.imgur.com/rKBQpDS.png" alt="Composer" /></p>
+<p>If you see that, we are all good to go. If not, go check and see where you went wrong.</p>
+<h1 id="introducingyourdependencies">Introducing your dependencies</h1>
+<p>Now that we are all set up, let’s see how can we harness the power of composer now to install our dependencies. I am going to explain the use of composer by using one of my own packages available at <a href="http://packagist.org/">packagist.org</a> (also on <a href="https://github.com/kamranahmedse/php-geocode">github</a>) called <a href="https://packagist.org/packages/kamranahmedse/php-geocode">PHP Geocode</a>.</p>
+<p>First step is to create a really simple file called <code>composer.json</code> having the following content in it</p>
+<pre><code class="json language-json">{
+    "require": {
+        "kamranahmedse/php-geocode": "*"
+    }
+}
+</code></pre>
+<p>Before moving on to the next step, let me explain what we have here in composer.json. The above json will require php-geocode package created by kamranahmedse (my user name at packagist) in this project as a dependency. The * here means that we have no restrictions over the version of the package and this dependency can be resolved by any version of the package. To specify some specific version, you can instead do the following</p>
+<pre><code class="json language-json">"kamranahmedse/php-geocode": "1.0"
+</code></pre>
+<p>Also, you can combine the above two i.e.</p>
+<pre><code class="json language-json">"kamranahmedse/php-geocode": "1.*"
+</code></pre>
+<p>And this would now require any version having 1 as a major version number i.e. it can be 1.1, 1.2, 1.3 or whatever.</p>
+<h1 id="installingthem">Installing them</h1>
+<p>Now that you have specified the dependencies in <code>composer.json</code> of your project, you can run the following command to get the dependencies downloaded and be placed in <strong>vendor</strong> directory</p>
+<pre><code class="bash language-bash">composer install
+</code></pre>
+<p>You’ll notice that all of the dependencies will now be placed inside the vendor folder. Also, you can see, a few new files have been created in our project folder</p>
+<ul>
+<li><code>composer.lock</code> is the file that contains the exact descriptions of dependencies of our project. It is generated whenever you run <code>composer install</code> for the first time. It basically states that your project is locked to those specific versions of the libs you are using. And if <code>composer.lock</code> is present in your project it will be used instead of <code>composer.json</code> whenever you run <code>composer install</code> or <code>composer update</code></li>
+<li><code>vendor</code> folder contains all the dependencies of your project. All the dependencies go inside this folder in subdirectories of their own</li>
+<li>Also there are <code>vendor/composer</code> and <code>vendor/autoload.php</code>. You only need to know about <code>vendor/autoload.php</code> here. You have to include the <code>vendor/autoload.php</code> file in your scripts and it will automatically take care of the autoloading of your dependencies in your project and you will not need any require/include statements.</li>
+</ul>
+<p>If for some reason, you want to change the name of <code>vendor</code> folder, you can modify your <code>composer.json</code> file to look like the following:</p>
+<pre><code class="json language-json">{
+    "require": {
+        "kamranahmedse/php-geocode": "*"
+    },
+    "config": {
+        "vendor-dir": "whatever"
+    }
+}
+</code></pre>
+<p>and now instead of naming the folder <code>vendor</code>, composer will now name it as <code>whatever</code> as specified in this case.</p>
+<h1 id="autoloadingthedependencies">Autoloading the dependencies</h1>
+<p>Now that we have installed our dependencies using <code>composer install</code>, it’s time for us to use them. Composer automatically generates an autoloader file at <code>vendor/autoload.php</code> (considering that you didn’t chose any other name for directory <code>vendor</code>). Let’s see how can we use this autoloader to autoload our dependencies.</p>
+<p>In the same web root as <code>composer.json</code>, create a new file and place the following code in it</p>
+<pre><code class="php language-php">// Include the autloader
+require_once('vendor/autoload.php');
+
+// Introduce the class into your scope
+use kamranahmedse\Geocode;
+
+$address = "1600 Amphitheatre Parkway, Mountain View, CA";
+
+$geocode = new Geocode( $address );
+
+echo "Latitude of the address is : " . $geocode-&gt;getLatitude() . "&amp;lt;br&amp;gt;";
+echo "Longitude of the address is : " . $geocode-&gt;getLongitude() . "&amp;lt;br&amp;gt;";
+echo "Country : " . $geocode-&gt;getCountry() . "&amp;lt;br&amp;gt;";
+echo "City : " . $geocode-&gt;getLocality() . "&amp;lt;br&amp;gt;";
+echo "District : " . $geocode-&gt;getDistrict() . "&amp;lt;br&amp;gt;";
+echo "Postal Code : " . $geocode-&gt;getPostcode() . "&amp;lt;br&amp;gt;";
+echo "Town : " . $geocode-&gt;getTown() . "&amp;lt;br&amp;gt;";
+echo "Street # : " . $geocode-&gt;getStreetNumber() . "&amp;lt;br&amp;gt;";
+</code></pre>
+<p>In the above code, we are including the composer generated autoloader, then we introduce the namespace containing our class so that we can use it. We don’t need to include that, composer’s autoloader will automatically handle the inclusion. After that, I am simply using the functionality provided by our dependency i.e. Geocode class.</p>
+<p>And that’s all there is to it. If you are curious about the Geocode class that I used to describe composer, you can find more about it through the <a href="https://github.com/kamranahmedse/php-geocode">git repository of it</a>.</p>
+<h1 id="note">Note</h1>
+<p>If you are using any version control system, the best practice is ignore the vendor directory and only commit <code>composer.json</code> and <code>composer.lock</code> files. And the other person working upon your project can simply do <code>composer install</code> or <code>composer update</code> to get these dependencies.</p>
+</article>
+
+
+    <section id="mc_embed_signup" class="mar-tb-7 twitter-signup">
+        <div class="mc-title-container"></div>
+
+        <p class="mar-0 twitter-signup-text">👋 <a href="http://twitter.com/kamranahmedse"
+                                                   target="_blank">Follow me on
+                twitter</a> for the updates. </p>
+    </section>
+
+
+<footer class="text-center mar-tb-6">
+    © 2023 Kamran Ahmed, unless otherwise stated.
+</footer>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
+

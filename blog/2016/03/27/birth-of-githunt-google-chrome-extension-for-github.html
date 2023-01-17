@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Githunt - A Google Chrome extension for Github</title>
+    <meta name="description" content="Blog of a Software Engineer"/>
+    <meta name="keywords" content="blog,developer blog,engineering blog"/>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Alegreya:400,400i|Lato:400,400i,700,900|Roboto+Mono:400,300">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/shades-of-purple.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav__left">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+    <div class="nav__right">
+        <a target="_blank" href="https://github.com/kamranahmedse" class="link-github">GitHub</a>
+        <a target="_blank" href="https://twitter.com/kamranahmedse" class="link-twitter">Twitter</a>
+        <a href="mailto:kamranahmed.se@gmail.com" class="link-email">Email</a>
+    </div>
+</nav>
+
+<article class="mar-b-7">
+    <header class="text-center">
+        <time class="mar-b-6" datetime="Sun, March 27, 2016">Sun, March 27, 2016</time>
+        <h1 class="mar-b-7">Githunt - A Google Chrome extension for Github</h1>
+    </header>
+    <p>In my free time, I usually scour Github rummaging through to find out what interesting stuff people have been building. Not only that it helps me <em>sort of</em> keep up with what's happening around and broaden my horizon, but also more often than not I come across some really interesting stuff for use in my projects. </p>
+<h2 id="theproblem">The Problem</h2>
+<p>The best place to find the interesting stuff on Github is through their <a href="http://github.com/trending">trending page</a> that shows the growing projects. But there are a few <em>snags</em> in using it to keep up</p>
+<ul>
+<li>It only shows the currently (current day, week or month) trending projects. You can't check what was trending in the past</li>
+<li>There is no detail such as number of forks, stars and issues on the page. You have to navigate to the project page for that.</li>
+<li>Most important of all, being lazy, filled with the <em>sluggishness</em>, one might not visit the website specifically to check the trending page and easily miss to discover stuff.</li>
+</ul>
+<h2 id="birthofgithunt">Birth of Githunt</h2>
+<p>I had an idea to create a browser extension that will replace your browser's new tab with trending opensource projets on Github so that you can feast your eyes with the awesome stuff people are building in the technologies of your liking without any effort.</p>
+<p>This weekend, I finally got the time to work on my idea and behold, <a href="http://github.com/kamranahmedse/githunt">Githunt</a> is born.</p>
+<blockquote>
+  <p>Githunt is an extension that replaces the new tab of your browser with the trending github repositories. </p>
+</blockquote>
+<p><img src="http://i.imgur.com/ha6ti77.png" alt="Banner" /></p>
+<p>You can look through the trending repositories for any technology of your liking and for any period of time; be it in the present or past. By default it shows the trending repositories (most starred repositories created in the given period of time) for the last week and as you keep scrolling, you will be presented with the popular repositories of the consecutive past weeks.</p>
+<p>There are language and time jump filters, all you have to do is select how you would like to see the repositories (monthly, weekly or yearly) and the language, it will remember your choice and will show you the trending repositories in that category whenever you will open the new tab. </p>
+<p>Below is how your new tab will look like after installation of extension:</p>
+<p><img src="http://i.imgur.com/FA2OTWX.png" alt="Githunt - New Tab" /></p>
+<h2 id="installation">Installation</h2>
+<p>The extension has been deployed on the Chrome Webstore and you can install it by <a href="https://goo.gl/e7YP1h">following this link</a>. Also, if you like to take a look at what's powering it, <a href="http://github.com/kamranahmedse/githunt">source code is available on github</a>.</p>
+<h2 id="whatdothepeoplesay">What do the people say?</h2>
+<p>I posted the link to the project repository on <a href="https://www.reddit.com/r/javascript/comments/4byk8v/githunt_chrome_extension_to_replace_your_new_tab/">Reddit</a> yesterday and it turned out that people were looking for something like this and it had been trending all day yesterday. Also, it has been on the top of the list <a href="https://github.com/trending/html">amongst the trending github projects</a> since yesterday (Update &ndash; Now 5th).</p>
+<p>So what's stopping you now go ahead <a href="http://github.com/kamranahmedse/githunt">install the extension and go for the hunt</a>.</p>
+<h2 id="canihelp">Can I help?</h2>
+<p>You sure can - the source code is available on <a href="http://github.com/kamranahmedse/githunt">Github</a>. This is the very first version of the extension, so there might be bugs, quirks or unexpected behavior. Also I wanted to put it out as soon as possible so I did not pay heed to aesthetics, need to improve that as well. If you are willing to help, be sure to get in touch with me.</p>
+</article>
+
+
+    <section id="mc_embed_signup" class="mar-tb-7 twitter-signup">
+        <div class="mc-title-container"></div>
+
+        <p class="mar-0 twitter-signup-text">👋 <a href="http://twitter.com/kamranahmedse"
+                                                   target="_blank">Follow me on
+                twitter</a> for the updates. </p>
+    </section>
+
+
+<footer class="text-center mar-tb-6">
+    © 2023 Kamran Ahmed, unless otherwise stated.
+</footer>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
+

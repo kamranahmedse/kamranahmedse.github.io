@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>JavaScript — Mocha to ES8 and Beyond</title>
+    <meta name="description" content="Blog of a Software Engineer"/>
+    <meta name="keywords" content="blog,developer blog,engineering blog"/>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Alegreya:400,400i|Lato:400,400i,700,900|Roboto+Mono:400,300">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/shades-of-purple.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav__left">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+    <div class="nav__right">
+        <a target="_blank" href="https://github.com/kamranahmedse" class="link-github">GitHub</a>
+        <a target="_blank" href="https://twitter.com/kamranahmedse" class="link-twitter">Twitter</a>
+        <a href="mailto:kamranahmed.se@gmail.com" class="link-email">Email</a>
+    </div>
+</nav>
+
+<article class="mar-b-7">
+    <header class="text-center">
+        <time class="mar-b-6" datetime="Fri, October 27, 2017">Fri, October 27, 2017</time>
+        <h1 class="mar-b-7">JavaScript — Mocha to ES8 and Beyond</h1>
+    </header>
+    <p>Around 10 years ago, Jeff Atwood (the founder of stackoverflow) made a case that JavaScript is going to be the future and he coined the "Atwood Law" which states that <em>Any application that can be written in JavaScript will eventually be written in JavaScript</em>. Fast-forward to today, 10 years later, if you look at it –– it rings truer than ever. JavaScript is continuing to gain more and more adoption. </p>
+<h2 id="javascriptisannounced">JavaScript is announced</h2>
+<p>JavaScript was initially created by <a href="https://twitter.com/BrendanEich">Brendan Eich</a> of NetScape and was first announced in a press release by Netscape in 1995. It has a bizarre history of naming; initally it was named <code>Mocha</code>, which was later renamed to <code>LiveScript</code>. In 1996, about a year later after the release, NetScape decided to rename it to be <code>JavaScript</code> with hopes of capitalizing on the Java community (although JavaScript did not have any relationship with Java) and released Netscape 2.0 with the official support of JavaScript. </p>
+<h2 id="es1es2andes3">ES1, ES2 and ES3</h2>
+<p>In 1996, Netscape decided to submit it to <a href="https://en.wikipedia.org/wiki/Ecma_International">ECMA International</a> with the hopes of getting it standardized. First edition of the standard specification was released in 1997 and the language was standardized. After the initial release, <code>ECMAScript</code> was continued to be worked upon and in no-time two more versions were released ECMAScript 2 in 1998 and ECMAScript 3 in 1999. </p>
+<h2 id="decadeofsilenceandes4">Decade of Silence and ES4</h2>
+<p>After the release of ES3 in 1999, there was a complete silence for a decade and no changes were made to the official standard. There was some work on the fourth edition in the initial days; some of the features that were being discussed included classes, modules, static typings, destructuring etc. It was being targeted to be released by 2008 but was abandoned due to political differences concerning language complexity. However, the vendors kept introducing the extensions to the language and the developers were left scratching their heads –– adding polyfills to battle compatibility issues between different browsers. </p>
+<h2 id="fromsilencetoes5">From silence to ES5</h2>
+<p>Google, Microsoft, Yahoo and other disputers of ES4 came together and decided to work on a less ambition update to ES3 tentatively named ES3.1. But the teams were still fighting about what to include from ES4 and what not. Finally, in 2009 ES5 was released mainly focusing on fixing the compabitility and security issues etc. But there wasn't much of a splash in the water –– it took ages for the vendors to incorporate the standards and many developers were still using ES3 without being aware of the "modern" standards.</p>
+<h2 id="releaseofes6ecmasript2015">Release of ES6 - ECMASript 2015</h2>
+<p>After a few years of the release of ES5, things started to change, TC39 (the committee under ECMA international responsible for ECMAScript standardization) kept working on the next version of ECMAScript (ES6) which was originally named <code>ES Harmony</code>, before being eventually released with the name ES2015. ES2015 adds significant features and syntactic sugar to allow writing complex applications. Some of the features that ES6 has to offer, include Classes, Modules, Arrows, Enhanced object literals, Template strings, Destructuring, Default param values + rest + spread, Let and Const, Iterators + for..of, Generators, Maps + Sets, Proxies, Symbols, Promises, math + number + string + array + object APIs <a href="http://es6-features.org/#Constants">etc</a></p>
+<p>Browser support for ES6 is still scarce but everything that ES6 has to offer is still available to developers by transpiling the ES6 code to ES5. With the release of 6th version of ECMAScript, TC39 decided to move to yearly model of releasing updates to ECMAScript so to make sure that the new features are added as soon as they are approved and we don't have to wait for the full specification to be drafted and approved –– thus 6th version of ECMAScript was renamed as ECMAScript 2015 or ES2015 before the release in June 2015. And the next versions of ECMAScript were decided to published in June of every year.</p>
+<h2 id="releaseofes7ecmasript2016">Release of ES7 - ECMASript 2016</h2>
+<p>In June 2016, seventh version of ECMAScript was released. As ECMAScript has been moved to an yearly release model, ECMAScript 2016 (ES2016) comparatively did not have much to offer. ES2016 includes just two new features </p>
+<ul>
+<li>Exponentiation operator <code>**</code></li>
+<li><code>Array.prototype.includes</code></li>
+</ul>
+<h2 id="releaseofes8ecmascript2017">Release of ES8 - ECMAScript 2017</h2>
+<p>The eighth version of ECMAScript was released in June 2017. The key highlight of ES8 was the addition of async functions. Here is the list of new features in ES8</p>
+<ul>
+<li><code>Object.values()</code> and <code>Object.entries()</code></li>
+<li>String padding i.e. <code>String.prototype.padEnd()</code> and <code>String.prototype.padStart()</code></li>
+<li><code>Object.getOwnPropertyDescriptors</code></li>
+<li>Trailing commas in function parameter lists and calls</li>
+<li>Async functions</li>
+</ul>
+<h2 id="whatisesnextthen">What is <code>ESNext</code> then?</h2>
+<p>ESNext is a dynamic name that refers to whatever the current version of ECMAScript is at the given time. For example, at the time of this writing <code>ES2017</code> or <code>ES8</code> is <code>ESNext</code>.</p>
+<h2 id="whatdoesthefuturehold">What does the future hold?</h2>
+<p>Since the release of ES6, TC39 has quite streamlined their process. <a href="https://github.com/tc39">TC39</a> operates through a Github organization now and there are <a href="https://github.com/tc39/proposals">several proposals</a> for new features or syntax to be added to the next versions of ECMAScript. Any one can go ahead and <a href="https://github.com/tc39/proposals">submit a proposal</a> thus resulting in increasing the participation from the community. Every proposal goes through <a href="https://tc39.github.io/process-document/">four stages of maturity</a> before it makes it into the specification.</p>
+<p>And that about wraps it up. Feel free to leave your feedback in the comments section below. Also here are the links to original language specifications <a href="https://www.ecma-international.org/ecma-262/6.0/">ES6</a>, <a href="https://www.ecma-international.org/ecma-262/7.0/">ES7</a> and <a href="https://www.ecma-international.org/ecma-262/8.0/">ES8</a>.</p>
+<p>Also, you might want to check <a href="https://esguy.com/">ES Guy</a>.</p>
+</article>
+
+
+    <section id="mc_embed_signup" class="mar-tb-7 twitter-signup">
+        <div class="mc-title-container"></div>
+
+        <p class="mar-0 twitter-signup-text">👋 <a href="http://twitter.com/kamranahmedse"
+                                                   target="_blank">Follow me on
+                twitter</a> for the updates. </p>
+    </section>
+
+
+<footer class="text-center mar-tb-6">
+    © 2023 Kamran Ahmed, unless otherwise stated.
+</footer>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Timezone aware web application</title>
+    <meta name="description" content="Blog of a Software Engineer"/>
+    <meta name="keywords" content="blog,developer blog,engineering blog"/>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Alegreya:400,400i|Lato:400,400i,700,900|Roboto+Mono:400,300">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/shades-of-purple.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav__left">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+    <div class="nav__right">
+        <a target="_blank" href="https://github.com/kamranahmedse" class="link-github">GitHub</a>
+        <a target="_blank" href="https://twitter.com/kamranahmedse" class="link-twitter">Twitter</a>
+        <a href="mailto:kamranahmed.se@gmail.com" class="link-email">Email</a>
+    </div>
+</nav>
+
+<article class="mar-b-7">
+    <header class="text-center">
+        <time class="mar-b-6" datetime="Tue, January 20, 2015">Tue, January 20, 2015</time>
+        <h1 class="mar-b-7">Timezone aware web application</h1>
+    </header>
+    <p>I recently had the chance to work on a web application targetting people from different timezones. To enable the users to have a similar experience, I had to take up the strategy to deal with different timezones. Below is how I went about solving it.</p>
+<ul>
+<li>Store the dates and times in <code>UTC</code> format i.e. 0 timezone offset</li>
+<li>On the client side, convert this <code>UTC</code> time to user's local timezone using Javascript.</li>
+</ul>
+<h1 id="timezonesandphp">Timezones and PHP</h1>
+<p>PHP's <code>DateTime</code> is supported in <code>&gt;=5.2</code> versions and is really powerful. Below, I show some examples of how to convert from one timezone to another. I am going to take my current timezone into account which is <code>Asia/Karachi</code> and is <code>GMT+5</code>.</p>
+<pre><code class="php language-php">// Convert from some Timezone to UTC
+$clientDateTime = new DateTime('2015-01-19 07:00', new DateTimeZone('Asia/Karachi'));
+$clientDateTime-&gt;setTimezone(new DateTimeZone('UTC'));
+$utcDateTime = $clientDateTime-&gt;format("Y-m-d H:i A");
+
+echo $utcDateTime;   // Prints 2015-01-19 02:00 AM
+</code></pre>
+<p>As you can see the date and time which, according to my timezone (<code>GMT+5</code>), is <code>2015-01-19 07:00</code> has been converted to <code>UTC/GMT+0</code> i.e. 5 hours minus my date which becomes exactly <code>2015-01-19 02:00 AM</code>. In a very similar fashion, UTC date can be converted to anyother timezone</p>
+<pre><code class="php language-php">// Convert from some UTC to someother Timezone
+$utcDateTime = new DateTime('2015-01-19 02:00', new DateTimeZone('UTC'));
+$utcDateTime-&gt;setTimezone(new DateTimeZone('Asia/Karachi'));
+$clientDateTime = $utcDateTime-&gt;format("Y-m-d H:i A");
+
+echo $clientDateTime;   // Prints 2015-01-19 07:00 AM
+</code></pre>
+<p>Also, one might want to generate a dropdown or a list of timezones. Instead of grabbing it from somewhere else, I would suggest to have PHP generate that for you. Below is how:</p>
+<pre><code class="php language-php">$timezones = DateTimeZone::listIdentifiers(DateTimeZone::ALL);
+</code></pre>
+<p>It will return an array consisting of the timezones.</p>
+<h1 id="timezonesandmysql">Timezones and MySQL</h1>
+<p>Although, I handled the time conversions etc in my application logic, let me state a few points about MySQL here as well. To get timestamp in <code>UTC</code>, use <code>UTC_TIMESTAMP()</code> instead of <code>NOW()</code>. Also, it is recommended that you <em>always</em> use <code>UTC_TIMESTAMP()</code> rather than <code>NOW()</code> for dates etc and the reason for that is <code>NOW()</code> returns the current local time of the server and the server can be in any timezone.</p>
+</article>
+
+
+    <section id="mc_embed_signup" class="mar-tb-7 twitter-signup">
+        <div class="mc-title-container"></div>
+
+        <p class="mar-0 twitter-signup-text">👋 <a href="http://twitter.com/kamranahmedse"
+                                                   target="_blank">Follow me on
+                twitter</a> for the updates. </p>
+    </section>
+
+
+<footer class="text-center mar-tb-6">
+    © 2023 Kamran Ahmed, unless otherwise stated.
+</footer>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
+

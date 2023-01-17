@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Basic usage of `git stash`</title>
+    <meta name="description" content="Blog of a Software Engineer"/>
+    <meta name="keywords" content="blog,developer blog,engineering blog"/>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Alegreya:400,400i|Lato:400,400i,700,900|Roboto+Mono:400,300">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/shades-of-purple.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav__left">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+    <div class="nav__right">
+        <a target="_blank" href="https://github.com/kamranahmedse" class="link-github">GitHub</a>
+        <a target="_blank" href="https://twitter.com/kamranahmedse" class="link-twitter">Twitter</a>
+        <a href="mailto:kamranahmed.se@gmail.com" class="link-email">Email</a>
+    </div>
+</nav>
+
+<article class="mar-b-7">
+    <header class="text-center">
+        <time class="mar-b-6" datetime="Tue, October 07, 2014">Tue, October 07, 2014</time>
+        <h1 class="mar-b-7">Basic usage of `git stash`</h1>
+    </header>
+    <p>Consider this, you were busy working on some functionality that hasn’t been completed yet but something urgent came up. Now you may never want to <code>commit</code> this half baked functionality along with that urgent feature that you added. To deal with this kind of situations, there are a few things that you can do.</p>
+<h1 id="fewhorribledecisions">Few horrible decisions</h1>
+<p>..reset all the changes you made since last commit using</p>
+<pre><code class="bash language-bash"># Reset all the changes
+git reset HEAD --hard
+# Clean out everything un-tracked
+git clean -fd
+</code></pre>
+<p>Well, you can do this if you just started working and there isn’t much that you have done since the last commit. But what if you have spent hours working on it and you are about to complete that? Not a good idea then. Right?</p>
+<p>..you may backup the changes you made, by copying the changed files maybe. But once again, what’s the point of using <code>git</code>, if we still have to copy the files around.</p>
+<h1 id="therightwayusegitstash">The right way – Use <code>git-stash</code></h1>
+<p>You should use <code>git-stash</code></p>
+<pre><code class="bash language-bash">git stash
+</code></pre>
+<p>It’s like a clipboard, running this command would move all your changes to stash. After doing so you can start working upon that urgent feature that came up, commit that and once you are ready to start working upon that half baked feature that you were working upon back at the point when you had to stash the changes, you can get your stashed changes back to your working copy by</p>
+<pre><code class="bash language-bash">git stash apply
+</code></pre>
+<blockquote>
+  <p>You should note that <code>git-stash</code> doesn’t stash the untracked files</p>
+</blockquote>
+<p>To stash untracked files as well, you need to do</p>
+<pre><code class="bash language-bash">git stash -u
+</code></pre>
+<p>You can clear your stash at any time by using</p>
+<pre><code class="bash language-bash">git stash clear
+</code></pre>
+<p>But don’t forget to apply your changes first, if necessary, otherwise you’ll lose them <em>forever</em>.</p>
+<p><em>Note that this article demonstrated a very basic usage of git-stash. For further detail regarding <code>git-stash</code>, <a href="https://www.kernel.org/pub/software/scm/git/docs/git-stash.html">follow the manual</a></em></p>
+</article>
+
+
+    <section id="mc_embed_signup" class="mar-tb-7 twitter-signup">
+        <div class="mc-title-container"></div>
+
+        <p class="mar-0 twitter-signup-text">👋 <a href="http://twitter.com/kamranahmedse"
+                                                   target="_blank">Follow me on
+                twitter</a> for the updates. </p>
+    </section>
+
+
+<footer class="text-center mar-tb-6">
+    © 2023 Kamran Ahmed, unless otherwise stated.
+</footer>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
+

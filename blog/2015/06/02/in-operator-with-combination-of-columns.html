@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>SQL - `IN` operator with combination of columns</title>
+    <meta name="description" content="Blog of a Software Engineer"/>
+    <meta name="keywords" content="blog,developer blog,engineering blog"/>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Alegreya:400,400i|Lato:400,400i,700,900|Roboto+Mono:400,300">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/shades-of-purple.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav__left">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+    <div class="nav__right">
+        <a target="_blank" href="https://github.com/kamranahmedse" class="link-github">GitHub</a>
+        <a target="_blank" href="https://twitter.com/kamranahmedse" class="link-twitter">Twitter</a>
+        <a href="mailto:kamranahmed.se@gmail.com" class="link-email">Email</a>
+    </div>
+</nav>
+
+<article class="mar-b-7">
+    <header class="text-center">
+        <time class="mar-b-6" datetime="Tue, June 02, 2015">Tue, June 02, 2015</time>
+        <h1 class="mar-b-7">SQL - `IN` operator with combination of columns</h1>
+    </header>
+    <p>If you write SQL queries often, you should have probably used the <code>IN</code> operator which determines if a specified value matches any value in a list or a subquery. Below is the most simple use-case with single value, for examle:</p>
+<pre><code class="sql language-sql">SELECT    * 
+FROM     `students`
+WHERE     id NOT IN (1,5,6,3)
+</code></pre>
+<p>But one thing that you might not know is that you can use that for a combination of values as well. For example lets take a table where there are student names and subjects</p>
+<p><img src="http://i.imgur.com/q7VZHxk.png" alt="Students Table" /></p>
+<p>And there are some user and subject combinations that we do not want, lets say below are the ones that we do not want:</p>
+<p><img src="http://i.imgur.com/L0dK0DR.png" alt="Not Required Columns" /></p>
+<p>In that case, our SQL would look like the following:</p>
+<pre><code class="sql language-sql">SELECT * 
+FROM   students 
+WHERE 
+    ( name, subject )
+NOT IN 
+    (
+        ('Jane Doe', 'Analysis of Algorithms'),
+        ('John Doe', 'Software Engineering - II'),
+        ('Jane Doe', 'Professional Practices')
+    );
+</code></pre>
+<p>The list used in <code>NOT IN</code> might be provided in the form of list i.e. the way it is provided in the above example or it might be returned from some subquery.</p>
+</article>
+
+
+    <section id="mc_embed_signup" class="mar-tb-7 twitter-signup">
+        <div class="mc-title-container"></div>
+
+        <p class="mar-0 twitter-signup-text">👋 <a href="http://twitter.com/kamranahmedse"
+                                                   target="_blank">Follow me on
+                twitter</a> for the updates. </p>
+    </section>
+
+
+<footer class="text-center mar-tb-6">
+    © 2023 Kamran Ahmed, unless otherwise stated.
+</footer>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
+

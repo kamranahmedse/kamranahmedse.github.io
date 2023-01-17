@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Generating unique URL slugs in Laravel</title>
+    <meta name="description" content="Blog of a Software Engineer"/>
+    <meta name="keywords" content="blog,developer blog,engineering blog"/>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Alegreya:400,400i|Lato:400,400i,700,900|Roboto+Mono:400,300">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/shades-of-purple.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav__left">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+    <div class="nav__right">
+        <a target="_blank" href="https://github.com/kamranahmedse" class="link-github">GitHub</a>
+        <a target="_blank" href="https://twitter.com/kamranahmedse" class="link-twitter">Twitter</a>
+        <a href="mailto:kamranahmed.se@gmail.com" class="link-email">Email</a>
+    </div>
+</nav>
+
+<article class="mar-b-7">
+    <header class="text-center">
+        <time class="mar-b-6" datetime="Tue, January 27, 2015">Tue, January 27, 2015</time>
+        <h1 class="mar-b-7">Generating unique URL slugs in Laravel</h1>
+    </header>
+    <p>In one of the projects I have been working upon, I decided to use slugs for URLs, instead of IDs because it allowed me to generate user-friendly URLs and to improve the SEO of the content. </p>
+<p>In my case, there were two places where I decided to do this i.e. </p>
+<ul>
+<li><p>When a user registers himself through social registration process, I decided to generate a temporary username off of the user's first and last names using this method, sort of like they do on SoundCloud.</p></li>
+<li><p>After a user creates a <em>Tip</em>, use that tip's title to generate unique slug for it.</p></li>
+</ul>
+<p>Below is the super simple function that I used, which you can adapt to your own needs.</p>
+<pre><code class="php language-php">function generateSlug( $tipTitle ) {
+
+    $slug = Str::slug( $tipTitle );
+    $slugs = $this-&gt;whereRaw("slug REGEXP '^{$slug}(-[0-9]*)?$'");
+
+    if ($slugs-&gt;count() === 0) {
+        return $slug;
+    }
+
+    // Get the last matching slug
+    $lastSlug = $slugs-&gt;orderBy('slug', 'desc')-&gt;first()-&gt;slug;
+
+    // Strip the number off of the last slug, if any
+    $lastSlugNumber = intval(str_replace($slug . '-', '', $lastSlug));
+
+    // Increment/append the counter and return the slug we generated
+    return $slug . '-' . ($lastSlugNumber + 1);
+}
+</code></pre>
+<p>What's happening here is self explanatory, however if you have any problems understanding, feel free to leave a comment below. Also, you should note that I have used MySQL in this case, check you RDBMS' manual for the implementation of regular expressions.</p>
+</article>
+
+
+    <section id="mc_embed_signup" class="mar-tb-7 twitter-signup">
+        <div class="mc-title-container"></div>
+
+        <p class="mar-0 twitter-signup-text">👋 <a href="http://twitter.com/kamranahmedse"
+                                                   target="_blank">Follow me on
+                twitter</a> for the updates. </p>
+    </section>
+
+
+<footer class="text-center mar-tb-6">
+    © 2023 Kamran Ahmed, unless otherwise stated.
+</footer>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
+

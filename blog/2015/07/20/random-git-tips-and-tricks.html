@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Random git tips</title>
+    <meta name="description" content="Blog of a Software Engineer"/>
+    <meta name="keywords" content="blog,developer blog,engineering blog"/>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Alegreya:400,400i|Lato:400,400i,700,900|Roboto+Mono:400,300">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/shades-of-purple.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav__left">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+    <div class="nav__right">
+        <a target="_blank" href="https://github.com/kamranahmedse" class="link-github">GitHub</a>
+        <a target="_blank" href="https://twitter.com/kamranahmedse" class="link-twitter">Twitter</a>
+        <a href="mailto:kamranahmed.se@gmail.com" class="link-email">Email</a>
+    </div>
+</nav>
+
+<article class="mar-b-7">
+    <header class="text-center">
+        <time class="mar-b-6" datetime="Mon, July 20, 2015">Mon, July 20, 2015</time>
+        <h1 class="mar-b-7">Random git tips</h1>
+    </header>
+    <p>This is going to be a small cheatsheet for random <code>git</code> commands that I find myself using <em>most</em> of the time. I am not going to get into the detail of any of the commands, if you would like to know more about any of them I would recommend going through <a href="http://git-scm.com/docs/">git</a> <a href="https://www.kernel.org/pub/software/scm/git/docs/">docs</a>.</p>
+<h2 id="savingthecredentials">Saving the credentials</h2>
+<p>Sometimes you might get offended by the git prompting for the credentials again and again i.e. whenever you are <code>pull</code>ing or <code>push</code>ing to the repository.</p>
+<p>You can make <code>git</code> to stop asking for the credentials by either of the two ways (are there more?!) stated below</p>
+<ul>
+<li>You may <a href="https://help.github.com/articles/generating-ssh-keys/">add an SSH key</a> so that <em><code>git</code></em> will trust your PC and won't ask for the credentials.</li>
+<li>Use git credential helper:</li>
+</ul>
+<pre><code class="bash language-bash">git config credential.helper store
+</code></pre>
+<p>By using this command, it would <em>cache</em> the credentials and you won't have to type them again. However, there might be some security concerns involved as this method stores them in plain text form. Have a look at this <a href="http://stackoverflow.com/questions/5343068/is-there-a-way-to-skip-password-typing-when-using-https-github">stackoverflow question</a> for <code>cache</code>, <code>wincred</code> or <code>osxkeychain</code> and some alternative ways to use this or visit <a href="http://git-scm.com/docs/gitcredentials">any of</a> <a href="http://git-scm.com/docs/technical/api-credentials.html">these</a></p>
+<h2 id="rebasingthecommits">Rebasing the commits</h2>
+<p><code>git rebase</code> is <a href="http://git-scm.com/docs/git-rebase">really powerful</a> however I mostly find myself using it to rebase the commits in order to have a clean history. Here is how you rebase the commits i.e. merge the minor commits into one meaningful commit.</p>
+<pre><code class="bash language-bash">git rebase -i xxxxx
+</code></pre>
+<p>Where <code>xxxxx</code> is the hash of the commit immediately below the commit message till which you want to rebase the commits.</p>
+<h2 id="renamingabranch">Renaming a branch</h2>
+<p>You can do the following to rename a branch</p>
+<pre><code class="bash language-bash">git branch -m old_branch_name new_branch_name
+</code></pre>
+<p>Also, if you want to rename the branch which you are currently on, you can do the following</p>
+<pre><code class="bash language-bash">git branch -m new_branch_name
+</code></pre>
+<h2 id="detachedheadproblem">Detached head problem</h2>
+<p>Sometimes you might get the problem of detached head. Most common cause for this to occur is, you checkout some specific commit and you start getting this detached head warning since you are not any branch. So how do you solve this?! You simply checkout the branch you were on. For example if you were doing some work upon the <code>develop</code> branch, when you started getting this warning, do</p>
+<pre><code class="bash language-bash">git checkout develop
+</code></pre>
+<p>If you forget about the branch you were on, you may simply <code>checkout</code> some (any) branch and the problem will be solved.</p>
+<h2 id="checkingthelog">Checking the log</h2>
+<p>This one is pretty straight forward. You simply do:</p>
+<pre><code class="bash language-bash">git log
+</code></pre>
+<p>This will give you the detailed versoin. However, if you just want to have a look at the commit messages (and hashes), simply do the following:</p>
+<pre><code class="bash language-bash">git log --oneline
+</code></pre>
+<h2 id="resettingthechanges">Resetting the changes</h2>
+<p>If you want to get all the staged changes back i.e. revert the <code>git add .</code>, you can do the following</p>
+<pre><code class="bash language-bash">git reset HEAD
+</code></pre>
+<p>If you want to revert all the changes since the last commit do the following</p>
+<pre><code class="bash language-bash">git reset --hard HEAD
+</code></pre>
+<p>followed by <code>git clean -fd</code> which will remove all the untracked files.</p>
+<h2 id="thatsslverificationerror">That SSL Verification Error</h2>
+<p>Sometimes, you might get SSL certificate error when cloning, pulling or pushing. The simplest way to make it go away is turn off the SSL verification i.e.</p>
+<pre><code class="bash language-bash">git config --global http.sslVerify false
+</code></pre>
+<h2 id="ignorethemodechanges">Ignore the mode changes</h2>
+<p>Sometimes, for some odd reason, you might want to have different file modes on your local repository while having different file modes on the online version. Or you might have accidentally done <code>chmod -R 777</code>, like I did, which you do not want to push over to the server, you can simply ask git to ignore any kind of file mode changes:</p>
+<pre><code class="bash language-bash">git config core.fileMode false
+</code></pre>
+<h2 id="getthelastcommitwithmessageregex">Get the last commit with message regex</h2>
+<p>If you want to find some commit having a specific message you may use the <code>git show :/regex</code> command where <code>regex</code> is the regular expression of the message. For example, if you want to find the containing the word <code>functionality</code>, you may try the following:</p>
+<pre><code class="bash language-bash">git show :/fix
+</code></pre>
+<p>That's about it. There is alot more to tell and there are many that I must have missed but stated are the ones that I find myself using most of the time. Do you have any of your own? feel free to share them by using the comments section below.</p>
+</article>
+
+
+    <section id="mc_embed_signup" class="mar-tb-7 twitter-signup">
+        <div class="mc-title-container"></div>
+
+        <p class="mar-0 twitter-signup-text">👋 <a href="http://twitter.com/kamranahmedse"
+                                                   target="_blank">Follow me on
+                twitter</a> for the updates. </p>
+    </section>
+
+
+<footer class="text-center mar-tb-6">
+    © 2023 Kamran Ahmed, unless otherwise stated.
+</footer>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
+

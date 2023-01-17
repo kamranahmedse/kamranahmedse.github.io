@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Understanding scope in Javascript</title>
+    <meta name="description" content="Blog of a Software Engineer"/>
+    <meta name="keywords" content="blog,developer blog,engineering blog"/>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Alegreya:400,400i|Lato:400,400i,700,900|Roboto+Mono:400,300">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/shades-of-purple.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav__left">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+    <div class="nav__right">
+        <a target="_blank" href="https://github.com/kamranahmedse" class="link-github">GitHub</a>
+        <a target="_blank" href="https://twitter.com/kamranahmedse" class="link-twitter">Twitter</a>
+        <a href="mailto:kamranahmed.se@gmail.com" class="link-email">Email</a>
+    </div>
+</nav>
+
+<article class="mar-b-7">
+    <header class="text-center">
+        <time class="mar-b-6" datetime="Fri, January 02, 2015">Fri, January 02, 2015</time>
+        <h1 class="mar-b-7">Understanding scope in Javascript</h1>
+    </header>
+    <p>In this article ..and a few upcoming articles, I am going to explain everything that you need to know about scope in Javascript.</p>
+<h2 id="whatisscope">What is Scope?</h2>
+<p>Scope is the context in which a variable/function can be accessed. Unlike other programming languages such as C++ or Java, which have block level scope i.e. defined by <code>{}</code>, Javascript has a function level scope. Scope in Javascript is lexical, more to that in a moment.</p>
+<h2 id="globalscope">Global Scope</h2>
+<p>Anything defined in the global scope can be accessed anywhere in your code. Or to put it the other way, anything that you'll declare outside any function will be in the global scope. Take the following as an example</p>
+<pre><code class="javascript language-javascript">var name = 'Foobar';
+function sayHello() {
+    // Hello Foobar
+    alert('Hello ' + name);
+}
+</code></pre>
+<p>Here <code>name</code> since declared outside any function is a global variable and can be accessed anywhere in your Javascript. On a sidenote anything that you declare in the global scope is attached to the <code>window</code> object and can be accessed by <code>window.*</code> e.g. borrowing it from the above example <code>window</code>.<code>name</code> when used anywhere will make sure that the <code>name</code> declared in the global scope is being accessed.</p>
+<h2 id="localscope">Local Scope</h2>
+<p>Anything that you declare inside a <code>function</code> exists in a Local scope and is available only inside that function. Let me explain it with an example:</p>
+<pre><code class="javascript language-javascript">function sayHello() {
+    var name = 'Foobar';
+
+    // Hello Foobar!
+    alert( 'Hello ' + name );
+}
+// Uncaught ReferenceError: name is not defined
+alert( 'Hello ' + name );
+</code></pre>
+<p>That being said, it is safer to say that all the scopes in Javascript are created by the functions. </p>
+<p>In Javascript, there exists Lexical scope meaning that there is a concept of parent and child scopes. Each of the child scopes can access the <em>anything</em> defined in the parent scope. For example lets say you have a function inside a function, in that case you have a child scope and a parent scope now the variables defined in the parent function can be accessed through the child scope. To make it further clear, have a look at the example below:</p>
+<pre><code class="javascript language-javascript">function parent() {
+    // Scope A
+    var name = 'Foobar';
+
+    function child() {
+        // Scope B
+
+        function grandChild() {
+            // Scope C
+
+            // My father is Foobar
+            alert('My father is ' + name);
+        }
+    }
+}
+</code></pre>
+<p>You can have as much nesting as you want and any variables or functions defined in any of the parent scopes will be accessible by each of it's child scopes. However you should know that the reverse is not correct. That is, althought the child can access the variables and functions from the parent scope, parent can not access anything from it's child scope i.e. </p>
+<pre><code class="javascript language-javascript">var parentScope = function () {
+
+    var scopedName = 'ScopeTest';
+
+    // Output: ScopeTest
+    alert( scopedName );
+
+    var childScope = function () {
+
+        // Output: ScopeTest
+        alert( scopedName );
+
+        var grandChildScope = function () {
+
+            // Output: ScopeTest
+            alert( scopedName );            
+        }
+    }
+}
+</code></pre>
+<p>As you can see all the scopes were able to access the variable from the parent scope. Now let's test the reverse i.e. try to access the variable defined in the child scope, in parent scope</p>
+<pre><code class="javascript language-javascript">var parentScope = function () {
+
+    // Uncaught ReferenceError: grandChild is not defined
+    alert( grandChild );
+
+    var childScope = function () {
+
+        // Uncaught ReferenceError: grandChild is not defined
+        alert( grandChild );
+
+        var grandChildScope = function () {
+            var grandChild = 'Secret from all my parents but my scope and any of my children scopes can access me.'
+
+            var superChild = function () {
+                // Output: Secret from all my parents but my scope and any of my children scopes can access me.
+                alert( grandChild );
+            }
+        }
+    }
+}
+</code></pre>
+<p>See, the parent scopes were not able to access the variable <code>grandChild</code> from their child scope however <code>superChild</code> which was the child of <code>grandChildScope</code> was able to access the variable because it was defined in one of its parent scopes.</p>
+<h2 id="afewgotchas">A few Gotchas</h2>
+<p>You might be wondering, what if a variable was declared in both a child as well as it's parent, what in that case? In that case the variable in their current scope will be preferred and not the one from the parent scope. Parent scope is checked only if a variable being used is not found in the current scope. To make it more clear, have a look at the following example:</p>
+<pre><code class="javascript language-javascript">var parent = function () {
+    var name = 'Parent';
+    // 2 =&gt; Look for the variable name in this scope
+    //      ..Found?! Use it. If not found, go to the next
+    //      ..immediate parent scope and keep going up unless
+    //      ..the variable is found or the global scope
+    //      ..is reached.
+    var child = function () {
+        // 1 =&gt; Look for the variable name in the current scope
+        //      ..Not found?! Move to the immediate parent scope
+        alert( name ); // Output : Parent
+    }
+}
+</code></pre>
+<p>Now lets test the same example with a variable named <code>name</code> declared in the child as well</p>
+<pre><code class="javascript language-javascript">var parent = function () {
+    var name = 'Parent';
+    var child = function () {
+        var name = 'Child'
+        // Output: Child
+        alert( name );
+    }
+}
+</code></pre>
+<p>Really simple, isn't it? You must have guessed the output in a glance. But lets see how smart are you. Have a look at the following code and guess what will the output be:</p>
+<pre><code class="javascript language-javascript">var parent = function () {
+    var name = 'Parent';
+    var child = function () {
+        // What will be the output here?
+        alert( name );
+        var name = 'Child'
+        // What will be the output here?
+        alert( name );
+    }
+}
+</code></pre>
+<p>You have 30 seconds to guess.</p>
+<p>OK, your 30 seconds are up! You are completely wrong, if your guess was following:</p>
+<pre><code class="javascript language-javascript">// Parent
+// Child
+</code></pre>
+<p>The correct output will be the following</p>
+<pre><code class="javascript language-javascript">// Undefined
+// Child
+</code></pre>
+<p>The reasons why is it so is because, in Javascript, the variable declarations are automatically taken to the top of the function (<a href="http://code.tutsplus.com/tutorials/javascript-hoisting-explained--net-15092">Hoisting</a>) no matter what the position of their declaration is. We can say that above written snippet is equivalent to the following:</p>
+<pre><code class="javascript language-javascript">var parent = function () {
+    var name = 'Parent';
+    var child = function () {
+        var name;
+        // Output: Undefined
+        alert( name );
+        name = 'Child'
+        //Output: Child
+        alert( name );
+    }
+}
+</code></pre>
+<p>Notice how the variable declaration has moved to the top of the function while the definition has stayed at the sam place. Here is another example for this. Guess the output for following:</p>
+<pre><code class="javascript language-javascript">var i = 0;
+function foobar() {
+    if ( i === 0 ) {
+        var message = 'i was 0';
+    }
+    // Output: i was 0
+    console.log( message );
+}
+</code></pre>
+<p>In this snippet, the output was <code>i was 0</code> and not <code>undefined</code> because the declaration was taken to the top of the function because of <a href="http://code.tutsplus.com/tutorials/javascript-hoisting-explained--net-15092">hoisting</a>. Another proof that there is no block level scopes in javascript.</p>
+<p>And that takes the article to an end. In this article you learned about what is scope in Javascript, what is the difference between local and global scopes and a very little about hoisting. There is a lot more to cover regarding scope that I will be writing about in upcoming articles. Sooner than you expect, there are upcoming articles about how to achieve private, public and static variables in Javascript, how to change the context using <code>call</code> and <code>apply</code> methods, IIFEs, use of <code>this</code> etc. Stay tuned!</p>
+</article>
+
+
+    <section id="mc_embed_signup" class="mar-tb-7 twitter-signup">
+        <div class="mc-title-container"></div>
+
+        <p class="mar-0 twitter-signup-text">👋 <a href="http://twitter.com/kamranahmedse"
+                                                   target="_blank">Follow me on
+                twitter</a> for the updates. </p>
+    </section>
+
+
+<footer class="text-center mar-tb-6">
+    © 2023 Kamran Ahmed, unless otherwise stated.
+</footer>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
+

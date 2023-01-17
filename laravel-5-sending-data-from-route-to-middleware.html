@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Laravel 5 - Sending data from route to middleware</title>
+    <meta name="description" content="Blog of a Software Engineer"/>
+    <meta name="keywords" content="blog,developer blog,engineering blog"/>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Alegreya:400,400i|Lato:400,400i,700,900|Roboto+Mono:400,300">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/shades-of-purple.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav__left">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+    <div class="nav__right">
+        <a target="_blank" href="https://github.com/kamranahmedse" class="link-github">GitHub</a>
+        <a target="_blank" href="https://twitter.com/kamranahmedse" class="link-twitter">Twitter</a>
+        <a href="mailto:kamranahmed.se@gmail.com" class="link-email">Email</a>
+    </div>
+</nav>
+
+<article class="mar-b-7">
+    <header class="text-center">
+        <time class="mar-b-6" datetime="Sun, March 15, 2015">Sun, March 15, 2015</time>
+        <h1 class="mar-b-7">Laravel 5 - Sending data from route to middleware</h1>
+    </header>
+    <blockquote>
+  <p><strong>Update</strong> <a href="https://laravel.com/docs/5.1/middleware#middleware-parameters">Laravel 5.1 and onwards has a support for this by default now now</a></p>
+</blockquote>
+<p>Middlewares in Laravel 5 come real handy when you want to perform some actions before or after the route is accessed. I have been working upon a Laravel 5 project in which I recently came across this code in which some session variables were being set in almost every controller's constructor to keep track of the module for which the route was called. And from the looks of it, it would have made a perfect usecase for the middleware, so I set myself to refactor that and port that stuff to a common place i.e. middleware. Now what I thought was to pass the module name to the middleware from route and do all that session stuff in there, but Laravel 5.0 doesn't provide any functionality to send data from the route to middleware out of the box and so I ended up implementing the following work around.</p>
+<p>In my route, I stated the middleware as well as a key through which I wanted to send the data to middleware <code>moduleName</code> for example. Below is the route group that I created:</p>
+<pre><code class="php language-php">// User related route group
+Route::group([ 'prefix' =&gt; 'user', 'middleware' =&gt; 'tracker', 'moduleName' =&gt; 'users' ], function () {
+    // User routes
+});
+</code></pre>
+<p>As you can see, I have middleware called <code>tracker</code> attached to this route group and I have specified the data that I wanted to send to my middleware in the <code>moduleName</code> key, you may name it whatever you want. And then in my middleware's <code>handle</code> function, I did something like the following to access the <code>moduleName</code> property of the route. Below is what I mean:</p>
+<pre><code class="php language-php">// The middleware `PerformerMiddleware`
+public function handle($request, Closure $next)
+{
+    // Access the route
+    $currAction = $request-&gt;route()-&gt;getAction();
+
+    // Access the key, I wanted to access
+    $currModule = $currAction['moduleName'];
+
+    // You may add as many keys onto the route and access them 
+    // the same way I accessed `moduleName`
+
+    //...
+}
+</code></pre>
+<p>So to sum it up, in order to pass data from route to the middleware you have to do the following:</p>
+<ul>
+<li>In the route, specify the middleware as well as the key/value pair of the data that you want to send to middleware</li>
+<li>Then in the middleware, access the route by using <code>getAction</code> method which will return an associative array consisting of the route's properties by which, you may access any route property you want.</li>
+</ul>
+</article>
+
+
+    <section id="mc_embed_signup" class="mar-tb-7 twitter-signup">
+        <div class="mc-title-container"></div>
+
+        <p class="mar-0 twitter-signup-text">👋 <a href="http://twitter.com/kamranahmedse"
+                                                   target="_blank">Follow me on
+                twitter</a> for the updates. </p>
+    </section>
+
+
+<footer class="text-center mar-tb-6">
+    © 2023 Kamran Ahmed, unless otherwise stated.
+</footer>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
+

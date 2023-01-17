@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Private and Public properties and methods in Javascript</title>
+    <meta name="description" content="Blog of a Software Engineer"/>
+    <meta name="keywords" content="blog,developer blog,engineering blog"/>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Alegreya:400,400i|Lato:400,400i,700,900|Roboto+Mono:400,300">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/shades-of-purple.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav__left">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+    <div class="nav__right">
+        <a target="_blank" href="https://github.com/kamranahmedse" class="link-github">GitHub</a>
+        <a target="_blank" href="https://twitter.com/kamranahmedse" class="link-twitter">Twitter</a>
+        <a href="mailto:kamranahmed.se@gmail.com" class="link-email">Email</a>
+    </div>
+</nav>
+
+<article class="mar-b-7">
+    <header class="text-center">
+        <time class="mar-b-6" datetime="Sat, January 03, 2015">Sat, January 03, 2015</time>
+        <h1 class="mar-b-7">Private and Public properties and methods in Javascript</h1>
+    </header>
+    <p>As promised in my previous article <a href="http://kamranahmed.info/blog/2015/01/02/understanding-scope-in-javascript/">Understanding scope in Javascript</a>, in this article I will be explaining how can we emulate OOP constructs such as <code>private</code> and <code>public</code> access specifiers in Javascript.</p>
+<p>From one of the <a href="http://kamranahmed.info/blog/2014/08/07/how-to-structure-your-javascript/">previous article of mine on structuring Javascript</a>, we all know that how and why should we structure our Javascript code. I described how can we introduce modules in our Javascript code. Let me borrow an example from that article and show you how we decided our modules to look like:</p>
+<pre><code class="javascript language-javascript">var FeedReader = {
+
+    settings: {
+        feedItemsCount: 10,
+        url: 'http://someurl.com/news/feed/',
+        feedListing: $('div#feedListing'),
+        loadFeedButton: $('a.loadFeed')
+    },
+
+    init: function () {
+        FeedReader.showErrorIfSourceDead();
+        FeedReader.bindUI();
+    },
+
+    bindUI: function () {
+        FeedReader.settings.loadFeedButton.on('click', function ( e ) {
+            e.preventDefault();
+            FeedReader.fetchFeed();
+        });
+    },
+
+    showErrorIfSourceDead: function () {
+        if ( FeedReader.isSourceAlive( FeedReader.settings.url ) === false ) {
+            alert("The URL provided can't be used to fetch feed.");
+        }
+    },
+
+    isSourceAlive: function () {
+       // ...
+    },
+
+    fetchFeed: function () {
+        // Fetch feed from the `FeedReader.settings.url`
+        // Append the feed to the `FeedReader.settings.feedListing`
+    }
+};
+</code></pre>
+<p>Structuring your code this way is good, but there is a little <em>problem</em> with this approach. As you can see, we don't have any <code>private</code> or <code>public</code> variables or functions setup, everything that is in <code>FeedReader</code> is public and can be accessed by the outer world whether it should be or not be. In this article, I am specifically going to deal with this problem and show you how you can make use of <code>private</code> and <code>public</code> variables and functions. So let's begin.</p>
+<h1 id="creatingamodule">Creating a Module</h1>
+<p>First things first, let's create our <em>class</em> first and we will be gradually extending it as we advance in this article. I am going to use the word Module to reference our so called Javascript classes. Let's create a <code>Person</code> module that is just a simple function. Here is what I mean</p>
+<pre><code class="javascript language-javascript">// Person Module
+var Person = function ( name ) {
+    // Do some stuff here    
+}
+</code></pre>
+<p>Above we have created our person module, which has a <em>constructor</em> that accepts <code>name</code> parameter. And here is how you can instantiate it.</p>
+<pre><code class="javascript language-javascript">// Create a person named Foo
+var Foo = new Person('Foo');
+// Create a person named Bar
+var Bar = new Person('Bar')
+</code></pre>
+<h1 id="privatescope">Private Scope</h1>
+<p>While writing your Javascript, security should be the one of your top priorities, as we can't afford to make our sensitive variables and functions be publically available as they have tendency to make us open to vulnerable attacks. You should never expose any unnecessary variables or functions. To do so, we make use of <code>private</code> variables and functions. Below is how we implement this privacy in our modules. In our example, let's create some private variables and functions</p>
+<pre><code class="javascript language-javascript">// Person Module
+var Person = function ( name ) {
+
+    // Private variables and functions that
+    // ..cannot be accessed outside this Module
+    var age     = 0,
+        isAlive = true,
+        name    = name || 'Un-named';
+
+    var growOld = function () { 
+        age++; 
+    }
+
+    var die = function () {
+        isAlive = false;
+    }
+}
+</code></pre>
+<p>In the above snippet the variables and functions defined are only accessible inside the <code>Parent</code> module and cannot be accessed outside. Let's instantiate our module and see if we can access them outside the module or not.</p>
+<pre><code class="javascript language-javascript">// Create a person named Foo Bar
+var FooBar = new Person('Foo Bar');
+
+// TypeError: undefined is not a function
+FooBar.growOld();
+FooBar.die();
+
+// undefined
+console.log( FooBar.isAlive );
+</code></pre>
+<p>As you can see, neither were we able to access any of the private variables nor any functions.</p>
+<h1 id="publicscope">Public Scope</h1>
+<p>In our <code>Person</code> module we only have got private variables and functions and there is no way for us to interact with <code>Person</code>. To make it more interactive, let's extend our <code>Person</code> a bit and add some public variables and functions.</p>
+<pre><code class="javascript language-javascript">// Person Module
+var Person = function ( name ) {
+
+    // Private variables and functions
+    // ...
+
+
+    // All the properties and methods contained by 
+    // ..this object being returned will be public
+    // ..and will be accessible in the global scope.
+    return {
+        passTime: function() {
+
+        },
+
+        speak : function () {
+
+        }
+    }
+}
+</code></pre>
+<p>To make some properties and methods public, all you have to do is return an object from the function i.e. your module. The properties and methods possessed by this object will be made public and will be accessible outside the Person module.</p>
+<h1 id="ourcompletemodule">Our Complete Module</h1>
+<p>Let's extend our example module a bit and see what we have got</p>
+<pre><code class="javascript language-javascript">// Person Module
+var Person = function ( name ) {
+
+    // Private variables and functions that only
+    // ..other private or public functions may access
+    // ..and cannot be accessed outside this Module
+    var age       = 0,
+        maxAge    = 30,
+        maxWeight = 80,
+        isAlive   = true,
+        weight    = 20,
+        name      = name || 'Un-named';
+
+    var growOld = function () { 
+        if ( age++ &gt;= maxAge ) {
+            die();
+        }
+    }
+    var gainWeight = function () { 
+        weight++;
+        if ( weight &gt;= maxWeight ) {
+            die();
+        }
+    }
+
+    var loseWeight = function () { 
+        weight--;
+        if ( weight &lt;= 0 ) {
+            die();
+        }
+    } 
+
+    var die = function () { isAlive = false; }
+
+
+    // All the properties and methods contained by 
+    // ..this object being returned will be public
+    // ..and will be accessible in the global scope.
+    return {
+        speak : function () { 
+            if ( !isAlive ) {
+                alert('Dead man can\'t speak.');
+                return;
+            }
+
+            alert('Speaking...');
+            growOld(); 
+        },
+
+        walk : function () { 
+            if( !isAlive ) {
+                alert('Dead man can\'t walk');
+                return;
+            }
+
+            alert('Walking'); 
+            growOld(); 
+            loseWeight(); 
+        },
+
+        eat : function () {
+            if ( !isAlive ) {
+                alert('Dead man can\'t eat');
+            }
+            gainWeight(); 
+        }
+    }
+}
+</code></pre>
+<p>You can have a look at the <a href="http://jsfiddle.net/41ootg5f/">working demo of the module at jsfiddle</a>. </p>
+<p>And that's about it. I hope you have gained a good understanding of how to achieve private and public properties and methods in Javascript by now. Also, you should know that there are other ways to achieve the same however the one covered in this article would probably suffice. Plus there are other things such as <code>prototype</code>, priviliged methods and <code>static</code> properties and methods etc to get the most out of the modular pattern that was out of the scope of this article and wasn't discussed, however you should expect that to come soon. If you have any questions, feel free to leave a comment.</p>
+</article>
+
+
+    <section id="mc_embed_signup" class="mar-tb-7 twitter-signup">
+        <div class="mc-title-container"></div>
+
+        <p class="mar-0 twitter-signup-text">👋 <a href="http://twitter.com/kamranahmedse"
+                                                   target="_blank">Follow me on
+                twitter</a> for the updates. </p>
+    </section>
+
+
+<footer class="text-center mar-tb-6">
+    © 2023 Kamran Ahmed, unless otherwise stated.
+</footer>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
+

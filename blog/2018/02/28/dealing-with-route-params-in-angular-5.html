@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Dealing with route params in Angular-5</title>
+    <meta name="description" content="Blog of a Software Engineer"/>
+    <meta name="keywords" content="blog,developer blog,engineering blog"/>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Alegreya:400,400i|Lato:400,400i,700,900|Roboto+Mono:400,300">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/shades-of-purple.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav__left">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+    <div class="nav__right">
+        <a target="_blank" href="https://github.com/kamranahmedse" class="link-github">GitHub</a>
+        <a target="_blank" href="https://twitter.com/kamranahmedse" class="link-twitter">Twitter</a>
+        <a href="mailto:kamranahmed.se@gmail.com" class="link-email">Email</a>
+    </div>
+</nav>
+
+<article class="mar-b-7">
+    <header class="text-center">
+        <time class="mar-b-6" datetime="Wed, February 28, 2018">Wed, February 28, 2018</time>
+        <h1 class="mar-b-7">Dealing with route params in Angular-5</h1>
+    </header>
+    <p>It is quite common to have both the query and route parameters in any single page application. This post a quick tip sharing a little RxJS snippet that I wrote in order to read the query and route parameters at once. Before we talk about that, let us find out how to read any route/query parameters in your Angular 2+ application. There are multiple ways to achieve that. </p>
+<h2 id="readingfromthesnapshot">Reading from the Snapshot</h2>
+<p>First and the simplest way to do that is reading them from the <code>snapshot</code> of the active route i.e. inject the instance of <code>ActivatedRoute</code> into your component's constructor or pull it from the <code>Injector</code> and read it from there i.e.</p>
+<pre><code class="javascript language-javascript">import { ActivatedRoute } from '@angular/router';
+
+@Component({
+  selector: 'app-user-detail',
+  templateUrl: 'user-detail.component.html'
+})
+export class UserDetailComponent implements OnInit {
+    constructor(private activeRoute: ActivatedRoute) {
+    }
+
+    ngOnInit() {
+        const queryParams = this.activeRoute.snapshot.queryParams
+        const routeParams = this.activeRoute.snapshot.params;
+
+        // do something with the parameters
+        this.loadUserDetail(routeParams.id);
+    }
+}
+</code></pre>
+<p>But there is a little gotcha here. As the name <code>snapshot</code> specifies, these parameters are from the snapshot of the route at the first load of the component. These values will be calculated for the first load of the component and they won't change unless you reload the page.</p>
+<p>Why could it be a problem? Well let's say you had a list of users on the sidebar and clicking any user loads this user detail component. It would work fine for the first time i.e. when none of the details were openend and you clicked any user and loaded the details for the first time. Now let's say you want to open the details of another user, if you try and click the other one, it won't work. Why? because the component is already loaded, angular is smart and won't reload the component; it will just change the route params, which won't have any affect on the component because we read from the initial snapshot and so we don't have access to the update routed params. </p>
+<p>So how can we fix this? Well we can do that by adding a listener to the route params.</p>
+<h2 id="readingviasubscriptions">Reading via Subscriptions</h2>
+<p>As discussed above, the snapshot won't get updated if we try to reload the current route with different route parameters. Good news! apart from the snapshot, active route also provides the query and route parameters in the form of observables. We can subscribe to those observables and thus whenever the route params might get changed we will get notified in our subscriber and so we can load the user details. </p>
+<p>Here is how it would look like in code:</p>
+<pre><code class="javascript language-javascript">ngOnInit() {
+    this.activeRoute.queryParams.subscribe(queryParams =&gt; {
+        // do something with the query params
+    });
+
+    this.activeRoute.params.subscribe(routeParams =&gt; {
+        this.loadUserDetail(routeParams.id);
+    });
+}
+</code></pre>
+<p>Perfect! Now the query and route parameters are not bound to the snapshot and whenever you will click any user from the sidebar, the subscriber will get fired and the new details will be loaded.</p>
+<h2 id="readingthematonce">Reading them at once</h2>
+<p>But let's say that our situation has been a little changed and we need both the query and route params at once. We need to read one parameter from the query params and the other from the route params and we need to send them both in the <code>loadUserDetail</code> API call. How can we do that? </p>
+<h2 id="thedirtyway">The Dirty Way</h2>
+<p>The immediate solution that might come to your mind would be to nest the subscribers like below:</p>
+<pre><code class="javascript language-javascript">ngOnInit() {
+    // Nest them together and
+    this.activeRoute.queryParams.subscribe(queryParams =&gt; {
+        this.activeRoute.params.subscribe(routeParams =&gt; {
+            this.loadUserDetail(routeParams.id, queryParams.type);
+        });
+    });
+}
+</code></pre>
+<p>Or you might be tempted to write a varied version of this i.e. move these nested callbacks to a helper function and then pass it yet another callback accepting query and route parameters i.e.</p>
+<pre><code class="javascript language-javascript">ngOnInit() {
+    this.readUrlParams((routeParams, queryParams) =&gt; {
+        this.loadUserDetail(routeParams.id, queryParams.type);
+    });
+}
+
+readUrlParams(callback) {
+    // Nest them together and
+    this.activeRoute.queryParams.subscribe(queryParams =&gt; {
+        this.activeRoute.params.subscribe(routeParams =&gt; {
+            callback(routeParams, queryParams);
+        });
+    });
+}
+</code></pre>
+<p>none the less, still a dirty solution (). So how can we fix that? The answer is to use the functionality already provided by RxJS.</p>
+<h2 id="userxjs">Use RxJS</h2>
+<p>RxJS is a really powerful library and you can do it in <a href="https://www.learnrxjs.io/operators/combination/">several different ways</a>, but the one I like and find myself using the most is to use the <code>combineLatest</code> operator by using which we merge the route and query parameters and have a single observable giving us both in a single object. Here is how our updated example would look like</p>
+<pre><code class="javascript language-javascript">import { ActivatedRoute } from '@angular/router';
+
+// Add the observable and combineLatest
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/combineLatest';
+
+@Component({
+  selector: 'app-user-detail',
+  templateUrl: 'user-detail.component.html'
+})
+export class UserDetailComponent implements OnInit {
+    constructor(private activeRoute: ActivatedRoute) {
+    }
+
+    ngOnInit() {
+        // Combine them both into a single observable
+        const urlParams = Observable.combineLatest(
+          this.activatedRoute.params,
+          this.activatedRoute.queryParams,
+          (params, queryParams) =&gt; ({ ...params, ...queryParams})
+        );
+
+        // Subscribe to the single observable, giving us both
+        urlParams.subscribe(routeParams =&gt; {
+            // routeParams containing both the query and route params
+            this.loadUserDetail(routeParams.id, routeParams.type);
+        });
+    }
+}
+</code></pre>
+<p>And that wraps up this little post on dealing with URL parameters. Do you have any tricks of your own, feel free to share them in the comments section below. Also if you would like to learn more about RxJS, here is a <a href="https://www.learnrxjs.io">nice little website</a> that you may wat to check. </p>
+<p>Until next time, stay tuned!</p>
+</article>
+
+
+    <section id="mc_embed_signup" class="mar-tb-7 twitter-signup">
+        <div class="mc-title-container"></div>
+
+        <p class="mar-0 twitter-signup-text">👋 <a href="http://twitter.com/kamranahmedse"
+                                                   target="_blank">Follow me on
+                twitter</a> for the updates. </p>
+    </section>
+
+
+<footer class="text-center mar-tb-6">
+    © 2023 Kamran Ahmed, unless otherwise stated.
+</footer>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
+

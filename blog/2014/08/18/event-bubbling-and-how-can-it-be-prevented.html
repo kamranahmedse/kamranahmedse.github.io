@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Event Bubbling - Dealing with the child’s parent</title>
+    <meta name="description" content="Blog of a Software Engineer"/>
+    <meta name="keywords" content="blog,developer blog,engineering blog"/>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Alegreya:400,400i|Lato:400,400i,700,900|Roboto+Mono:400,300">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/shades-of-purple.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav__left">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+    <div class="nav__right">
+        <a target="_blank" href="https://github.com/kamranahmedse" class="link-github">GitHub</a>
+        <a target="_blank" href="https://twitter.com/kamranahmedse" class="link-twitter">Twitter</a>
+        <a href="mailto:kamranahmed.se@gmail.com" class="link-email">Email</a>
+    </div>
+</nav>
+
+<article class="mar-b-7">
+    <header class="text-center">
+        <time class="mar-b-6" datetime="Mon, August 18, 2014">Mon, August 18, 2014</time>
+        <h1 class="mar-b-7">Event Bubbling - Dealing with the child’s parent</h1>
+    </header>
+    <p>There are <strong>two ways of event propagation in DOM</strong> i.e. Event Capturing and Event Bubbling. In this article, we’ll talk about <strong>Event Bubbling</strong> and leave Event Capturing for some other article.</p>
+<p>Let’s just take a simple analogy, you might have played with bubbles in your childhood …it’s ok if you haven’t. If you have played, you must have noticed that the bubbles go upward when created (might not be the case always but let’s just agree; the bubbles always rise upward ;-)). Same is the case with the events in Javascript.</p>
+<h1 id="eventbubbling">Event Bubbling</h1>
+<p>Javascript events are propagated towards the upward direction from the point of DOM where they are triggered/created. This phenomenon is called Event Bubbling.</p>
+<blockquote>
+  <p>Javascript events are propagated towards the upward direction from the point of DOM where they are triggered/created. This phenomenon is called Event Bubbling.</p>
+</blockquote>
+<p>Event bubbling makes sure that an event that is triggered for some DOM element (target element), it will be triggered for all the parent elements of that target as well, in an outward direction i.e. the target first then it’s immediate parent and then it’s grand parent and so on.</p>
+<h1 id="explainingitthroughexample">Explaining it through example</h1>
+<p>So, in JavaScript, events <em>bubble</em>. That is, an event propagates through the ancestors of the element upon which the event is fired. Lets show what this means using the HTML markup below:</p>
+<pre><code class="html language-html">&amp;lt;div class="grandParent"&amp;gt;
+      C
+    &amp;lt;div class="parent"&amp;gt;
+         B
+       &amp;lt;div class="child"&amp;gt;
+           A
+       &amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+</code></pre>
+<p>It’s  a simple markup above, we have three <code>div</code>s, one inside another.  Let’s attach a click event to <code>div.child</code> element, so that it may cry when we hit it:</p>
+<pre><code class="javascript language-javascript">// make the child cry, when we hit him.
+$('.child').on('click', function(){
+    alert('Child : waaaaaa waaaa waa huh huh waaa waaaa!');
+});
+</code></pre>
+<p>As you might have guessed, upon clicking <code>.child</code> div it would alert the content <code>waaaaaa waaaa waa huh huh waaa waaaa</code> nothing revolutionary so far. Now let’s attach the events to the <code>.parent</code> and <code>.grandParent</code> as well so that we have got the following:</p>
+<pre><code class="javascript language-javascript">// make the .parent react
+$('.grandParent').on('click', function(){
+    alert('Grand Parent: You hit me, my child or my grand child, now deal with me!');
+});
+
+// make the .parent react
+$('.parent').on('click', function(){
+    alert('Parent : Don\'t you dare hitting me or my child, again!');
+});
+
+// make the child cry, when we hit him.
+$('.child').on('click', function(){
+ alert('Child : waaaaaa waaaa waa huh huh waaa waaaa!');
+});
+</code></pre>
+<p>According to <code>Event Bubbling</code>, now if we click the <code>.child</code> element, this <code>click</code> event will be first triggered for the <code>.child</code> then it will be triggered for <code>.parent</code> and finally <code>.grandParent</code> and so on till the <code>document</code> is reached. If we click the <code>.parent</code>, it’ll be triggered for the <code>.parent</code> and then <code>.grandParent</code> and so on till the document is reached. In the same fashion, an event triggered on any child will be triggered for it’s ancestors as well. Don’t believe me?  Go <a href="http://jsfiddle.net/5as880n8/">have a look at this demo</a>. Want a more visual demo, <a href="http://jsfiddle.net/b2eckozL/">check this one</a>.</p>
+<p>So, if we follow our analogy, we might say:</p>
+<blockquote>
+  <p>If you hit any child, his parent would definitely notice that and if they can react to your action, they would definitely do so.</p>
+</blockquote>
+<p>That’s <em>all</em> event bubbling is; an event fired on an element bubbles through its ancestor chain (i.e. the event is also fired on those elements). Although, I have used jQuery examples in this article, it’s important to note that this isn’t a jQuery feature, nor is it something that a developer must turn on; it’s a <strong>fundamental</strong> part of JavaScript that has always existed.</p>
+<h1 id="howtostopeventfrombubbling">How to stop event from bubbling?</h1>
+<p>Now there might be the case when you don’t want the event to be triggered for the ancestor elements and be triggered for the target element only. To stop the event from bubbling, you use <code>e.stopPropagation();</code> i.e.</p>
+<pre><code class="javascript language-javascript">$('someElement').on('click', function(e){
+    // stop the event from bubbling.
+    e.stopPropagation();
+});
+</code></pre>
+<p>If we follow our analogy, it’ll be like hitting the child and then putting a hand over his mouth so that his ancestors may not listen him but he would still be crying. To better understand the concept, have a look at <a href="http://jsfiddle.net/5as880n8/1/">this modified demo</a></p>
+<p>Also, don’t confuse <code>e.stopPropagation()</code> with <code>e.preventDefault()</code> which prevents the browser from executing the default action of the DOM element.</p>
+<p><strong>Note:</strong> There were some points in this article, where I got harsh in my examples but still I quoted them because I think the example best suited the phenomenon. Though, no childrens were beaten to to test the phenomenon described in this article, I promise.</p>
+</article>
+
+
+    <section id="mc_embed_signup" class="mar-tb-7 twitter-signup">
+        <div class="mc-title-container"></div>
+
+        <p class="mar-0 twitter-signup-text">👋 <a href="http://twitter.com/kamranahmedse"
+                                                   target="_blank">Follow me on
+                twitter</a> for the updates. </p>
+    </section>
+
+
+<footer class="text-center mar-tb-6">
+    © 2023 Kamran Ahmed, unless otherwise stated.
+</footer>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
+

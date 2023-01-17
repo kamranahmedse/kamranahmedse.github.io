@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>LPAD() and CONCAT() in MySQL</title>
+    <meta name="description" content="Blog of a Software Engineer"/>
+    <meta name="keywords" content="blog,developer blog,engineering blog"/>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Alegreya:400,400i|Lato:400,400i,700,900|Roboto+Mono:400,300">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/shades-of-purple.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav__left">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+    <div class="nav__right">
+        <a target="_blank" href="https://github.com/kamranahmedse" class="link-github">GitHub</a>
+        <a target="_blank" href="https://twitter.com/kamranahmedse" class="link-twitter">Twitter</a>
+        <a href="mailto:kamranahmed.se@gmail.com" class="link-email">Email</a>
+    </div>
+</nav>
+
+<article class="mar-b-7">
+    <header class="text-center">
+        <time class="mar-b-6" datetime="Wed, May 14, 2014">Wed, May 14, 2014</time>
+        <h1 class="mar-b-7">LPAD() and CONCAT() in MySQL</h1>
+    </header>
+    <p>In the the web based ERP system that I am working upon, there is an account<em>id attached to each party added to the application. Account ID needs to be of the form <code>01-04-01-0023</code> and the 4 parts in it are level1, level2, level3 and party</em>id values of the party respectively. Again, account<em>id needs to be of the form <code>level1</code>-<code>level2</code>-<code>level3</code>-<code>party_id</code>. Note that level1, level2 and level3 are the IDs of the account levels attached to each party. This account</em>id generation is being handled through PHP. But today, I was assigned the task to import the data for parties from Excel to MySQL. I use this wonderful tool called MySQL for Excel to import the data to the parties table. Now the challenge was, how could I populate the account_id values for each party. Now there were three options:</p>
+<ul>
+<li>Fetch and Update each party through the application and make the PHP generate account_id for me. But that’d would have been time taking and tedious (there were about ~100 parties)</li>
+<li>Update each party row in the table by hand (Extremely poor idea)</li>
+<li>Write a SQL query</li>
+</ul>
+<p>I went with the third option, writing a MySQL query. Now the database structure was like the following:</p>
+<p><img src="http://i.imgur.com/uwTeg7D.png" alt="Table Structure" /></p>
+<p>i.e. <code>party</code> having only <code>level3</code> saved in it. Each <code>level3</code> has a <code>level2</code> and each <code>level2</code> has a <code>level1</code>. I wrote the following query to generate the <code>account_id</code> for each party:</p>
+<pre><code class="sql language-sql">SELECT
+    party_id,
+    CONCAT(LPAD(level1.l1, 2, 0), '-', LPAD(level2.l2, 2, 0), '-', LPAD(level3.l3, 2, 0), '-', LPAD(party.party_id, 4, 0)) as account_id
+FROM
+    party
+       INNER JOIN
+    level3 ON party.level3 = level3.l3
+       INNER JOIN
+    level2 ON level3.l2 = level2.l2
+       INNER JOIN level1 ON level2.l1 = level1.l1
+</code></pre>
+<p>As you can see, I used <code>LPAD(pad_to_what, number_of_digits_required, pad_what)</code> to generate the 2 digit leve1, level2 and level3 each and 4 digit party_id. <code>CONCAT()</code> was used to concatenate the  values and some INNER JOINs to generate the final <code>account_id</code></p>
+<p>Now the next thing was to update each party with it’s respective account_id. For that, I came up with the following query:</p>
+<pre><code class="sql language-sql">UPDATE party as pp SET account_id = (
+    SELECT account_id
+    FROM (
+        SELECT
+            party_id,
+            CONCAT(LPAD(level1.l1, 2, 0), '-', LPAD(level2.l2, 2, 0), '-', LPAD(level3.l3, 2, 0), '-', LPAD(party.party_id, 4, 0)) as account_id
+        FROM
+            party
+                INNER JOIN
+            level3 ON party.level3 = level3.l3
+                INNER JOIN
+            level2 ON level3.l2 = level2.l2
+                INNER JOIN
+            level1 ON level2.l1 = level1.l1
+     ) as pids
+     WHERE pids.party_id = pp.party_id
+);
+</code></pre>
+<p>And there it is! All the parties have the correct account ids attached to them.</p>
+<p><img src="http://i.imgur.com/6mZremK.png" alt="Final Result" /></p>
+</article>
+
+
+    <section id="mc_embed_signup" class="mar-tb-7 twitter-signup">
+        <div class="mc-title-container"></div>
+
+        <p class="mar-0 twitter-signup-text">👋 <a href="http://twitter.com/kamranahmedse"
+                                                   target="_blank">Follow me on
+                twitter</a> for the updates. </p>
+    </section>
+
+
+<footer class="text-center mar-tb-6">
+    © 2023 Kamran Ahmed, unless otherwise stated.
+</footer>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
+

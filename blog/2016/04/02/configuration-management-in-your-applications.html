@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Internal Application Configuration</title>
+    <meta name="description" content="Blog of a Software Engineer"/>
+    <meta name="keywords" content="blog,developer blog,engineering blog"/>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Alegreya:400,400i|Lato:400,400i,700,900|Roboto+Mono:400,300">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/shades-of-purple.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/theme.css"/>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav__left">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+    <div class="nav__right">
+        <a target="_blank" href="https://github.com/kamranahmedse" class="link-github">GitHub</a>
+        <a target="_blank" href="https://twitter.com/kamranahmedse" class="link-twitter">Twitter</a>
+        <a href="mailto:kamranahmed.se@gmail.com" class="link-email">Email</a>
+    </div>
+</nav>
+
+<article class="mar-b-7">
+    <header class="text-center">
+        <time class="mar-b-6" datetime="Sat, April 02, 2016">Sat, April 02, 2016</time>
+        <h1 class="mar-b-7">Internal Application Configuration</h1>
+    </header>
+    <p>Before you go about reading this article, note that I am not going to write a full-blown configuration loader in this article and the point of this article is just to give you a gist of how you can make one or about the pattern you can use for the application configuration. </p>
+<p>You might have noticed this configuration management pattern in some popular frameworks such as Laravel or Lumen where they have a bunch of <a href="https://github.com/laravel/laravel/tree/master/config">configuration files</a> placed in a directory and each of the files is doing nothing but returning an array consisting of configuration variables. And then they expose some magical functions to retrieve any of the configuration.</p>
+<p>I recently created an SDK for an API where I used the similar approach for the configuration management and the take away is if you <code>return</code> some <em>variable</em> from a file and include the file on the right side of the assignment operator, the variable will get assigned with the content of what you returned from the file.</p>
+<p>For example if you have a file that looks like below</p>
+<pre><code class="php language-php">// config/app.php
+
+return [
+    'appName' =&gt; 'Witchcraft',
+    'version' =&gt; '1.0',
+    'baseUrl' =&gt; 'http://witch-craft.dev',
+
+    'leaderWitch' =&gt; [
+        'witchName'     =&gt; 'Jane Doe',
+    'spellsCount'   =&gt; 20,
+
+    'favorite_spell' =&gt; [
+             'name' =&gt; 'Voodoo',
+         'spell' =&gt; 'Aagra bagra boo, bagra agra shoo'
+    ],
+    'spells' =&gt; [
+        // ...
+    ]
+    ]
+];
+</code></pre>
+<p>You can get the above configuration array in a variable simply by doing</p>
+<pre><code class="php language-php">$appConfig = include 'config/app.php';
+var_dump($appConfig);    // The array from config/app.php file above
+</code></pre>
+<p>And then you can mould this array however you want to get the configuration. <a href="https://github.com/laravel/framework/blob/master/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php#L57">Laravel</a> and <a href="https://github.com/laravel/lumen-framework/blob/5.2/src/Application.php#L569">Lumen</a> are both using the same technique for loading configuration data. </p>
+<p>As far as the configuration loader is concerned, you can create a helper, for example, that loads the configuration data for you i.e. maybe something like</p>
+<pre><code class="php language-php">/**
+ * Loads the data from configuration files
+ * @param  string $fileName
+ * @return array
+ */
+public function load($fileName)
+{
+    $filePath = basePath() . '/config/' . $fileName . '.php';
+
+    if (is_file($filePath)) {
+        return include $filePath; // Will return the array from file
+    }
+
+    return [];
+}
+</code></pre>
+<p>and then use <a href="https://github.com/maciejczyzewski/bottomline/blob/master/src/__/collections/get.php">something like this</a> to access the configuration by dot notation. </p>
+<p>And that wraps it up folks, do you have better way to suggest? How do you manage configuration of your application? Do share it with me in the comments section below.</p>
+</article>
+
+
+    <section id="mc_embed_signup" class="mar-tb-7 twitter-signup">
+        <div class="mc-title-container"></div>
+
+        <p class="mar-0 twitter-signup-text">👋 <a href="http://twitter.com/kamranahmedse"
+                                                   target="_blank">Follow me on
+                twitter</a> for the updates. </p>
+    </section>
+
+
+<footer class="text-center mar-tb-6">
+    © 2023 Kamran Ahmed, unless otherwise stated.
+</footer>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
+
